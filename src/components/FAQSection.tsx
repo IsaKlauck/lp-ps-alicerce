@@ -15,7 +15,7 @@ const FAQSection: React.FC = () => {
     },
     {
       question: "Como funciona o MAPA?",
-      answer: "O processo começa com a inscrição no processo seletivo. Em seguida, os candidatos devem realizar o MAPA (uma avaliação dividida em três trilhas): Leitura, Matemática e Inglês (opcional)."
+      answer: "O processo começa com a inscrição no processo seletivo. Em seguida, os candidatos devem realizar o MAPA (uma avaliação divididos em três trilhas): Leitura, Matemática e Inglês (opcional)."
     },
     {
       question: "Preciso ter experiência?",
@@ -34,15 +34,19 @@ const FAQSection: React.FC = () => {
   return (
     <section className="py-16 bg-alicerce-gray" id="faq">
       <div className="section-container">
-        <h2 className="section-title text-center">Perguntas Frequentes</h2>
-        <div className="max-w-3xl mx-auto mt-8">
+        <h2 className="section-title text-center mb-8">Perguntas Frequentes</h2>
+        <div className="max-w-3xl mx-auto">
           <Accordion type="single" collapsible className="bg-white rounded-xl overflow-hidden shadow-md">
             {faqs.map((faq, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="border-b border-alicerce-lightBlue last:border-0">
-                <AccordionTrigger className="px-6 py-4 text-left text-alicerce-blue hover:text-alicerce-orange hover:no-underline">
+              <AccordionItem 
+                key={index} 
+                value={`item-${index}`} 
+                className="border-b border-alicerce-lightBlue last:border-0 group"
+              >
+                <AccordionTrigger className="px-6 py-4 text-left text-alicerce-blue hover:text-alicerce-orange transition-colors duration-300">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="px-6 pb-4 text-gray-700">
+                <AccordionContent className="px-6 pb-4 text-gray-700 animate-slide-up">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
