@@ -4,6 +4,7 @@ import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import ProfilePaths from '@/components/ProfilePaths';
 import SelectionProcess from '@/components/SelectionProcess';
+import Testimonials from '@/components/Testimonials';
 import FAQSection from '@/components/FAQSection';
 import ApplicationForm from '@/components/ApplicationForm';
 import Footer from '@/components/Footer';
@@ -17,6 +18,7 @@ const Index = () => {
       <HeroSection />
       <ProfilePaths />
       <SelectionProcess />
+      <Testimonials />
       <ApplicationForm />
       <FAQSection />
       <Footer />

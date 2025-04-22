@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -65,8 +64,10 @@ export default {
 				},
 				// Alicerce Educação colors
 				alicerce: {
-					blue: '#0A2240',
-					orange: '#FF6B18',
+					orange: '#EE7203', // RGB 238, 114, 3
+					blue: '#0069B4',   // RGB 0, 105, 180
+					purple: '#3F1F71', // RGB 63, 31, 113
+					teal: '#038EAE',   // RGB 3, 142, 174
 					lightBlue: '#E3E8F0',
 					gray: '#F5F5F7',
 				}

@@ -11,11 +11,11 @@ const FAQSection: React.FC = () => {
   const faqs = [
     {
       question: "Quem pode se inscrever?",
-      answer: "Temos vagas para professores formados ou em formação (Produto Qualifica) e para universitários com até 30 anos (Produto Reforço). Cada perfil tem requisitos específicos, mas ambos podem se inscrever em nosso processo contínuo."
+      answer: "Temos vagas para professores formados ou em formação e para universitários com até 30 anos. Cada perfil tem requisitos específicos, mas ambos podem se inscrever em nosso processo contínuo."
     },
     {
       question: "Como funciona o MAPA?",
-      answer: "O MAPA (Método de Avaliação para Professores Alicerce) é nossa prova de conhecimentos que avalia tanto competências pedagógicas quanto conhecimentos específicos da sua área. É realizado online e possui questões objetivas e discursivas."
+      answer: "O processo começa com a inscrição no processo seletivo. Em seguida, os candidatos devem realizar o MAPA (uma avaliação dividida em três trilhas): Leitura, Matemática e Inglês (opcional)."
     },
     {
       question: "Preciso ter experiência?",
