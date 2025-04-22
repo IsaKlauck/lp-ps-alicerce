@@ -19,7 +19,7 @@ const HeroSection: React.FC = () => {
           <div className="mt-8">
             <Button 
               className="bg-alicerce-orange hover:bg-orange-600 text-white px-8 py-6 text-lg font-semibold rounded-md transition-all"
-              onClick={() => document.getElementById('apply-form')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => window.open('https://mqmowuha.forms.app/formulario-de-inscricao-processo-seletivo', '_blank')}
             >
               QUERO ME INSCREVER AGORA
             </Button>
