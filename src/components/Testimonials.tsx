@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 import { Quote } from 'lucide-react';
@@ -14,7 +13,7 @@ const Testimonials: React.FC = () => {
     {
       name: "Carlos Santos",
       role: "Aluno Alicerce",
-      quote: "Um curso voltado para pessoas negras, onde eu olhava para todos alunos da sala e via gente negra, eu olhei para os professores e via professoras negras me ensinando... Foi uma emoção, foi um sentimento de "eu posso também estar ali", que eu nunca tinha sentido antes.",
+      quote: "Um curso voltado para pessoas negras, onde eu olhava para todos alunos da sala e via gente negra, eu olhei para os professores e via professoras negras me ensinando... Foi uma emoção, foi um sentimento de \"eu posso também estar ali\", que eu nunca tinha sentido antes.",
       image: "/lovable-uploads/752f9bd2-08a8-4807-bf02-7722b618feb2.png"
     },
     {
