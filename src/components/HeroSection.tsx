@@ -13,7 +13,7 @@ const HeroSection: React.FC = () => {
           </h1>
           
           <p className="text-xl md:text-2xl opacity-90 mt-4">
-            No Alicerce, você faz parte de algo maior. Aqui, formamos educadores que acreditam num Brasil mais justo e cheio de oportunidades.
+            No Alicerce, você faz parte de algo maior. Aqui, reunimos instrutores(as) que acreditam num Brasil mais justo e cheio de oportunidades — e que transformam vidas todos os dias por meio da educação.
           </p>
           
           <div className="mt-8">

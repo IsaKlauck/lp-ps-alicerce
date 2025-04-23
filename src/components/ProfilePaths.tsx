@@ -58,12 +58,6 @@ const ProfilePaths: React.FC = () => {
             </div>
           </div>
         </div>
-        
-        <div className="bg-alicerce-lightBlue p-6 rounded-lg mt-8 max-w-3xl mx-auto text-center">
-          <p className="text-alicerce-blue text-lg">
-            <span className="font-bold">🔍 Se você se encaixar nos dois</span>, será priorizado no Qualifica.
-          </p>
-        </div>
 
         <div className="text-center mt-12">
           <Button 

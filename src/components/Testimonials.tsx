@@ -5,24 +5,21 @@ import { Button } from "@/components/ui/button";
 
 const testimonials = [
   {
-    name: "Laura Silva",
-    role: "Aluna Alicerce",
-    quote:
-      "Aqui tem um aprendizado diferente do que na escola. Se você perguntar, eles não vão te oprimir. Aqui eles explicam para você quantas vezes você precisar para aprender. Eu gosto muito desse jeito.",
+    name: "Ana Paula Santos",
+    role: "Líder Pedagógica Alicerce",
+    quote: "Fazer parte do Alicerce é participar ativamente de uma transformação social através da educação. Aqui, cada dia é uma oportunidade de impactar positivamente a vida dos nossos alunos e contribuir para um futuro mais igualitário.",
     image: "/lovable-uploads/752f9bd2-08a8-4807-bf02-7722b618feb2.png",
   },
   {
-    name: "Carlos Santos",
-    role: "Aluno Alicerce",
-    quote:
-      'Um curso voltado para pessoas negras, onde eu olhava para todos alunos da sala e via gente negra, eu olhei para os professores e via professoras negras me ensinando... Foi uma emoção, foi um sentimento de "eu posso também estar ali", que eu nunca tinha sentido antes.',
+    name: "Ricardo Oliveira",
+    role: "Guia Alicerce Sênior",
+    quote: "O que mais me encanta no Alicerce é ver como nossa metodologia e dedicação fazem diferença real na vida dos alunos. É gratificante fazer parte de um time que realmente se importa com a qualidade da educação.",
     image: "/lovable-uploads/752f9bd2-08a8-4807-bf02-7722b618feb2.png",
   },
   {
-    name: "André Oliveira",
-    role: "Aluno Alicerce",
-    quote:
-      "Tive que interromper meus estudos no sétimo ano, e depois disso, só trabalhei e cuidei da minha família. Gosto muito de aprender e evoluir, porque nós somos o espelho da nossa família. Meu maior sonho é conquistar uma posição aqui na firma, poder subir de cargo e alcançar essa conquista.",
+    name: "Mariana Silva",
+    role: "Líder de Desenvolvimento",
+    quote: "No Alicerce, não apenas ensinamos, mas crescemos junto com nossos alunos. É incrível fazer parte de uma equipe que está constantemente inovando e buscando as melhores formas de ensinar.",
     image: "/lovable-uploads/752f9bd2-08a8-4807-bf02-7722b618feb2.png",
   },
 ];
