@@ -1,6 +1,6 @@
-
 import React from 'react';
 import { BookOpen, Users } from 'lucide-react';
+import { Button } from "@/components/ui/button";
 
 const ProfilePaths: React.FC = () => {
   return (
@@ -12,7 +12,6 @@ const ProfilePaths: React.FC = () => {
         </p>
         
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {/* Qualifica Card */}
           <div className="bg-white rounded-xl shadow-md overflow-hidden card-hover">
             <div className="bg-alicerce-blue p-6 flex justify-between items-center">
               <h3 className="text-2xl font-bold text-white">Produto Qualifica</h3>
@@ -36,7 +35,6 @@ const ProfilePaths: React.FC = () => {
             </div>
           </div>
           
-          {/* Reforço Card */}
           <div className="bg-white rounded-xl shadow-md overflow-hidden card-hover">
             <div className="bg-alicerce-blue p-6 flex justify-between items-center">
               <h3 className="text-2xl font-bold text-white">Produto Reforço</h3>
@@ -65,6 +63,15 @@ const ProfilePaths: React.FC = () => {
           <p className="text-alicerce-blue text-lg">
             <span className="font-bold">🔍 Se você se encaixar nos dois</span>, será priorizado no Qualifica.
           </p>
+        </div>
+
+        <div className="text-center mt-12">
+          <Button 
+            onClick={() => window.open('https://mqmowuha.forms.app/formulario-de-inscricao-processo-seletivo', '_blank')}
+            className="bg-alicerce-orange hover:bg-orange-600 text-white px-8 py-6 text-lg font-semibold rounded-md transition-all"
+          >
+            QUERO ME INSCREVER
+          </Button>
         </div>
       </div>
     </section>

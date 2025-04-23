@@ -2,6 +2,7 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Quote } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const testimonials = [
   {
@@ -32,8 +33,7 @@ const Testimonials: React.FC = () => {
     <section
       className="py-16"
       style={{
-        background:
-          "linear-gradient(90deg, #EE7203 0%, #3F1F71 100%)",
+        background: "linear-gradient(90deg, #EE7203 0%, #3F1F71 100%)",
       }}
       id="testimonials"
     >
@@ -71,9 +71,56 @@ const Testimonials: React.FC = () => {
           ))}
         </div>
 
-        <p className="text-center text-lg text-white max-w-3xl mx-auto mt-12">
-          Junte-se a milhares de alunos que já transformaram suas vidas através da educação Alicerce
-        </p>
+        <div className="mt-20 text-center">
+          <h3 className="text-2xl font-bold text-white mb-6">
+            Conheça mais sobre o Alicerce
+          </h3>
+          <p className="text-white text-lg mb-8">
+            Assista ao nosso vídeo e descubra como estamos transformando a educação em todo o Brasil.
+          </p>
+          <Button 
+            variant="outline" 
+            className="bg-white hover:bg-gray-100 text-alicerce-purple mb-16"
+            onClick={() => window.open('#', '_blank')}
+          >
+            ▶️ Ver vídeo institucional
+          </Button>
+
+          <h3 className="text-2xl font-bold text-white mb-6">
+            Depoimentos de Instrutores
+          </h3>
+          <p className="text-white text-lg mb-8">
+            Veja quem já viveu essa transformação com a gente!
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-16">
+            {[1, 2, 3].map((num) => (
+              <Button 
+                key={num}
+                variant="outline" 
+                className="bg-white hover:bg-gray-100 text-alicerce-purple"
+                onClick={() => window.open('#', '_blank')}
+              >
+                🎥 Depoimento {num}
+              </Button>
+            ))}
+          </div>
+
+          <div className="bg-white/10 rounded-lg p-8 max-w-3xl mx-auto">
+            <h3 className="text-2xl font-bold text-white mb-4">
+              Pronto(a) para transformar vidas com a gente?
+            </h3>
+            <p className="text-white text-xl mb-2">A educação transforma.</p>
+            <p className="text-white text-lg mb-8">
+              E com você, ela pode ir ainda mais longe. Vem mudar vidas com a gente!
+            </p>
+            <Button 
+              onClick={() => window.open('https://mqmowuha.forms.app/formulario-de-inscricao-processo-seletivo', '_blank')}
+              className="bg-white hover:bg-gray-100 text-alicerce-purple font-semibold text-lg px-8 py-4"
+            >
+              QUERO ME INSCREVER AGORA
+            </Button>
+          </div>
+        </div>
       </div>
     </section>
   );
