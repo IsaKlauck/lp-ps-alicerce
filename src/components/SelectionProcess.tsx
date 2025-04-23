@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Lock, LockOpen, FileText, CheckSquare, FileUp, Users, GraduationCap, CheckCircle } from 'lucide-react';
+import { Lock, LockOpen, FileText, CheckSquare, FileUp, Users, GraduationCap } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const SelectionProcess: React.FC = () => {
@@ -52,24 +52,27 @@ const SelectionProcess: React.FC = () => {
   return (
     <section className="py-16 bg-white" id="processo">
       <div className="section-container">
-        <h2 className="section-title text-center">Etapas do Processo Seletivo</h2>
+        <h2 className="section-title text-center mb-12">Etapas do Processo Seletivo</h2>
         
-        <div className="relative flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-start max-w-5xl mx-auto">
-          <div className="hidden md:block absolute top-16 left-0 right-0 h-1 bg-alicerce-lightBlue z-0" />
+        <div className="relative max-w-2xl mx-auto">
+          <div className="absolute top-0 bottom-0 left-[42px] w-1 bg-alicerce-lightBlue" />
           
           {steps.map((step, index) => (
             <TooltipProvider key={index} delayDuration={300}>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <div className={`relative flex flex-col items-center text-center z-10 w-full md:w-auto transition-all duration-300 ${step.isLocked ? 'opacity-50' : ''}`}>
-                    <div className="bg-white rounded-full p-4 shadow-md border border-alicerce-lightBlue mb-4 relative">
+                  <div className={`relative flex items-start mb-12 ${step.isLocked ? 'opacity-50' : ''}`}>
+                    <div className="bg-white rounded-full p-4 shadow-md border border-alicerce-lightBlue relative z-10 mr-6">
                       {step.icon}
                       {step.lockIcon}
                     </div>
-                    <h3 className="font-semibold text-alicerce-blue text-lg mt-2">{step.title}</h3>
+                    <div className="flex-1">
+                      <h3 className="font-semibold text-alicerce-blue text-xl mb-2">{step.title}</h3>
+                      <p className="text-gray-600">{step.description}</p>
+                    </div>
                   </div>
                 </TooltipTrigger>
-                <TooltipContent side="bottom" className="max-w-[200px] p-4">
+                <TooltipContent side="right" className="max-w-[250px] p-4">
                   <p>{step.description}</p>
                 </TooltipContent>
               </Tooltip>

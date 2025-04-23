@@ -1,7 +1,7 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
+import AlicerceLogo from './AlicerceLogo';
 
 const Navbar: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -29,13 +29,7 @@ const Navbar: React.FC = () => {
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <div className="flex items-center">
-          <a href="#" className="flex items-center">
-            <span className={`font-bold text-2xl ${isScrolled ? 'text-alicerce-blue' : 'text-white'}`}>
-              Alicerce
-            </span>
-          </a>
-        </div>
+        <AlicerceLogo className="h-12" />
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-8">
