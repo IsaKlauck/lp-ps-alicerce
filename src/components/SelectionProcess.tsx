@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { FileText, CheckSquare, FileUp, Users, GraduationCap, CheckCircle } from 'lucide-react';
+import { Lock, LockOpen, FileText, CheckSquare, FileUp, Users, GraduationCap, CheckCircle } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const SelectionProcess: React.FC = () => {
@@ -7,32 +8,44 @@ const SelectionProcess: React.FC = () => {
     {
       title: "Inscrição",
       icon: <FileText className="h-10 w-10 text-alicerce-orange" />,
-      description: "Preencha o formulário online com seus dados e informações profissionais"
+      description: "Preencha o formulário e conte sobre sua trajetória e interesse em transformar a educação com a gente.",
+      isLocked: false,
+      lockIcon: <LockOpen className="h-6 w-6 text-green-500 absolute -top-2 -right-2" />
     },
     {
-      title: "Prova de Conhecimento",
+      title: "MAPA - Prova de Conhecimento",
       icon: <CheckSquare className="h-10 w-10 text-alicerce-orange" />,
-      description: "Realize o MAPA - nossa avaliação de conhecimentos pedagógicos e específicos"
+      description: "Avaliamos seus conhecimentos em conteúdos essenciais. Queremos que você se sinta confiante para ensinar.",
+      isLocked: false,
+      lockIcon: <LockOpen className="h-6 w-6 text-green-500 absolute -top-2 -right-2" />
     },
     {
       title: "Envio de Documentos",
       icon: <FileUp className="h-10 w-10 text-alicerce-orange" />,
-      description: "Forneça seus documentos pessoais e comprovantes de formação acadêmica"
+      description: "Caso tenha bom desempenho na prova, você envia currículo e comprovações de formação ou matrícula.",
+      isLocked: true,
+      lockIcon: <Lock className="h-6 w-6 text-gray-400 absolute -top-2 -right-2" />
+    },
+    {
+      title: "Triagem Curricular",
+      icon: <CheckSquare className="h-10 w-10 text-alicerce-orange" />,
+      description: "Nosso time analisa seu perfil e experiências.",
+      isLocked: true,
+      lockIcon: <Lock className="h-6 w-6 text-gray-400 absolute -top-2 -right-2" />
     },
     {
       title: "Entrevista",
       icon: <Users className="h-10 w-10 text-alicerce-orange" />,
-      description: "Conversa com nosso time de recrutamento para conhecer melhor seu perfil"
+      description: "Uma conversa para nos conhecermos melhor e entendermos seu alinhamento com nossos valores.",
+      isLocked: true,
+      lockIcon: <Lock className="h-6 w-6 text-gray-400 absolute -top-2 -right-2" />
     },
     {
       title: "Formação Inicial",
       icon: <GraduationCap className="h-10 w-10 text-alicerce-orange" />,
-      description: "Participe do programa de formação inicial para educadores Alicerce"
-    },
-    {
-      title: "Boas-vindas!",
-      icon: <CheckCircle className="h-10 w-10 text-alicerce-orange" />,
-      description: "Parabéns! Você agora faz parte do time de educadores do Alicerce"
+      description: "Você recebe a Formação Pedagógica Alicerce e começa sua jornada de impacto na educação.",
+      isLocked: true,
+      lockIcon: <Lock className="h-6 w-6 text-gray-400 absolute -top-2 -right-2" />
     }
   ];
 
@@ -41,14 +54,6 @@ const SelectionProcess: React.FC = () => {
       <div className="section-container">
         <h2 className="section-title text-center">Etapas do Processo Seletivo</h2>
         
-        <div className="mb-12 max-w-3xl mx-auto text-center">
-          <p className="text-lg text-gray-700">
-            O Alicerce Educação inicia novos projetos todos os meses em diferentes regiões do Brasil. 
-            Para garantir agilidade e qualidade nos processos seletivos, mantemos um Banco de Talentos 
-            ativo e atualizado.
-          </p>
-        </div>
-
         <div className="relative flex flex-col md:flex-row gap-4 md:gap-0 justify-between items-start max-w-5xl mx-auto">
           <div className="hidden md:block absolute top-16 left-0 right-0 h-1 bg-alicerce-lightBlue z-0" />
           
@@ -56,9 +61,10 @@ const SelectionProcess: React.FC = () => {
             <TooltipProvider key={index} delayDuration={300}>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <div className="flex flex-col items-center text-center z-10 w-full md:w-auto card-hover">
-                    <div className="bg-white rounded-full p-4 shadow-md border border-alicerce-lightBlue mb-4">
+                  <div className={`relative flex flex-col items-center text-center z-10 w-full md:w-auto transition-all duration-300 ${step.isLocked ? 'opacity-50' : ''}`}>
+                    <div className="bg-white rounded-full p-4 shadow-md border border-alicerce-lightBlue mb-4 relative">
                       {step.icon}
+                      {step.lockIcon}
                     </div>
                     <h3 className="font-semibold text-alicerce-blue text-lg mt-2">{step.title}</h3>
                   </div>

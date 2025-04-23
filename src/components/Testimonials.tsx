@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Quote } from "lucide-react";
@@ -78,13 +77,17 @@ const Testimonials: React.FC = () => {
           <p className="text-white text-lg mb-8">
             Assista ao nosso vídeo e descubra como estamos transformando a educação em todo o Brasil.
           </p>
-          <Button 
-            variant="outline" 
-            className="bg-white hover:bg-gray-100 text-alicerce-purple mb-16"
-            onClick={() => window.open('#', '_blank')}
-          >
-            ▶️ Ver vídeo institucional
-          </Button>
+          <div className="max-w-4xl mx-auto mb-16">
+            <div className="aspect-w-16 aspect-h-9">
+              <iframe
+                src="https://www.youtube.com/embed/alkBt-sSrc8"
+                title="Vídeo Institucional Alicerce"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="w-full h-full rounded-lg shadow-lg"
+              ></iframe>
+            </div>
+          </div>
 
           <h3 className="text-2xl font-bold text-white mb-6">
             Depoimentos de Instrutores
