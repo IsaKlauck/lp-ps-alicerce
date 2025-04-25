@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -53,16 +54,20 @@ const ApplicationForm: React.FC = () => {
     try {
       console.log('Form data submitted:', data);
       
+      // Format the data in a way that will map nicely to Google Sheets columns
+      const formattedData = {
+        ...data,
+        schoolType: data.schoolType.join(", "), // Convert array to comma-separated string
+        submissionDate: new Date().toISOString(),
+      };
+      
       const response = await fetch(ZAPIER_WEBHOOK_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         mode: 'no-cors', // Required for Zapier webhooks
-        body: JSON.stringify({
-          ...data,
-          submissionDate: new Date().toISOString(),
-        }),
+        body: JSON.stringify(formattedData),
       });
 
       toast.success('Inscrição realizada com sucesso! Em breve entraremos em contato.');
