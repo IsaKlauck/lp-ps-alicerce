@@ -1,8 +1,16 @@
+
 import React from 'react';
 import { BookOpen, Users } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 
 const ProfilePaths: React.FC = () => {
+  const scrollToApplicationForm = () => {
+    const applicationForm = document.getElementById('apply-form');
+    if (applicationForm) {
+      applicationForm.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="bg-alicerce-gray py-16" id="perfis">
       <div className="section-container">
@@ -61,7 +69,7 @@ const ProfilePaths: React.FC = () => {
 
         <div className="text-center mt-12">
           <Button 
-            onClick={() => window.open('https://mqmowuha.forms.app/formulario-de-inscricao-processo-seletivo', '_blank')}
+            onClick={scrollToApplicationForm}
             className="bg-alicerce-orange hover:bg-orange-600 text-white px-8 py-6 text-lg font-semibold rounded-md transition-all"
           >
             QUERO ME INSCREVER

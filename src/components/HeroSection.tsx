@@ -4,6 +4,13 @@ import { Button } from '@/components/ui/button';
 import { Globe } from 'lucide-react';
 
 const HeroSection: React.FC = () => {
+  const scrollToApplicationForm = () => {
+    const applicationForm = document.getElementById('apply-form');
+    if (applicationForm) {
+      applicationForm.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="bg-gradient-to-br from-alicerce-orange to-alicerce-purple text-white py-16 md:py-24">
       <div className="section-container">
@@ -19,7 +26,7 @@ const HeroSection: React.FC = () => {
           <div className="mt-8">
             <Button 
               className="bg-white text-alicerce-orange hover:bg-gray-100 px-8 py-6 text-lg font-semibold rounded-md transition-all"
-              onClick={() => window.open('https://mqmowuha.forms.app/formulario-de-inscricao-processo-seletivo', '_blank')}
+              onClick={scrollToApplicationForm}
             >
               QUERO ME INSCREVER AGORA
             </Button>
