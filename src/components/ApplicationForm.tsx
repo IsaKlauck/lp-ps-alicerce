@@ -13,6 +13,8 @@ import { EducationSection } from '@/components/form-sections/EducationSection';
 import { RelationshipSection } from '@/components/form-sections/RelationshipSection';
 import { useCepLookup } from '@/hooks/useCepLookup';
 
+const ZAPIER_WEBHOOK_URL = "YOUR_ZAPIER_WEBHOOK_URL"; // You'll need to replace this with your actual Zapier webhook URL
+
 const ApplicationForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   
@@ -51,7 +53,19 @@ const ApplicationForm: React.FC = () => {
     setIsSubmitting(true);
     try {
       console.log('Form data submitted:', data);
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      
+      const response = await fetch(ZAPIER_WEBHOOK_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        mode: 'no-cors', // Required for Zapier webhooks
+        body: JSON.stringify({
+          ...data,
+          submissionDate: new Date().toISOString(),
+        }),
+      });
+
       toast.success('Inscrição realizada com sucesso! Em breve entraremos em contato.');
       form.reset();
     } catch (error) {
