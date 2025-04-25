@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { UseFormSetValue } from 'react-hook-form';
 import { FormSchema } from '@/schemas/formSchema';
 import { ViaCepResponse } from '@/types/form';
+import { toast } from 'sonner';
 
 export const useCepLookup = (setValue: UseFormSetValue<FormSchema>) => {
   const [isLoadingCep, setIsLoadingCep] = useState(false);
@@ -16,12 +17,17 @@ export const useCepLookup = (setValue: UseFormSetValue<FormSchema>) => {
       const response = await fetch(`https://viacep.com.br/ws/${cleanCep}/json/`);
       const data = await response.json() as ViaCepResponse;
 
-      if (!data.erro) {
-        setValue('state', data.uf);
-        setValue('city', data.localidade);
+      if (data.erro) {
+        toast.error('CEP não encontrado');
+        return;
       }
+
+      setValue('state', data.uf);
+      setValue('city', data.localidade);
+      toast.success('Endereço preenchido automaticamente');
     } catch (error) {
       console.error('Erro ao buscar CEP:', error);
+      toast.error('Erro ao buscar CEP. Tente novamente.');
     } finally {
       setIsLoadingCep(false);
     }

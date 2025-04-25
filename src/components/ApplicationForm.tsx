@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -7,10 +8,10 @@ import { Button } from '@/components/ui/button';
 import { Loader2 } from 'lucide-react';
 import { formSchema, type FormSchema } from '@/schemas/formSchema';
 import { PersonalDataSection } from '@/components/form-sections/PersonalDataSection';
+import { AccessibilitySection } from '@/components/form-sections/AccessibilitySection';
+import { EducationSection } from '@/components/form-sections/EducationSection';
+import { RelationshipSection } from '@/components/form-sections/RelationshipSection';
 import { useCepLookup } from '@/hooks/useCepLookup';
-import { AccessibilitySection } from './form-sections/AccessibilitySection';
-import { EducationSection } from './form-sections/EducationSection';
-import { RelationshipSection } from './form-sections/RelationshipSection';
 
 const ApplicationForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
