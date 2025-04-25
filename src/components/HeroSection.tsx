@@ -25,13 +25,23 @@ const HeroSection: React.FC = () => {
             </Button>
           </div>
           
-          <div className="bg-white/10 backdrop-blur-sm p-6 rounded-lg mt-12 flex items-start gap-4 max-w-2xl mx-auto">
-            <Globe className="text-white h-8 w-8 mt-1 flex-shrink-0" />
-            <div className="text-left">
-              <h3 className="font-bold text-lg">Estamos no Brasil todo!</h3>
-              <p className="opacity-90 mt-1">
-                Nosso processo é contínuo e temos polos espalhados por todo o país. Mesmo que não haja vaga imediata, seu perfil pode entrar no nosso banco de talentos — e você será chamado assim que surgir uma oportunidade na sua região ou online.
-              </p>
+          <div className="bg-white/10 backdrop-blur-sm p-8 rounded-lg mt-12 flex flex-col gap-6 max-w-2xl mx-auto text-left">
+            <div className="flex items-start gap-4">
+              <Globe className="text-white h-8 w-8 mt-1 flex-shrink-0" />
+              <div>
+                <h3 className="font-bold text-xl mb-2">Estamos no Brasil todo — e de portas abertas para você!</h3>
+                <div className="space-y-4 opacity-90">
+                  <p>
+                    Nosso processo seletivo é contínuo, porque acreditamos que grandes educadores merecem grandes oportunidades, o ano inteiro.
+                  </p>
+                  <p>
+                    Temos polos espalhados por todo o país, e mesmo que não haja uma vaga imediata na sua região, seu perfil pode entrar para o nosso banco de talentos. Assim que surgir uma oportunidade perto de você — ou até mesmo remota —, entraremos em contato!
+                  </p>
+                  <p>
+                    Se você compartilha da nossa paixão por transformar vidas por meio da educação, venha fazer parte desse movimento com a gente.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

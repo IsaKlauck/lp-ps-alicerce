@@ -2,6 +2,8 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
+import PurposeSection from '@/components/PurposeSection';
+import BenefitsSection from '@/components/BenefitsSection';
 import ProfilePaths from '@/components/ProfilePaths';
 import SelectionProcess from '@/components/SelectionProcess';
 import Testimonials from '@/components/Testimonials';
@@ -16,6 +18,8 @@ const Index = () => {
       <Toaster />
       <Navbar />
       <HeroSection />
+      <PurposeSection />
+      <BenefitsSection />
       <ProfilePaths />
       <SelectionProcess />
       <Testimonials />
