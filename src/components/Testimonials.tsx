@@ -1,26 +1,47 @@
+
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 const testimonials = [
   {
-    name: "Ana Paula Santos",
-    role: "Líder Pedagógica Alicerce",
-    quote: "Fazer parte do Alicerce é participar ativamente de uma transformação social através da educação. Aqui, cada dia é uma oportunidade de impactar positivamente a vida dos nossos alunos e contribuir para um futuro mais igualitário.",
-    image: "/lovable-uploads/752f9bd2-08a8-4807-bf02-7722b618feb2.png",
+    name: "Josiele",
+    location: "MG",
+    quote: "Ser Líder para mim é poder ajudar no processo de ensino e aprendizagem de cada criança e adolescente que são a nós confiados!",
+    image: "/lovable-uploads/beacddef-a10a-4102-ada9-dbd4c42c02e8.png",
   },
   {
-    name: "Ricardo Oliveira",
-    role: "Guia Alicerce Sênior",
-    quote: "O que mais me encanta no Alicerce é ver como nossa metodologia e dedicação fazem diferença real na vida dos alunos. É gratificante fazer parte de um time que realmente se importa com a qualidade da educação.",
-    image: "/lovable-uploads/752f9bd2-08a8-4807-bf02-7722b618feb2.png",
+    name: "Gabriela",
+    location: "BA",
+    quote: "Ser uma líder Alicerce é ter uma viagem de autoconhecimento todos os dias, onde descobri meu papel transformando a vida de jovens e crianças e tornando os sonhos delas, a cada dia que passa, mais próximo da realidade.",
+    image: "/lovable-uploads/beacddef-a10a-4102-ada9-dbd4c42c02e8.png",
   },
   {
-    name: "Mariana Silva",
-    role: "Líder de Desenvolvimento",
-    quote: "No Alicerce, não apenas ensinamos, mas crescemos junto com nossos alunos. É incrível fazer parte de uma equipe que está constantemente inovando e buscando as melhores formas de ensinar.",
-    image: "/lovable-uploads/752f9bd2-08a8-4807-bf02-7722b618feb2.png",
+    name: "Raphael",
+    location: "RJ",
+    quote: "Ser líder Alicerce é acordar todos os dias sabendo que meu trabalho é contribuir para transformação de vidas.",
+    image: "/lovable-uploads/beacddef-a10a-4102-ada9-dbd4c42c02e8.png",
+  },
+  {
+    name: "Ana Paula",
+    location: "SP",
+    quote: "Fazer parte do Alicerce é participar ativamente de uma transformação social através da educação. Aqui, cada dia é uma oportunidade de impactar positivamente a vida dos nossos alunos.",
+    image: "/lovable-uploads/beacddef-a10a-4102-ada9-dbd4c42c02e8.png",
+  },
+  {
+    name: "Ricardo",
+    location: "RJ",
+    quote: "O que mais me encanta no Alicerce é ver como nossa metodologia e dedicação fazem diferença real na vida dos alunos. É gratificante fazer parte de um time que realmente se importa.",
+    image: "/lovable-uploads/beacddef-a10a-4102-ada9-dbd4c42c02e8.png",
   },
 ];
 
@@ -38,33 +59,48 @@ const Testimonials: React.FC = () => {
           Histórias que Inspiram
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {testimonials.map((testimonial, index) => (
-            <Card
-              key={index}
-              className="border bg-white/70 shadow-md flex flex-col justify-between min-h-[260px] transition-all duration-200 hover:shadow-lg"
-            >
-              <CardContent className="p-6 flex flex-col gap-4 h-full">
-                <div className="flex items-center gap-3">
-                  <img
-                    src={testimonial.image}
-                    alt={testimonial.name}
-                    className="w-10 h-10 rounded-full object-cover border-2 border-alicerce-orange"
-                  />
-                  <div>
-                    <div className="font-bold text-alicerce-purple text-base">{testimonial.name}</div>
-                    <div className="text-sm text-alicerce-orange font-medium">{testimonial.role}</div>
+        <div className="max-w-6xl mx-auto">
+          <Carousel 
+            opts={{ loop: true }}
+            className="w-full"
+          >
+            <CarouselContent>
+              {testimonials.map((testimonial, index) => (
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+                  <div className="p-2">
+                    <div className="bg-alicerce-purple rounded-lg p-6 h-full flex flex-col">
+                      <div className="flex items-center justify-center mb-6">
+                        <div className="relative">
+                          <div className="w-32 h-32 rounded-full bg-alicerce-orange overflow-hidden">
+                            <Avatar className="w-full h-full">
+                              <AvatarImage 
+                                src={testimonial.image} 
+                                alt={testimonial.name}
+                                className="object-cover"
+                              />
+                              <AvatarFallback className="text-2xl">
+                                {testimonial.name.charAt(0)}
+                              </AvatarFallback>
+                            </Avatar>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <blockquote className="text-white text-center text-lg italic mb-4 flex-grow">
+                        "{testimonial.quote}"
+                      </blockquote>
+                      
+                      <div className="text-right text-white mt-2">
+                        <p className="font-bold text-xl">{testimonial.name} - {testimonial.location}</p>
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <div className="flex-1 flex items-center mt-2">
-                  <Quote className="text-alicerce-purple/60 w-5 h-5 mr-2 shrink-0" />
-                  <blockquote className="text-gray-800 text-base italic leading-relaxed">
-                    "{testimonial.quote}"
-                  </blockquote>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="bg-white text-alicerce-purple border-none hover:bg-gray-100 hover:text-alicerce-purple" />
+            <CarouselNext className="bg-white text-alicerce-purple border-none hover:bg-gray-100 hover:text-alicerce-purple" />
+          </Carousel>
         </div>
 
         <div className="mt-20 text-center">
@@ -114,7 +150,12 @@ const Testimonials: React.FC = () => {
               E com você, ela pode ir ainda mais longe. Vem mudar vidas com a gente!
             </p>
             <Button 
-              onClick={() => window.open('https://mqmowuha.forms.app/formulario-de-inscricao-processo-seletivo', '_blank')}
+              onClick={() => {
+                const element = document.getElementById('application-form');
+                if (element) {
+                  element.scrollIntoView({ behavior: 'smooth' });
+                }
+              }}
               className="bg-white hover:bg-gray-100 text-alicerce-purple font-semibold text-lg px-8 py-4"
             >
               QUERO ME INSCREVER AGORA
