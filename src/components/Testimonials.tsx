@@ -116,28 +116,30 @@ const Testimonials: React.FC = () => {
             Assista ao nosso vídeo e descubra como estamos transformando a educação em todo o Brasil.
           </p>
 
-          <Dialog>
-            <DialogTrigger asChild>
-              <Button 
-                variant="outline" 
-                className="bg-white hover:bg-gray-100 text-alicerce-purple font-semibold flex items-center gap-2 px-6 py-8 text-lg"
-              >
-                <Video className="w-6 h-6" />
-                Assistir ao Vídeo Institucional
-              </Button>
-            </DialogTrigger>
-            <DialogContent className="max-w-5xl w-full p-1 sm:p-2 md:p-4">
-              <div className="aspect-video w-full">
-                <iframe
-                  src="https://www.youtube.com/embed/alkBt-sSrc8"
-                  title="Vídeo Institucional Alicerce"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                  allowFullScreen
-                  className="w-full h-full rounded-lg"
-                ></iframe>
-              </div>
-            </DialogContent>
-          </Dialog>
+          <div className="flex justify-center">
+            <Dialog>
+              <DialogTrigger asChild>
+                <Button 
+                  variant="outline" 
+                  className="bg-white hover:bg-gray-100 text-alicerce-purple font-semibold flex items-center gap-2 px-6 py-8 text-lg"
+                >
+                  <Video className="w-6 h-6" />
+                  Assistir ao Vídeo Institucional
+                </Button>
+              </DialogTrigger>
+              <DialogContent className="max-w-6xl w-[90vw] p-0 border-none bg-transparent">
+                <div className="aspect-video w-full">
+                  <iframe
+                    src="https://www.youtube.com/embed/alkBt-sSrc8?autoplay=1"
+                    title="Vídeo Institucional Alicerce"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                    allowFullScreen
+                    className="w-full h-full rounded-lg shadow-xl"
+                  ></iframe>
+                </div>
+              </DialogContent>
+            </Dialog>
+          </div>
 
           <div className="bg-white/10 rounded-lg p-8 max-w-3xl mx-auto mt-20">
             <h3 className="text-2xl font-bold text-white mb-4">
