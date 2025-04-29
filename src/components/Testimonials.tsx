@@ -17,31 +17,31 @@ const testimonials = [
     name: "Josiele",
     location: "MG",
     quote: "Ser Líder para mim é poder ajudar no processo de ensino e aprendizagem de cada criança e adolescente que são a nós confiados!",
-    image: "/lovable-uploads/beacddef-a10a-4102-ada9-dbd4c42c02e8.png",
+    image: "https://conteudo.alicerceedu.com.br/hubfs/o-alicerce/IMG_9072%20-%20Josiele%20Regina%20(1).jpg",
   },
   {
     name: "Gabriela",
     location: "BA",
     quote: "Ser uma líder Alicerce é ter uma viagem de autoconhecimento todos os dias, onde descobri meu papel transformando a vida de jovens e crianças e tornando os sonhos delas, a cada dia que passa, mais próximo da realidade.",
-    image: "/lovable-uploads/beacddef-a10a-4102-ada9-dbd4c42c02e8.png",
+    image: "https://conteudo.alicerceedu.com.br/hubfs/o-alicerce/576A4730%20-%20Gabi%20de%20Jesus.jpg",
   },
   {
     name: "Raphael",
     location: "RJ",
     quote: "Ser líder Alicerce é acordar todos os dias sabendo que meu trabalho é contribuir para transformação de vidas.",
-    image: "/lovable-uploads/beacddef-a10a-4102-ada9-dbd4c42c02e8.png",
+    image: "https://conteudo.alicerceedu.com.br/hubfs/o-alicerce/IMG_7441%20-%20Raphael%20Antunes.JPG",
   },
   {
     name: "Ana Paula",
     location: "SP",
     quote: "Fazer parte do Alicerce é participar ativamente de uma transformação social através da educação. Aqui, cada dia é uma oportunidade de impactar positivamente a vida dos nossos alunos.",
-    image: "/lovable-uploads/beacddef-a10a-4102-ada9-dbd4c42c02e8.png",
+    image: "https://conteudo.alicerceedu.com.br/hubfs/o-alicerce/IMG_6669%20-%20Ana%20Paula%20Rocha.JPG",
   },
   {
     name: "Ricardo",
     location: "RJ",
     quote: "O que mais me encanta no Alicerce é ver como nossa metodologia e dedicação fazem diferença real na vida dos alunos. É gratificante fazer parte de um time que realmente se importa.",
-    image: "/lovable-uploads/beacddef-a10a-4102-ada9-dbd4c42c02e8.png",
+    image: "https://conteudo.alicerceedu.com.br/hubfs/o-alicerce/IMG_6650-1%20-%20Ricardo%20Carneiro.JPG",
   },
 ];
 
