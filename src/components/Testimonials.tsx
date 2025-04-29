@@ -1,7 +1,7 @@
 
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Quote } from "lucide-react";
+import { Video } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import {
@@ -11,6 +11,11 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from "@/components/ui/dialog";
 
 const testimonials = [
   {
@@ -110,38 +115,31 @@ const Testimonials: React.FC = () => {
           <p className="text-white text-lg mb-8">
             Assista ao nosso vídeo e descubra como estamos transformando a educação em todo o Brasil.
           </p>
-          <div className="max-w-4xl mx-auto mb-16">
-            <div className="aspect-w-16 aspect-h-9">
-              <iframe
-                src="https://www.youtube.com/embed/alkBt-sSrc8"
-                title="Vídeo Institucional Alicerce"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full h-full rounded-lg shadow-lg"
-              ></iframe>
-            </div>
-          </div>
 
-          <h3 className="text-2xl font-bold text-white mb-6">
-            Depoimentos de Instrutores
-          </h3>
-          <p className="text-white text-lg mb-8">
-            Veja quem já viveu essa transformação com a gente!
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto mb-16">
-            {[1, 2, 3].map((num) => (
+          <Dialog>
+            <DialogTrigger asChild>
               <Button 
-                key={num}
                 variant="outline" 
-                className="bg-white hover:bg-gray-100 text-alicerce-purple"
-                onClick={() => window.open('#', '_blank')}
+                className="bg-white hover:bg-gray-100 text-alicerce-purple font-semibold flex items-center gap-2 px-6 py-8 text-lg"
               >
-                🎥 Depoimento {num}
+                <Video className="w-6 h-6" />
+                Assistir ao Vídeo Institucional
               </Button>
-            ))}
-          </div>
+            </DialogTrigger>
+            <DialogContent className="max-w-5xl w-full p-1 sm:p-2 md:p-4">
+              <div className="aspect-video w-full">
+                <iframe
+                  src="https://www.youtube.com/embed/alkBt-sSrc8"
+                  title="Vídeo Institucional Alicerce"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
+                  allowFullScreen
+                  className="w-full h-full rounded-lg"
+                ></iframe>
+              </div>
+            </DialogContent>
+          </Dialog>
 
-          <div className="bg-white/10 rounded-lg p-8 max-w-3xl mx-auto">
+          <div className="bg-white/10 rounded-lg p-8 max-w-3xl mx-auto mt-20">
             <h3 className="text-2xl font-bold text-white mb-4">
               Pronto(a) para transformar vidas com a gente?
             </h3>
