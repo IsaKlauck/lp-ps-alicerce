@@ -40,7 +40,7 @@ const HeroSection: React.FC = () => {
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <img 
-                  src="/lovable-uploads/fdb297f4-a039-4905-ba5b-8fcef06190b7.png" 
+                  src="/lovable-uploads/4b1c0f60-9ecd-41ad-80e1-c52b7f831ab7.png" 
                   alt="Líder Alicerce ensinando" 
                   className="rounded-lg shadow-lg transform hover:scale-102 transition-all duration-300 h-48 w-full object-cover"
                 />
@@ -52,8 +52,8 @@ const HeroSection: React.FC = () => {
               </div>
               <div className="mt-8 space-y-4">
                 <img 
-                  src="/lovable-uploads/71b5f496-1978-4f63-8a9b-9d123760bd21.png" 
-                  alt="Alunos Alicerce" 
+                  src="/lovable-uploads/10630288-b7c6-4693-af2b-a82901835694.png" 
+                  alt="Líder Alicerce com alunos" 
                   className="rounded-lg shadow-lg transform hover:scale-102 transition-all duration-300 h-64 w-full object-cover"
                 />
                 <img 

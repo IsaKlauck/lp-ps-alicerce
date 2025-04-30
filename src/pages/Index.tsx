@@ -12,6 +12,7 @@ import ApplicationForm from '@/components/ApplicationForm';
 import Footer from '@/components/Footer';
 import TransformationalServices from '@/components/TransformationalServices';
 import { Toaster } from "@/components/ui/sonner";
+import ScrollTopButton from '@/components/ScrollTopButton';
 
 const Index = () => {
   return (
@@ -28,6 +29,7 @@ const Index = () => {
       <ApplicationForm />
       <FAQSection />
       <Footer />
+      <ScrollTopButton />
     </div>
   );
 };

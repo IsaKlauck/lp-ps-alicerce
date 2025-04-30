@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { BookOpen, Users, ArrowDown } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -33,17 +34,17 @@ const ProfilePaths: React.FC = () => {
                 de adultos que não concluíram os estudos.
               </p>
               <div className="space-y-3 border-t border-gray-200 pt-4">
-                <div className="flex items-center gap-2 justify-end">
+                <div className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-alicerce-orange"></div>
                   <span className="text-left">Vagas presenciais e online</span>
-                  <div className="h-2 w-2 rounded-full bg-alicerce-orange"></div>
                 </div>
-                <div className="flex items-center gap-2 justify-end">
+                <div className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-alicerce-orange"></div>
                   <span>Contratação como prestador(a) de serviço (PJ via MEI)</span>
-                  <div className="h-2 w-2 rounded-full bg-alicerce-orange"></div>
                 </div>
-                <div className="flex items-center gap-2 font-semibold justify-end">
-                  <span>Valor hora: R$35,43</span>
+                <div className="flex items-center gap-2 font-semibold">
                   <div className="h-2 w-2 rounded-full bg-alicerce-orange"></div>
+                  <span>Valor hora: R$35,43</span>
                 </div>
               </div>
             </div>
@@ -63,17 +64,17 @@ const ProfilePaths: React.FC = () => {
                 para crianças e jovens.
               </p>
               <div className="space-y-3 border-t border-gray-200 pt-4">
-                <div className="flex items-center gap-2 justify-end">
+                <div className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-alicerce-orange"></div>
                   <span>Vagas presenciais e online</span>
-                  <div className="h-2 w-2 rounded-full bg-alicerce-orange"></div>
                 </div>
-                <div className="flex items-center gap-2 justify-end">
+                <div className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-alicerce-orange"></div>
                   <span>Contratação como prestador(a) de serviço (PJ via MEI)</span>
-                  <div className="h-2 w-2 rounded-full bg-alicerce-orange"></div>
                 </div>
-                <div className="flex items-center gap-2 font-semibold justify-end">
-                  <span>Valor hora: R$17,71</span>
+                <div className="flex items-center gap-2 font-semibold">
                   <div className="h-2 w-2 rounded-full bg-alicerce-orange"></div>
+                  <span>Valor hora: R$17,71</span>
                 </div>
               </div>
             </div>
@@ -82,23 +83,23 @@ const ProfilePaths: React.FC = () => {
 
         {/* Important Information Section */}
         <div className="mt-12 max-w-4xl mx-auto bg-white rounded-xl shadow-md p-6">
-          <h3 className="text-xl font-bold text-alicerce-blue mb-4 text-center">📌 Importante:</h3>
+          <h3 className="text-xl font-bold text-alicerce-blue mb-4">📌 Importante:</h3>
           <ul className="space-y-4 text-gray-700">
-            <li className="flex items-start gap-3 justify-end">
-              <span className="text-right">Ambos têm carga horária flexível, permitindo conciliar 
-              seus estudos ou atividades com o impacto positivo na educação.</span>
+            <li className="flex items-start gap-3">
               <div className="h-2 w-2 rounded-full bg-alicerce-orange mt-2.5 flex-shrink-0"></div>
+              <span>Ambos têm carga horária flexível, permitindo conciliar 
+              seus estudos ou atividades com o impacto positivo na educação.</span>
             </li>
-            <li className="flex items-start gap-3 justify-end">
-              <span className="text-right">Aqui no Alicerce, o vínculo não é empregatício, 
+            <li className="flex items-start gap-3">
+              <div className="h-2 w-2 rounded-full bg-alicerce-orange mt-2.5 flex-shrink-0"></div>
+              <span>Aqui no Alicerce, o vínculo não é empregatício, 
               e sim de prestação de serviço com propósito. A contratação 
               via PJ (MEI) permite mais autonomia e flexibilidade.</span>
-              <div className="h-2 w-2 rounded-full bg-alicerce-orange mt-2.5 flex-shrink-0"></div>
             </li>
-            <li className="flex items-start gap-3 justify-end">
-              <span className="text-right">Nossa carga horária é pensada para se adaptar à sua rotina, 
-              inclusive se você estiver na universidade.</span>
+            <li className="flex items-start gap-3">
               <div className="h-2 w-2 rounded-full bg-alicerce-orange mt-2.5 flex-shrink-0"></div>
+              <span>Nossa carga horária é pensada para se adaptar à sua rotina, 
+              inclusive se você estiver na universidade.</span>
             </li>
           </ul>
         </div>
@@ -107,26 +108,26 @@ const ProfilePaths: React.FC = () => {
         <div className="mt-12 max-w-4xl mx-auto bg-gradient-to-r from-alicerce-blue/5 to-alicerce-orange/5 rounded-xl shadow-md p-8 relative overflow-hidden">
           <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
           <div className="relative z-10">
-            <h3 className="text-xl font-bold text-alicerce-blue mb-5 text-center">🚀 MOVAA — Nosso plano de desenvolvimento contínuo</h3>
-            <p className="text-gray-700 mb-6 text-center max-w-2xl mx-auto">
+            <h3 className="text-xl font-bold text-alicerce-blue mb-5">🚀 MOVAA — Nosso plano de desenvolvimento contínuo</h3>
+            <p className="text-gray-700 mb-6 max-w-2xl">
               Todos os(as) instrutores(as) do Alicerce têm acesso ao MOVAA: 
               um plano de formação e crescimento que te acompanha 
               ao longo da sua jornada conosco.
             </p>
-            <p className="text-gray-700 mb-4 text-center">O MOVAA é composto por trilhas de aprendizagem, 
+            <p className="text-gray-700 mb-4">O MOVAA é composto por trilhas de aprendizagem, 
             mentorias e formações que te ajudam a:</p>
             <ul className="space-y-3 text-gray-700 mb-6">
-              <li className="flex items-center gap-3 justify-end">
+              <li className="flex items-center gap-3">
+                <div className="h-2 w-2 rounded-full bg-alicerce-orange"></div>
                 <span>Evoluir como educador(a), comunicador(a) e líder</span>
-                <div className="h-2 w-2 rounded-full bg-alicerce-orange"></div>
               </li>
-              <li className="flex items-center gap-3 justify-end">
+              <li className="flex items-center gap-3">
+                <div className="h-2 w-2 rounded-full bg-alicerce-orange"></div>
                 <span>Desenvolver habilidades socioemocionais e didática</span>
-                <div className="h-2 w-2 rounded-full bg-alicerce-orange"></div>
               </li>
-              <li className="flex items-center gap-3 justify-end">
-                <span>Se preparar para desafios dentro e fora da sala de aula</span>
+              <li className="flex items-center gap-3">
                 <div className="h-2 w-2 rounded-full bg-alicerce-orange"></div>
+                <span>Se preparar para desafios dentro e fora da sala de aula</span>
               </li>
             </ul>
             <p className="text-lg font-semibold text-alicerce-blue text-center mt-6">
