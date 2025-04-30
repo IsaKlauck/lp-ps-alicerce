@@ -16,7 +16,7 @@ const benefits = [
   {
     icon: GraduationCap,
     title: "Trilha de desenvolvimento pensada em você",
-    description: "O MOVAA é nosso programa de desenvolvimento gamificado, que conta com benéficos incríveis."
+    description: "O MOVAA é nosso programa de desenvolvimento gamificado, que conta com benefícios incríveis."
   },
   {
     icon: Users,
@@ -44,9 +44,9 @@ const BenefitsSection: React.FC = () => {
               key={benefit.title} 
               className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1 hover:scale-102"
             >
-              <benefit.icon className="h-12 w-12 text-alicerce-orange mb-4 mx-auto" />
-              <h3 className="text-xl font-bold text-alicerce-blue mb-3 text-center">{benefit.title}</h3>
-              <p className="text-gray-700 text-center">{benefit.description}</p>
+              <benefit.icon className="h-12 w-12 text-alicerce-orange mb-4" />
+              <h3 className="text-xl font-bold text-alicerce-blue mb-3 text-left">{benefit.title}</h3>
+              <p className="text-gray-700 text-left">{benefit.description}</p>
             </div>
           ))}
         </div>

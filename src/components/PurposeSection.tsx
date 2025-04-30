@@ -15,11 +15,13 @@ const PurposeSection: React.FC = () => {
             <p className="mx-auto">A gente também — e estamos fazendo isso acontecer todos os dias.</p>
             <p className="mt-6 mx-auto">
               No Alicerce, cada aula é uma oportunidade de transformar realidades. 
-              Com uma metodologia inovadora, acessível e de alto impacto, 
-              estamos acelerando a aprendizagem e abrindo portas para 
-              milhares de estudantes em todo o Brasil. Se você sonha em 
-              fazer parte de algo maior, que usa a educação como 
-              instrumento de justiça social e transformação, 
+              Com uma metodologia inovadora, acessível e de alto impacto, estamos 
+              acelerando a aprendizagem e abrindo portas para milhares 
+              de estudantes em todo o Brasil.
+            </p>
+            <p className="mx-auto">
+              Se você sonha em fazer parte de algo maior, que usa a educação 
+              como instrumento de justiça social e transformação, 
               o seu lugar é com a gente.
             </p>
           </div>
