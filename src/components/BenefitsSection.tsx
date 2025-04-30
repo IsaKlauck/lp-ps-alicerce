@@ -44,9 +44,9 @@ const BenefitsSection: React.FC = () => {
               key={benefit.title} 
               className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
             >
-              <benefit.icon className="h-10 w-10 text-alicerce-orange mb-4" />
-              <h3 className="text-xl font-bold text-alicerce-blue mb-3">{benefit.title}</h3>
-              <p className="text-gray-700">{benefit.description}</p>
+              <benefit.icon className="h-10 w-10 text-alicerce-orange mb-4 mx-auto" />
+              <h3 className="text-xl font-bold text-alicerce-blue mb-3 text-center">{benefit.title}</h3>
+              <p className="text-gray-700 text-center">{benefit.description}</p>
             </div>
           ))}
         </div>

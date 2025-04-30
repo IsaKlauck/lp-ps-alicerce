@@ -20,7 +20,10 @@ const HeroSection: React.FC = () => {
           </h1>
           
           <p className="text-xl md:text-2xl opacity-90 mt-4">
-            No Alicerce, você faz parte de algo maior. Aqui, reunimos instrutores(as) que acreditam num Brasil mais justo e cheio de oportunidades — e que transformam vidas todos os dias por meio da educação.
+            No Alicerce, você faz parte de algo maior. 
+            Aqui, reunimos instrutores(as) que acreditam num Brasil 
+            mais justo e cheio de oportunidades — e que transformam 
+            vidas todos os dias por meio da educação.
           </p>
           
           <div className="mt-8">
@@ -32,20 +35,27 @@ const HeroSection: React.FC = () => {
             </Button>
           </div>
           
-          <div className="bg-white/10 backdrop-blur-sm p-8 rounded-lg mt-12 flex flex-col gap-6 max-w-2xl mx-auto text-left">
-            <div className="flex items-start gap-4">
-              <Globe className="text-white h-8 w-8 mt-1 flex-shrink-0" />
+          <div className="bg-white/10 backdrop-blur-sm p-8 rounded-lg mt-12 flex flex-col gap-6 max-w-2xl mx-auto text-center">
+            <div className="flex flex-col items-center gap-4">
+              <Globe className="text-white h-8 w-8 mt-1" />
               <div>
                 <h3 className="font-bold text-xl mb-2">Estamos no Brasil todo — e de portas abertas para você!</h3>
                 <div className="space-y-4 opacity-90">
                   <p>
-                    Nosso processo seletivo é contínuo, porque acreditamos que grandes educadores merecem grandes oportunidades, o ano inteiro.
+                    Nosso processo seletivo é contínuo, porque acreditamos 
+                    que grandes educadores merecem grandes oportunidades, o ano inteiro.
                   </p>
                   <p>
-                    Temos polos espalhados por todo o país, e mesmo que não haja uma vaga imediata na sua região, seu perfil pode entrar para o nosso banco de talentos. Assim que surgir uma oportunidade perto de você — ou até mesmo remota —, entraremos em contato!
+                    Temos polos espalhados por todo o país, e mesmo 
+                    que não haja uma vaga imediata na sua região, 
+                    seu perfil pode entrar para o nosso banco de talentos. 
+                    Assim que surgir uma oportunidade perto de você — ou até 
+                    mesmo remota —, entraremos em contato!
                   </p>
                   <p>
-                    Se você compartilha da nossa paixão por transformar vidas por meio da educação, venha fazer parte desse movimento com a gente.
+                    Se você compartilha da nossa paixão por transformar 
+                    vidas por meio da educação, venha fazer 
+                    parte desse movimento com a gente.
                   </p>
                 </div>
               </div>

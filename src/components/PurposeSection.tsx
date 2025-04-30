@@ -14,7 +14,13 @@ const PurposeSection: React.FC = () => {
             <p>Você acredita que a educação pode mudar o mundo?</p>
             <p>A gente também — e estamos fazendo isso acontecer todos os dias.</p>
             <p className="mt-6">
-              No Alicerce, cada aula é uma oportunidade de transformar realidades. Com uma metodologia inovadora, acessível e de alto impacto, estamos acelerando a aprendizagem e abrindo portas para milhares de estudantes em todo o Brasil. Se você sonha em fazer parte de algo maior, que usa a educação como instrumento de justiça social e transformação, o seu lugar é com a gente.
+              No Alicerce, cada aula é uma oportunidade de transformar realidades. 
+              Com uma metodologia inovadora, acessível e de alto impacto, 
+              estamos acelerando a aprendizagem e abrindo portas 
+              para milhares de estudantes em todo o Brasil. 
+              Se você sonha em fazer parte de algo maior, 
+              que usa a educação como instrumento de justiça social 
+              e transformação, o seu lugar é com a gente.
             </p>
           </div>
         </div>
