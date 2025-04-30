@@ -28,6 +28,10 @@ const FAQSection: React.FC = () => {
     {
       question: "Posso atuar 100% online?",
       answer: "Sim, para o Produto Qualifica temos opções de trabalho completamente remotas ou híbridas. Já para o Produto Reforço, as vagas são principalmente presenciais em nossos diversos polos espalhados pelo Brasil."
+    },
+    {
+      question: "O que é o MOVAA?",
+      answer: "O MOVAA é um programa de reconhecimento com objetivo de desenvolver líderes e guias, e assim impulsionar seus conhecimentos técnicos, pedagógicos e profissionais através de suas experiências práticas em sala de aula. Tudo isso por meio de níveis que reconhecem e incentivam essa jornada na metodologia Alicerce."
     }
   ];
 
