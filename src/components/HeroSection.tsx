@@ -12,47 +12,48 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="bg-gradient-to-br from-alicerce-orange to-alicerce-purple text-white py-16 md:py-24">
+    <section className="bg-gradient-to-br from-alicerce-orange to-alicerce-purple text-white py-20 md:py-28">
       <div className="section-container">
-        <div className="max-w-3xl mx-auto text-center space-y-6 animate-fade-in">
+        <div className="max-w-3xl mx-auto text-center space-y-8 animate-fade-in">
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
             Seja Protagonista da Educação no Brasil
           </h1>
           
-          <p className="text-xl md:text-2xl opacity-90 mt-4">
+          <p className="text-xl md:text-2xl opacity-90 mt-6 mx-auto">
             No Alicerce, você faz parte de algo maior. 
             Aqui, reunimos instrutores(as) que acreditam num Brasil 
-            mais justo e cheio de oportunidades — e que transformam 
-            vidas todos os dias por meio da educação.
+            mais justo e cheio de oportunidades — e que 
+            transformam vidas todos os dias.
           </p>
           
-          <div className="mt-8">
+          <div className="mt-10">
             <Button 
-              className="bg-white text-alicerce-orange hover:bg-gray-100 px-8 py-6 text-lg font-semibold rounded-md transition-all"
+              className="bg-white text-alicerce-orange hover:bg-gray-100 px-8 py-6 text-lg font-semibold rounded-md transition-all transform hover:scale-105"
               onClick={scrollToApplicationForm}
             >
               QUERO ME INSCREVER AGORA
             </Button>
           </div>
           
-          <div className="bg-white/10 backdrop-blur-sm p-8 rounded-lg mt-12 flex flex-col gap-6 max-w-2xl mx-auto text-center">
+          <div className="bg-white/10 backdrop-blur-sm p-8 rounded-lg mt-14 flex flex-col gap-6 max-w-2xl mx-auto text-center shadow-lg">
             <div className="flex flex-col items-center gap-4">
-              <Globe className="text-white h-8 w-8 mt-1" />
+              <div className="bg-white/20 p-3 rounded-full">
+                <Globe className="text-white h-8 w-8" />
+              </div>
               <div>
-                <h3 className="font-bold text-xl mb-2">Estamos no Brasil todo — e de portas abertas para você!</h3>
+                <h3 className="font-bold text-xl mb-4">Estamos no Brasil todo — e de portas abertas para você!</h3>
                 <div className="space-y-4 opacity-90">
-                  <p>
+                  <p className="mx-auto">
                     Nosso processo seletivo é contínuo, porque acreditamos 
-                    que grandes educadores merecem grandes oportunidades, o ano inteiro.
+                    que grandes educadores merecem grandes oportunidades, 
+                    o ano inteiro.
                   </p>
-                  <p>
+                  <p className="mx-auto">
                     Temos polos espalhados por todo o país, e mesmo 
                     que não haja uma vaga imediata na sua região, 
-                    seu perfil pode entrar para o nosso banco de talentos. 
-                    Assim que surgir uma oportunidade perto de você — ou até 
-                    mesmo remota —, entraremos em contato!
+                    seu perfil pode entrar para o nosso banco de talentos.
                   </p>
-                  <p>
+                  <p className="mx-auto">
                     Se você compartilha da nossa paixão por transformar 
                     vidas por meio da educação, venha fazer 
                     parte desse movimento com a gente.

@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
@@ -21,10 +22,19 @@ const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
+    { name: "Benefícios", href: "#beneficios" },
     { name: "Perfis", href: "#perfis" },
     { name: "Processo Seletivo", href: "#processo" },
     { name: "FAQ", href: "#faq" },
   ];
+
+  const scrollToSection = (id: string) => {
+    setIsMenuOpen(false);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
@@ -37,6 +47,10 @@ const Navbar: React.FC = () => {
             <a
               key={link.name}
               href={link.href}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollToSection(link.href.substring(1));
+              }}
               className={`font-medium hover:text-alicerce-orange transition-colors ${isScrolled ? 'text-alicerce-blue' : 'text-white'}`}
             >
               {link.name}
@@ -44,8 +58,8 @@ const Navbar: React.FC = () => {
           ))}
           
           <Button
-            className="bg-alicerce-orange hover:bg-orange-600 text-white"
-            onClick={() => document.getElementById('apply-form')?.scrollIntoView({ behavior: 'smooth' })}
+            className="bg-alicerce-orange hover:bg-orange-600 text-white transition-transform hover:scale-105"
+            onClick={() => scrollToSection('apply-form')}
           >
             Inscreva-se
           </Button>
@@ -67,14 +81,17 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg absolute w-full">
+        <div className="md:hidden bg-white shadow-lg absolute w-full animate-fade-in">
           <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="font-medium text-alicerce-blue hover:text-alicerce-orange transition-colors py-2"
-                onClick={() => setIsMenuOpen(false)}
+                className="font-medium text-alicerce-blue hover:text-alicerce-orange transition-colors py-2 text-right"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToSection(link.href.substring(1));
+                }}
               >
                 {link.name}
               </a>
@@ -82,10 +99,7 @@ const Navbar: React.FC = () => {
             
             <Button
               className="bg-alicerce-orange hover:bg-orange-600 text-white w-full"
-              onClick={() => {
-                document.getElementById('apply-form')?.scrollIntoView({ behavior: 'smooth' });
-                setIsMenuOpen(false);
-              }}
+              onClick={() => scrollToSection('apply-form')}
             >
               Inscreva-se
             </Button>

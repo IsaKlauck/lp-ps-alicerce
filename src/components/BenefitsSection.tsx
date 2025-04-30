@@ -32,7 +32,7 @@ const benefits = [
 
 const BenefitsSection: React.FC = () => {
   return (
-    <section className="bg-alicerce-gray py-16 md:py-24">
+    <section className="bg-alicerce-gray py-16 md:py-24" id="beneficios">
       <div className="section-container">
         <h2 className="text-4xl md:text-5xl font-bold text-center text-alicerce-blue mb-16">
           Por que ser um(a) Instrutor(a) Alicerce?
@@ -42,9 +42,9 @@ const BenefitsSection: React.FC = () => {
           {benefits.map((benefit) => (
             <div 
               key={benefit.title} 
-              className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300"
+              className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1 hover:scale-102"
             >
-              <benefit.icon className="h-10 w-10 text-alicerce-orange mb-4 mx-auto" />
+              <benefit.icon className="h-12 w-12 text-alicerce-orange mb-4 mx-auto" />
               <h3 className="text-xl font-bold text-alicerce-blue mb-3 text-center">{benefit.title}</h3>
               <p className="text-gray-700 text-center">{benefit.description}</p>
             </div>
