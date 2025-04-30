@@ -38,11 +38,9 @@ const Testimonials: React.FC = () => {
           <h3 className="text-2xl font-bold text-white mb-6 text-center">
             Conheça mais sobre o Alicerce
           </h3>
-          <p className="text-white text-lg mb-8 text-center">
-            Assista ao nosso vídeo e descubra como estamos transformando a educação em todo o Brasil.
-          </p>
 
-          <div className="max-w-4xl mx-auto">
+          {/* Centralized video with full player visibility */}
+          <div className="max-w-4xl mx-auto px-4">
             <div className="aspect-video w-full rounded-lg overflow-hidden shadow-2xl">
               <iframe
                 src="https://www.youtube.com/embed/alkBt-sSrc8?autoplay=0&controls=1"
