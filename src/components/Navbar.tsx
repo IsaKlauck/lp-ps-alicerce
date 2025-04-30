@@ -22,6 +22,7 @@ const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
+    { name: "Serviços", href: "#servicos" },
     { name: "Benefícios", href: "#beneficios" },
     { name: "Perfis", href: "#perfis" },
     { name: "Processo Seletivo", href: "#processo" },
@@ -42,7 +43,7 @@ const Navbar: React.FC = () => {
         <AlicerceLogo className="h-12" />
 
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
+        <div className="hidden md:flex items-center space-x-6">
           {navLinks.map((link) => (
             <a
               key={link.name}
@@ -57,12 +58,14 @@ const Navbar: React.FC = () => {
             </a>
           ))}
           
-          <Button
-            className="bg-alicerce-orange hover:bg-orange-600 text-white transition-transform hover:scale-105"
-            onClick={() => scrollToSection('apply-form')}
-          >
-            Inscreva-se
-          </Button>
+          <div className="flex justify-center">
+            <Button
+              className="bg-alicerce-orange hover:bg-orange-600 text-white transition-transform hover:scale-105"
+              onClick={() => scrollToSection('apply-form')}
+            >
+              Inscreva-se
+            </Button>
+          </div>
         </div>
 
         {/* Mobile Navigation Toggle */}
@@ -87,7 +90,7 @@ const Navbar: React.FC = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="font-medium text-alicerce-blue hover:text-alicerce-orange transition-colors py-2 text-right"
+                className="font-medium text-alicerce-blue hover:text-alicerce-orange transition-colors py-2 text-left"
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToSection(link.href.substring(1));
@@ -97,12 +100,14 @@ const Navbar: React.FC = () => {
               </a>
             ))}
             
-            <Button
-              className="bg-alicerce-orange hover:bg-orange-600 text-white w-full"
-              onClick={() => scrollToSection('apply-form')}
-            >
-              Inscreva-se
-            </Button>
+            <div className="flex justify-center">
+              <Button
+                className="bg-alicerce-orange hover:bg-orange-600 text-white w-full"
+                onClick={() => scrollToSection('apply-form')}
+              >
+                Inscreva-se
+              </Button>
+            </div>
           </div>
         </div>
       )}

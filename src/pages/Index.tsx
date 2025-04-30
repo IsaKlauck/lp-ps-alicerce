@@ -10,6 +10,7 @@ import Testimonials from '@/components/Testimonials';
 import FAQSection from '@/components/FAQSection';
 import ApplicationForm from '@/components/ApplicationForm';
 import Footer from '@/components/Footer';
+import TransformationalServices from '@/components/TransformationalServices';
 import { Toaster } from "@/components/ui/sonner";
 
 const Index = () => {
@@ -19,6 +20,7 @@ const Index = () => {
       <Navbar />
       <HeroSection />
       <PurposeSection />
+      <TransformationalServices />
       <BenefitsSection />
       <ProfilePaths />
       <SelectionProcess />

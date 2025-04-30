@@ -26,7 +26,7 @@ const HeroSection: React.FC = () => {
               e cheio de oportunidades.
             </p>
             
-            <div className="mt-10">
+            <div className="flex justify-center md:justify-start mt-10">
               <Button 
                 className="bg-white text-alicerce-orange hover:bg-gray-100 px-8 py-6 text-lg font-semibold rounded-md transition-all transform hover:scale-105"
                 onClick={scrollToApplicationForm}
