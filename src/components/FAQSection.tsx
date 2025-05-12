@@ -36,21 +36,30 @@ const FAQSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-alicerce-gray" id="faq">
-      <div className="section-container">
-        <h2 className="section-title text-center mb-12">Perguntas Frequentes</h2>
+    <section className="py-16 md:py-24 bg-alicerce-gray relative" id="faq">
+      {/* Background design elements */}
+      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/brushed-alum-dark.png')] opacity-5"></div>
+      
+      <div className="section-container relative z-10">
+        <div className="text-center mb-12">
+          <div className="inline-block mx-auto bg-alicerce-purple/10 px-4 py-2 rounded-full mb-4">
+            <span className="text-alicerce-purple font-medium">Dúvidas frequentes</span>
+          </div>
+          <h2 className="section-title text-center">Perguntas Frequentes</h2>
+        </div>
+        
         <div className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="bg-white rounded-xl overflow-hidden shadow-md">
+          <Accordion type="single" collapsible className="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100">
             {faqs.map((faq, index) => (
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`} 
                 className="border-b border-alicerce-lightBlue last:border-0 group"
               >
-                <AccordionTrigger className="px-6 py-5 text-right text-alicerce-blue hover:text-alicerce-orange transition-colors duration-300">
+                <AccordionTrigger className="px-6 py-5 text-right text-alicerce-blue hover:text-alicerce-orange transition-colors duration-300 font-medium">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="px-6 pb-5 text-gray-700 animate-slide-up">
+                <AccordionContent className="px-6 pb-5 text-gray-700 animate-slide-up bg-gray-50">
                   <div className="text-right">{faq.answer}</div>
                 </AccordionContent>
               </AccordionItem>

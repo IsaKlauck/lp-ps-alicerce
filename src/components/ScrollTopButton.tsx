@@ -35,7 +35,7 @@ const ScrollTopButton: React.FC = () => {
           variant="outline"
           size="icon"
           onClick={scrollToTop}
-          className="bg-alicerce-orange text-white hover:bg-alicerce-orange/80 rounded-full h-12 w-12 shadow-lg"
+          className="bg-alicerce-orange text-white hover:bg-alicerce-orange/80 rounded-full h-12 w-12 shadow-lg animate-fade-in transition-all hover:scale-110"
           aria-label="Voltar ao topo"
         >
           <ArrowUp className="h-6 w-6" />

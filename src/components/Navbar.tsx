@@ -38,7 +38,13 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white shadow-md py-2' : 'bg-transparent py-4'}`}>
+    <nav 
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        isScrolled 
+          ? 'bg-white shadow-md py-2' 
+          : 'bg-transparent py-4'
+      }`}
+    >
       <div className="container mx-auto px-4 flex justify-between items-center">
         <AlicerceLogo className="h-12" />
 
@@ -52,7 +58,11 @@ const Navbar: React.FC = () => {
                 e.preventDefault();
                 scrollToSection(link.href.substring(1));
               }}
-              className={`font-medium hover:text-alicerce-orange transition-colors ${isScrolled ? 'text-alicerce-blue' : 'text-white'}`}
+              className={`font-medium hover:text-alicerce-orange transition-colors duration-300 hover:scale-105 ${
+                isScrolled 
+                  ? 'text-alicerce-blue' 
+                  : 'text-white'
+              }`}
             >
               {link.name}
             </a>
@@ -60,7 +70,11 @@ const Navbar: React.FC = () => {
           
           <div className="flex justify-center">
             <Button
-              className="bg-alicerce-orange hover:bg-orange-600 text-white transition-transform hover:scale-105"
+              className={`${
+                isScrolled 
+                  ? 'bg-alicerce-orange' 
+                  : 'bg-white text-alicerce-orange'
+              } hover:bg-orange-600 hover:text-white transition-all duration-300 transform hover:scale-105 font-medium px-6 shadow-md`}
               onClick={() => scrollToSection('apply-form')}
             >
               Inscreva-se
@@ -90,7 +104,7 @@ const Navbar: React.FC = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="font-medium text-alicerce-blue hover:text-alicerce-orange transition-colors py-2 text-left"
+                className="font-medium text-alicerce-blue hover:text-alicerce-orange transition-colors py-3 text-left border-b border-gray-100 last:border-0"
                 onClick={(e) => {
                   e.preventDefault();
                   scrollToSection(link.href.substring(1));
@@ -100,9 +114,9 @@ const Navbar: React.FC = () => {
               </a>
             ))}
             
-            <div className="flex justify-center">
+            <div className="flex justify-center pt-2">
               <Button
-                className="bg-alicerce-orange hover:bg-orange-600 text-white w-full"
+                className="bg-alicerce-orange hover:bg-orange-600 text-white w-full py-6 shadow-md"
                 onClick={() => scrollToSection('apply-form')}
               >
                 Inscreva-se

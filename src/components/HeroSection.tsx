@@ -12,10 +12,17 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section className="bg-gradient-to-br from-alicerce-orange to-alicerce-purple text-white py-20 md:py-28 relative">
-      <div className="section-container">
+    <section className="bg-gradient-to-br from-alicerce-orange to-alicerce-purple text-white py-20 md:py-28 relative overflow-hidden">
+      {/* Background pattern overlay */}
+      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+      
+      <div className="section-container relative z-10">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="text-left space-y-8 animate-fade-in">
+            <div className="inline-block bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
+              <span className="text-white font-medium">Processo Seletivo Contínuo</span>
+            </div>
+            
             <h1 className="text-5xl md:text-6xl font-bold leading-tight">
               Seja Protagonista da Educação no Brasil
             </h1>
@@ -28,7 +35,7 @@ const HeroSection: React.FC = () => {
             
             <div className="flex justify-center md:justify-start mt-10">
               <Button 
-                className="bg-white text-alicerce-orange hover:bg-gray-100 px-8 py-6 text-lg font-semibold rounded-md transition-all transform hover:scale-105"
+                className="bg-white text-alicerce-orange hover:bg-gray-100 px-8 py-6 text-lg font-semibold rounded-md transition-all transform hover:scale-105 shadow-lg"
                 onClick={scrollToApplicationForm}
               >
                 QUERO ME INSCREVER AGORA
@@ -37,7 +44,7 @@ const HeroSection: React.FC = () => {
           </div>
 
           <div className="relative hidden md:block">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 transform hover:scale-[1.02] transition-all duration-500">
               <div className="space-y-4">
                 <img 
                   src="/lovable-uploads/4b1c0f60-9ecd-41ad-80e1-c52b7f831ab7.png" 
@@ -66,9 +73,9 @@ const HeroSection: React.FC = () => {
           </div>
         </div>
 
-        <div className="bg-white/10 backdrop-blur-sm p-8 rounded-lg mt-14 mx-auto max-w-4xl shadow-lg">
+        <div className="bg-white/10 backdrop-blur-sm p-8 rounded-lg mt-14 mx-auto max-w-4xl shadow-lg border border-white/20">
           <div className="flex flex-col md:flex-row items-center gap-6">
-            <div className="bg-white/20 p-3 rounded-full shrink-0">
+            <div className="bg-white/20 p-3 rounded-full shrink-0 shadow-inner">
               <Globe className="text-white h-8 w-8" />
             </div>
             <div className="text-left">

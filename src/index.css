@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 @tailwind base;
@@ -45,6 +46,14 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
 }
 
 @layer base {
@@ -57,11 +66,11 @@
   }
 
   .btn-primary {
-    @apply bg-alicerce-orange text-white font-medium py-3 px-6 rounded-md hover:bg-orange-600 transition-all duration-200 inline-block text-center;
+    @apply bg-alicerce-orange text-white font-medium py-3 px-6 rounded-md hover:bg-orange-600 transition-all duration-200 inline-block text-center shadow-md;
   }
 
   .btn-secondary {
-    @apply bg-white text-alicerce-blue border border-alicerce-blue font-medium py-3 px-6 rounded-md hover:bg-alicerce-lightBlue transition-all duration-200 inline-block text-center;
+    @apply bg-white text-alicerce-blue border border-alicerce-blue font-medium py-3 px-6 rounded-md hover:bg-alicerce-lightBlue transition-all duration-200 inline-block text-center shadow-md;
   }
 
   .section-title {
@@ -113,4 +122,35 @@
   .animate-float {
     animation: float 3s ease-in-out infinite;
   }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0069B4;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #EE7203;
+}
+
+/* Add smooth reveal animations */
+.reveal {
+  position: relative;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-in-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
 }

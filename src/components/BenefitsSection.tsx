@@ -32,19 +32,40 @@ const benefits = [
 
 const BenefitsSection: React.FC = () => {
   return (
-    <section className="bg-alicerce-gray py-16 md:py-24" id="beneficios">
-      <div className="section-container">
-        <h2 className="text-4xl md:text-5xl font-bold text-center text-alicerce-blue mb-16">
-          Por que ser um(a) Instrutor(a) Alicerce?
-        </h2>
+    <section className="bg-alicerce-gray py-16 md:py-24 relative" id="beneficios">
+      {/* Background pattern */}
+      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/brushed-alum.png')] opacity-5"></div>
+      
+      <div className="section-container relative z-10">
+        <div className="text-center mb-16">
+          <div className="inline-block mx-auto bg-alicerce-blue/10 px-4 py-2 rounded-full mb-4">
+            <span className="text-alicerce-blue font-medium">Por que nos escolher</span>
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl font-bold text-center text-alicerce-blue mb-6">
+            Por que ser um(a) Instrutor(a) Alicerce?
+          </h2>
+        </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {benefits.map((benefit) => (
+          {benefits.map((benefit, index) => (
             <div 
               key={benefit.title} 
-              className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 transform hover:-translate-y-1 hover:scale-102"
+              className={`bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border-t-4 ${
+                index % 5 === 0 ? 'border-red-500' : 
+                index % 5 === 1 ? 'border-yellow-500' : 
+                index % 5 === 2 ? 'border-green-500' : 
+                index % 5 === 3 ? 'border-blue-500' : 
+                'border-purple-500'
+              }`}
             >
-              <benefit.icon className="h-12 w-12 text-alicerce-orange mb-4" />
+              <benefit.icon className={`h-12 w-12 mb-4 ${
+                index % 5 === 0 ? 'text-red-500' : 
+                index % 5 === 1 ? 'text-yellow-500' : 
+                index % 5 === 2 ? 'text-green-500' : 
+                index % 5 === 3 ? 'text-blue-500' : 
+                'text-purple-500'
+              }`} />
               <h3 className="text-xl font-bold text-alicerce-blue mb-3 text-left">{benefit.title}</h3>
               <p className="text-gray-700 text-left">{benefit.description}</p>
             </div>
