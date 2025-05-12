@@ -9,7 +9,7 @@ const Footer: React.FC = () => {
       <div className="section-container">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="space-y-4">
-            <AlicerceLogo className="mb-6" />
+            <AlicerceLogo className="mb-6" darkBackground={true} />
             <p className="text-lg opacity-90">
               "O Alicerce acredita no poder da educação que transforma vidas."
             </p>

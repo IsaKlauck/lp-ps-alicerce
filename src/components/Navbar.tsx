@@ -37,6 +37,9 @@ const Navbar: React.FC = () => {
     }
   };
 
+  // Use white logo on non-scrolled state (transparent navbar on dark background)
+  const useDarkBackgroundLogo = !isScrolled;
+
   return (
     <nav 
       className={`fixed w-full z-50 transition-all duration-300 ${
@@ -46,7 +49,7 @@ const Navbar: React.FC = () => {
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <AlicerceLogo className="h-12" />
+        <AlicerceLogo className="h-12" darkBackground={useDarkBackgroundLogo} />
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
