@@ -20,28 +20,38 @@ const Testimonials: React.FC = () => {
           Venha transformar vidas com o Alicerce Educação!
         </h2>
 
-        <div className="max-w-4xl mx-auto text-white space-y-6 mb-16">
-          <p className="text-lg md:text-xl text-center mx-auto">
-            No Alicerce, acreditamos no poder da educação que coloca o estudante no centro do aprendizado. 
-            Nossa missão é criar oportunidades reais para que crianças, adolescentes e adultos 
-            possam desenvolver suas competências e habilidades para o futuro.
-          </p>
+        <div className="grid md:grid-cols-2 gap-8 items-center mb-16">
+          <div className="max-w-2xl text-white space-y-6">
+            <p className="text-lg md:text-xl">
+              No Alicerce, acreditamos no poder da educação que coloca o estudante no centro do aprendizado. 
+              Nossa missão é criar oportunidades reais para que crianças, adolescentes e adultos 
+              possam desenvolver suas competências e habilidades para o futuro.
+            </p>
+            
+            <p className="text-lg md:text-xl">
+              Seja como Líder ou Guia, você será peça-chave para inspirar e engajar nossos estudantes, 
+              utilizando metodologias ativas e promovendo um ambiente acolhedor, 
+              colaborativo e empático.
+            </p>
+            
+            <p className="text-lg md:text-xl">
+              Aqui, cada jornada é única – inclusive a sua. Oferecemos formação, 
+              acompanhamento contínuo e espaço para que você cresça junto com 
+              a nossa missão.
+            </p>
+            
+            <p className="text-2xl font-bold italic mt-10">
+              Alicerce Educação – onde vidas se constroem e sonhos se realizam.
+            </p>
+          </div>
           
-          <p className="text-lg md:text-xl text-center mx-auto">
-            Seja como Líder ou Guia, você será peça-chave para inspirar e engajar nossos estudantes, 
-            utilizando metodologias ativas e promovendo um ambiente acolhedor, 
-            colaborativo e empático.
-          </p>
-          
-          <p className="text-lg md:text-xl text-center mx-auto">
-            Aqui, cada jornada é única – inclusive a sua. Oferecemos formação, 
-            acompanhamento contínuo e espaço para que você cresça junto com 
-            a nossa missão.
-          </p>
-          
-          <p className="text-2xl font-bold italic text-center mt-10">
-            Alicerce Educação – onde vidas se constroem e sonhos se realizam.
-          </p>
+          <div className="hidden md:block">
+            <img 
+              src="/lovable-uploads/122d99a8-00df-48c8-ab2b-bb85c4778d08.png" 
+              alt="Educadora Alicerce com estudantes" 
+              className="rounded-lg shadow-2xl transform hover:scale-[1.01] transition-all border-4 border-white/20 w-full h-auto object-cover"
+            />
+          </div>
         </div>
 
         <div className="mt-20">

@@ -47,25 +47,25 @@ const HeroSection: React.FC = () => {
             <div className="grid grid-cols-2 gap-4 transform hover:scale-[1.02] transition-all duration-500">
               <div className="space-y-4">
                 <img 
-                  src="/lovable-uploads/4b1c0f60-9ecd-41ad-80e1-c52b7f831ab7.png" 
-                  alt="Líder Alicerce ensinando" 
+                  src="/lovable-uploads/0a6740fb-61b1-433a-800b-0c51038a9dcf.png" 
+                  alt="Educadora Alicerce com estudantes" 
                   className="rounded-lg shadow-lg transform hover:scale-102 transition-all duration-300 h-48 w-full object-cover"
                 />
                 <img 
-                  src="/lovable-uploads/cf571c92-f4b8-49b1-9bd1-809e0ad8bc64.png" 
-                  alt="Professores Alicerce" 
+                  src="/lovable-uploads/60f7d322-8ea9-4808-835e-4b919830b7a0.png" 
+                  alt="Educador Alicerce com alunas" 
                   className="rounded-lg shadow-lg transform hover:scale-102 transition-all duration-300 h-64 w-full object-cover"
                 />
               </div>
               <div className="mt-8 space-y-4">
                 <img 
-                  src="/lovable-uploads/10630288-b7c6-4693-af2b-a82901835694.png" 
-                  alt="Líder Alicerce com alunos" 
+                  src="/lovable-uploads/2961ccd4-9643-4c05-ae2b-69a7509ffb9f.png" 
+                  alt="Educadora Alicerce orientando estudantes" 
                   className="rounded-lg shadow-lg transform hover:scale-102 transition-all duration-300 h-64 w-full object-cover"
                 />
                 <img 
-                  src="/lovable-uploads/752f9bd2-08a8-4807-bf02-7722b618feb2.png" 
-                  alt="Equipe Alicerce" 
+                  src="/lovable-uploads/122d99a8-00df-48c8-ab2b-bb85c4778d08.png" 
+                  alt="Educadora Alicerce com estudantes sorridentes" 
                   className="rounded-lg shadow-lg transform hover:scale-102 transition-all duration-300 h-48 w-full object-cover"
                 />
               </div>
