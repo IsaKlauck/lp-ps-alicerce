@@ -35,7 +35,7 @@ const TransformationalServices: React.FC = () => {
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold text-center text-alicerce-blue mb-6">
-            Nossos Serviços Transformacionais
+            Nossas Frentes de Transformação
           </h2>
           
           <p className="text-xl text-center text-gray-700 max-w-3xl mx-auto">
