@@ -1,8 +1,6 @@
-
 import React from 'react';
 import { BookOpen, Users, ArrowDown } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-
 const ProfilePaths: React.FC = () => {
   const scrollToApplicationForm = () => {
     const applicationForm = document.getElementById('application-form');
@@ -12,9 +10,7 @@ const ProfilePaths: React.FC = () => {
       });
     }
   };
-  
-  return (
-    <section className="bg-alicerce-gray py-16 md:py-24 relative" id="perfis">
+  return <section className="bg-alicerce-gray py-16 md:py-24 relative" id="perfis">
       {/* Background design elements */}
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diamond-upholstery.png')] opacity-5"></div>
       
@@ -24,7 +20,7 @@ const ProfilePaths: React.FC = () => {
             <span className="text-alicerce-purple font-medium">Suas oportunidades</span>
           </div>
           
-          <h2 className="section-title text-center mb-6">Dois Caminhos para Transformar com a Gente</h2>
+          <h2 className="section-title text-center mb-6">Dois caminhos para transformar com a gente</h2>
           <p className="text-center text-lg text-gray-700 max-w-3xl mx-auto">
             No Alicerce, você pode atuar como Líder ou Guia, 
             de acordo com seu perfil e momento profissional.
@@ -158,8 +154,6 @@ const ProfilePaths: React.FC = () => {
           </Button>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default ProfilePaths;
