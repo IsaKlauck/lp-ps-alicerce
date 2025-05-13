@@ -81,7 +81,7 @@ export const RelationshipSection: React.FC<RelationshipSectionProps> = ({
           name="interestedInProject"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Tem interesse em algum projeto?*</FormLabel>
+              <FormLabel>Tem interesse em algum projeto específico?*</FormLabel>
               <FormControl>
                 <RadioGroup
                   onValueChange={field.onChange}
