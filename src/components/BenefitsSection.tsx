@@ -1,38 +1,28 @@
-
 import React from 'react';
 import { Heart, TrendingUp, Users, GraduationCap, Star } from 'lucide-react';
-
-const benefits = [
-  {
-    icon: Star,
-    title: "Trabalhar com propósito",
-    description: "Você é mais que um instrutor: é exemplo, referência e agente de mudança."
-  },
-  {
-    icon: TrendingUp,
-    title: "Crescimento real",
-    description: "Formação contínua, apoio pedagógico e oportunidades de desenvolvimento."
-  },
-  {
-    icon: GraduationCap,
-    title: "Trilha de desenvolvimento pensada em você",
-    description: "O MOVAA é nosso programa de desenvolvimento gamificado, que conta com benefícios incríveis."
-  },
-  {
-    icon: Users,
-    title: "Rede nacional",
-    description: "Conexão com outras pessoas apaixonadas pelo mesmo propósito."
-  },
-  {
-    icon: Heart,
-    title: "Impacto com afeto",
-    description: "Aqui, ensinar vai além do conteúdo: é sobre transformar com intenção."
-  }
-];
-
+const benefits = [{
+  icon: Star,
+  title: "Trabalhar com propósito",
+  description: "Você é mais que um instrutor: é exemplo, referência e agente de mudança."
+}, {
+  icon: TrendingUp,
+  title: "Crescimento real",
+  description: "Formação contínua, apoio pedagógico e oportunidades de desenvolvimento."
+}, {
+  icon: GraduationCap,
+  title: "Trilha de desenvolvimento pensada em você",
+  description: "O MOVAA é nosso programa de desenvolvimento gamificado, que conta com benefícios incríveis."
+}, {
+  icon: Users,
+  title: "Rede nacional",
+  description: "Conexão com outras pessoas apaixonadas pelo mesmo propósito."
+}, {
+  icon: Heart,
+  title: "Impacto com afeto",
+  description: "Aqui, ensinar vai além do conteúdo: é sobre transformar com intenção."
+}];
 const BenefitsSection: React.FC = () => {
-  return (
-    <section className="bg-alicerce-gray py-16 md:py-24 relative" id="beneficios">
+  return <section className="bg-alicerce-gray py-16 md:py-24 relative" id="beneficios">
       {/* Background pattern */}
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/brushed-alum.png')] opacity-5"></div>
       
@@ -42,38 +32,17 @@ const BenefitsSection: React.FC = () => {
             <span className="text-alicerce-blue font-medium">Por que nos escolher</span>
           </div>
           
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-alicerce-blue mb-6">
-            Por que ser um(a) Instrutor(a) Alicerce?
-          </h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-center text-alicerce-blue mb-6">Por que ser um(a) instrutor(a) Alicerce?</h2>
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {benefits.map((benefit, index) => (
-            <div 
-              key={benefit.title} 
-              className={`bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border-t-4 ${
-                index % 5 === 0 ? 'border-red-500' : 
-                index % 5 === 1 ? 'border-yellow-500' : 
-                index % 5 === 2 ? 'border-green-500' : 
-                index % 5 === 3 ? 'border-blue-500' : 
-                'border-purple-500'
-              }`}
-            >
-              <benefit.icon className={`h-12 w-12 mb-4 ${
-                index % 5 === 0 ? 'text-red-500' : 
-                index % 5 === 1 ? 'text-yellow-500' : 
-                index % 5 === 2 ? 'text-green-500' : 
-                index % 5 === 3 ? 'text-blue-500' : 
-                'text-purple-500'
-              }`} />
+          {benefits.map((benefit, index) => <div key={benefit.title} className={`bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border-t-4 ${index % 5 === 0 ? 'border-red-500' : index % 5 === 1 ? 'border-yellow-500' : index % 5 === 2 ? 'border-green-500' : index % 5 === 3 ? 'border-blue-500' : 'border-purple-500'}`}>
+              <benefit.icon className={`h-12 w-12 mb-4 ${index % 5 === 0 ? 'text-red-500' : index % 5 === 1 ? 'text-yellow-500' : index % 5 === 2 ? 'text-green-500' : index % 5 === 3 ? 'text-blue-500' : 'text-purple-500'}`} />
               <h3 className="text-xl font-bold text-alicerce-blue mb-3 text-left">{benefit.title}</h3>
               <p className="text-gray-700 text-left">{benefit.description}</p>
-            </div>
-          ))}
+            </div>)}
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default BenefitsSection;
