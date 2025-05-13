@@ -18,7 +18,7 @@ const HeroSection: React.FC = () => {
       
       <div className="section-container relative z-10">
         <div className="grid md:grid-cols-2 gap-8 items-center">
-          <div className="text-left space-y-8 animate-fade-in">
+          <div className="text-center md:text-left space-y-8 animate-fade-in">
             <div className="inline-block bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
               <span className="text-white font-medium">Processo Seletivo Contínuo</span>
             </div>
@@ -33,7 +33,7 @@ const HeroSection: React.FC = () => {
               e cheio de oportunidades.
             </p>
             
-            <div className="flex justify-center md:justify-start mt-10">
+            <div className="flex justify-center mt-10">
               <Button 
                 className="bg-white text-alicerce-orange hover:bg-gray-100 px-8 py-6 text-lg font-semibold rounded-md transition-all transform hover:scale-105 shadow-lg"
                 onClick={scrollToApplicationForm}
@@ -74,12 +74,12 @@ const HeroSection: React.FC = () => {
         </div>
 
         <div className="bg-white/10 backdrop-blur-sm p-8 rounded-lg mt-14 mx-auto max-w-4xl shadow-lg border border-white/20">
-          <div className="flex flex-col md:flex-row items-center gap-6">
+          <div className="flex flex-col md:flex-row items-center gap-6 text-center md:text-left">
             <div className="bg-white/20 p-3 rounded-full shrink-0 shadow-inner">
               <Globe className="text-white h-8 w-8" />
             </div>
-            <div className="text-left">
-              <h3 className="font-bold text-xl mb-4 text-center md:text-left">Estamos no Brasil todo — e de portas abertas para você!</h3>
+            <div>
+              <h3 className="font-bold text-xl mb-4 text-center">Estamos no Brasil todo — e de portas abertas para você!</h3>
               <div className="space-y-4 opacity-90">
                 <p>
                   Nosso processo seletivo é contínuo, porque acreditamos que grandes 
