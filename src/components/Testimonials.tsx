@@ -64,7 +64,7 @@ const Testimonials: React.FC = () => {
             <p className="text-white text-lg mb-8">
               E com você, ela pode ir ainda mais longe. Vem mudar vidas com a gente!
             </p>
-            <div className="flex justify-center\n">
+            <div className="flex justify-center">
               <Button onClick={() => {
               const element = document.getElementById('application-form');
               if (element) {
