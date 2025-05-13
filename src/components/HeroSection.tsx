@@ -1,18 +1,16 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Globe } from 'lucide-react';
-
 const HeroSection: React.FC = () => {
   const scrollToApplicationForm = () => {
     const applicationForm = document.getElementById('apply-form');
     if (applicationForm) {
-      applicationForm.scrollIntoView({ behavior: 'smooth' });
+      applicationForm.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
   };
-
-  return (
-    <section className="bg-gradient-to-br from-alicerce-orange to-alicerce-purple text-white py-20 md:py-28 relative overflow-hidden">
+  return <section className="bg-gradient-to-br from-alicerce-orange to-alicerce-purple text-white py-20 md:py-28 relative overflow-hidden">
       {/* Background pattern overlay */}
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
       
@@ -23,9 +21,7 @@ const HeroSection: React.FC = () => {
               <span className="text-white font-medium">Processo Seletivo Contínuo</span>
             </div>
             
-            <h1 className="text-5xl md:text-6xl font-bold leading-tight">
-              Seja Protagonista da Educação no Brasil
-            </h1>
+            <h1 className="text-5xl md:text-6xl font-bold leading-tight">Seja Protagonista da Educação</h1>
             
             <p className="text-xl md:text-2xl opacity-90 mt-6">
               No Alicerce, você faz parte de algo maior. Aqui, reunimos 
@@ -34,10 +30,7 @@ const HeroSection: React.FC = () => {
             </p>
             
             <div className="flex justify-center mt-10">
-              <Button 
-                className="bg-white text-alicerce-orange hover:bg-gray-100 px-8 py-6 text-lg font-semibold rounded-md transition-all transform hover:scale-105 shadow-lg"
-                onClick={scrollToApplicationForm}
-              >
+              <Button className="bg-white text-alicerce-orange hover:bg-gray-100 px-8 py-6 text-lg font-semibold rounded-md transition-all transform hover:scale-105 shadow-lg" onClick={scrollToApplicationForm}>
                 QUERO ME INSCREVER AGORA
               </Button>
             </div>
@@ -46,28 +39,12 @@ const HeroSection: React.FC = () => {
           <div className="relative hidden md:block">
             <div className="grid grid-cols-2 gap-4 transform hover:scale-[1.02] transition-all duration-500">
               <div className="space-y-4">
-                <img 
-                  src="/lovable-uploads/0a6740fb-61b1-433a-800b-0c51038a9dcf.png" 
-                  alt="Educadora Alicerce com estudantes" 
-                  className="rounded-lg shadow-lg transform hover:scale-102 transition-all duration-300 h-48 w-full object-cover"
-                />
-                <img 
-                  src="/lovable-uploads/60f7d322-8ea9-4808-835e-4b919830b7a0.png" 
-                  alt="Educador Alicerce com alunas" 
-                  className="rounded-lg shadow-lg transform hover:scale-102 transition-all duration-300 h-64 w-full object-cover"
-                />
+                <img src="/lovable-uploads/0a6740fb-61b1-433a-800b-0c51038a9dcf.png" alt="Educadora Alicerce com estudantes" className="rounded-lg shadow-lg transform hover:scale-102 transition-all duration-300 h-48 w-full object-cover" />
+                <img src="/lovable-uploads/60f7d322-8ea9-4808-835e-4b919830b7a0.png" alt="Educador Alicerce com alunas" className="rounded-lg shadow-lg transform hover:scale-102 transition-all duration-300 h-64 w-full object-cover" />
               </div>
               <div className="mt-8 space-y-4">
-                <img 
-                  src="/lovable-uploads/2961ccd4-9643-4c05-ae2b-69a7509ffb9f.png" 
-                  alt="Educadora Alicerce orientando estudantes" 
-                  className="rounded-lg shadow-lg transform hover:scale-102 transition-all duration-300 h-64 w-full object-cover"
-                />
-                <img 
-                  src="/lovable-uploads/122d99a8-00df-48c8-ab2b-bb85c4778d08.png" 
-                  alt="Educadora Alicerce com estudantes sorridentes" 
-                  className="rounded-lg shadow-lg transform hover:scale-102 transition-all duration-300 h-48 w-full object-cover"
-                />
+                <img src="/lovable-uploads/2961ccd4-9643-4c05-ae2b-69a7509ffb9f.png" alt="Educadora Alicerce orientando estudantes" className="rounded-lg shadow-lg transform hover:scale-102 transition-all duration-300 h-64 w-full object-cover" />
+                <img src="/lovable-uploads/122d99a8-00df-48c8-ab2b-bb85c4778d08.png" alt="Educadora Alicerce com estudantes sorridentes" className="rounded-lg shadow-lg transform hover:scale-102 transition-all duration-300 h-48 w-full object-cover" />
               </div>
             </div>
           </div>
@@ -99,8 +76,6 @@ const HeroSection: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
