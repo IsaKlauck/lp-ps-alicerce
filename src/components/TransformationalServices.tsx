@@ -43,16 +43,15 @@ const TransformationalServices: React.FC = () => {
         
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {services.map((service, index) => 
-            <div key={service.title} className="relative pt-12">
-              {/* Icon circle positioned above the card with proper overflow */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-                <div className="bg-alicerce-blue rounded-full p-5 w-24 h-24 flex items-center justify-center shadow-lg">
-                  <service.icon className="h-12 w-12 text-white" strokeWidth={2} />
-                </div>
-              </div>
-              
-              <Card className="border-0 bg-alicerce-orange text-white hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 rounded-3xl">
-                <CardHeader className="pt-6 pb-4 text-center relative">
+            <div key={service.title} className="relative">
+              <Card className="border-0 bg-alicerce-orange text-white hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 rounded-3xl mt-12">
+                <CardHeader className="relative pt-16 pb-4 text-center">
+                  {/* Icon circle positioned to overlap the card border */}
+                  <div className="absolute -top-12 left-1/2 -translate-x-1/2 z-10">
+                    <div className="bg-alicerce-blue rounded-full p-5 w-24 h-24 flex items-center justify-center shadow-lg">
+                      <service.icon className="h-12 w-12 text-white" strokeWidth={2} />
+                    </div>
+                  </div>
                   <h3 className="text-2xl font-bold text-center">{service.title}</h3>
                 </CardHeader>
                 <CardContent className="pb-8 px-6">
