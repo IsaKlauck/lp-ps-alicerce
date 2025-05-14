@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { BookOpen, Users, ArrowDown } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -100,7 +99,7 @@ const ProfilePaths: React.FC = () => {
 
         {/* Important Information Section */}
         <div className="mt-12 max-w-4xl mx-auto bg-white rounded-xl shadow-md p-6 border-l-4 border-alicerce-purple">
-          <h3 className="text-xl font-bold text-alicerce-blue mb-4">📌 Importante:</h3>
+          <h3 className="text-xl font-bold text-alicerce-blue mb-4">Aqui no Alicerce, o vínculo não é empregatício, e sim de prestação de serviço. A contratação via PJ (MEI) permite mais autonomia e flexibilidade.</h3>
           <ul className="space-y-4 text-gray-700">
             <li className="flex items-start gap-3 text-left">
               <div className="h-2 w-2 rounded-full bg-alicerce-orange mt-2.5 flex-shrink-0"></div>
