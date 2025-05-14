@@ -5,6 +5,11 @@ import { Button } from './ui/button';
 import { Card, CardContent, CardHeader } from './ui/card';
 
 const services = [{
+  icon: Users,
+  title: "Educação Infantil",
+  subtitle: "Um lugar seguro para o desenvolvimento cognitivo",
+  description: "Os primeiros anos de vida são fundamentais para o desenvolvimento integral das crianças. Por isso, nosso foco está no desenvolvimento sensorial e cognitivo, proporcionando atividades que despertam a curiosidade, a criatividade e a capacidade de explorar o mundo ao redor. Em formato presencial, com flexibilidade de 4, 6, 8 ou 12 horas por dia."
+}, {
   icon: BookOpen,
   title: "Reforço Escolar",
   subtitle: "Um lugar seguro e um futuro para crianças e jovens",
@@ -14,11 +19,6 @@ const services = [{
   title: "Qualifica",
   subtitle: "Recuperar o tempo perdido e abrir novos horizontes para o sucesso",
   description: "Para jovens e adultos que precisam recuperar o tempo perdido, nosso programa de qualificação profissional foca na recuperação da base educacional e no desenvolvimento de habilidades técnicas e socioemocionais para garantir o sucesso de cada aluno. Também em formato presencial ou online e com a flexibilidade de 3x ou 5x na semana."
-}, {
-  icon: Users,
-  title: "Educação Infantil",
-  subtitle: "Um lugar seguro para o desenvolvimento cognitivo",
-  description: "Os primeiros anos de vida são fundamentais para o desenvolvimento integral das crianças. Por isso, nosso foco está no desenvolvimento sensorial e cognitivo, proporcionando atividades que despertam a curiosidade, a criatividade e a capacidade de explorar o mundo ao redor. Em formato presencial, com flexibilidade de 4, 6, 8 ou 12 horas por dia."
 }];
 
 const TransformationalServices: React.FC = () => {
