@@ -1,7 +1,8 @@
+
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { toast } from 'sonner';
+import { toast } from '@/components/ui/use-toast';
 import { Form } from '@/components/ui/form';
 import { Button } from '@/components/ui/button';
 import { Loader2 } from 'lucide-react';
@@ -12,7 +13,8 @@ import { EducationSection } from '@/components/form-sections/EducationSection';
 import { RelationshipSection } from '@/components/form-sections/RelationshipSection';
 import { useCepLookup } from '@/hooks/useCepLookup';
 
-const ZAPIER_WEBHOOK_URL = "https://hooks.zapier.com/hooks/catch/22670037/2pua5jv/";
+// Google Apps Script Web App URL
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbx6-DJv-tOCq9Qb3Lr69tpOIJXqkDCWl_ri2qc258_Ow9nZsfDz9AasbXnjjQ2G2keg/exec";
 
 const ApplicationForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -48,32 +50,68 @@ const ApplicationForm: React.FC = () => {
   const interestedInProject = form.watch('interestedInProject');
   const selectedProject = form.watch('projectUnit');
 
+  const prepareFormData = (data: FormSchema) => {
+    return {
+      PersonalDataSection: {
+        name: data.name || "",
+        email: data.email || "",
+        cpf: data.cpf || "",
+        birthDate: data.birthDate || "",
+        phone: data.phone || "",
+        cep: data.cep || "",
+        state: data.state || "",
+        city: data.city || "",
+        gender: data.gender || "",
+        ethnicity: data.ethnicity || ""
+      },
+      AccessibilitySection: {
+        hasDisability: data.hasDisability || "Não",
+        disabilityDetails: data.disabilityDetails || ""
+      },
+      RelationshipSection: {
+        howDidYouKnow: data.howDidYouKnow || "",
+        interestedInProject: data.interestedInProject || "Não",
+        projectUnit: data.projectUnit || ""
+      },
+      EducationSection: {
+        education: data.education || "",
+        academicBackground: data.academicBackground || "",
+        schoolType: data.schoolType.join(", ") || ""
+      },
+      submissionDate: new Date().toISOString()
+    };
+  };
+
   const onSubmit = async (data: FormSchema) => {
     setIsSubmitting(true);
     try {
       console.log('Form data submitted:', data);
       
-      // Format the data in a way that will map nicely to Google Sheets columns
-      const formattedData = {
-        ...data,
-        schoolType: data.schoolType.join(", "), // Convert array to comma-separated string
-        submissionDate: new Date().toISOString(),
-      };
+      // Format the data according to Google Script requirements
+      const formattedData = prepareFormData(data);
+      console.log('Formatted data:', formattedData);
       
-      const response = await fetch(ZAPIER_WEBHOOK_URL, {
+      const response = await fetch(GOOGLE_SCRIPT_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        mode: 'no-cors', // Required for Zapier webhooks
+        mode: 'no-cors', // Required for cross-origin requests
         body: JSON.stringify(formattedData),
       });
 
-      toast.success('Inscrição realizada com sucesso! Em breve entraremos em contato.');
+      toast({
+        title: "Sucesso!",
+        description: "Inscrição realizada com sucesso! Em breve entraremos em contato.",
+      });
       form.reset();
     } catch (error) {
       console.error('Erro ao enviar formulário:', error);
-      toast.error('Ocorreu um erro ao enviar sua inscrição. Por favor, tente novamente.');
+      toast({
+        title: "Erro",
+        description: "Ocorreu um erro ao enviar sua inscrição. Por favor, tente novamente.",
+        variant: "destructive",
+      });
     } finally {
       setIsSubmitting(false);
     }

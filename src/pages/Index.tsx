@@ -11,13 +11,11 @@ import FAQSection from '@/components/FAQSection';
 import ApplicationForm from '@/components/ApplicationForm';
 import Footer from '@/components/Footer';
 import TransformationalServices from '@/components/TransformationalServices';
-import { Toaster } from "@/components/ui/sonner";
 import ScrollTopButton from '@/components/ScrollTopButton';
 
 const Index = () => {
   return (
     <div className="min-h-screen">
-      <Toaster />
       <Navbar />
       <HeroSection />
       <PurposeSection />
