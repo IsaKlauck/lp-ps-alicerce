@@ -1,7 +1,9 @@
+
 import React from 'react';
 import { BookOpen, GraduationCap, Users } from 'lucide-react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardHeader } from './ui/card';
+
 const services = [{
   icon: BookOpen,
   title: "Reforço Escolar",
@@ -18,6 +20,7 @@ const services = [{
   subtitle: "Um lugar seguro para o desenvolvimento cognitivo",
   description: "Os primeiros anos de vida são fundamentais para o desenvolvimento integral das crianças. Por isso, nosso foco está no desenvolvimento sensorial e cognitivo, proporcionando atividades que despertam a curiosidade, a criatividade e a capacidade de explorar o mundo ao redor. Em formato presencial, com flexibilidade de 4, 6, 8 ou 12 horas por dia."
 }];
+
 const TransformationalServices: React.FC = () => {
   return <section className="bg-white py-16 md:py-24 relative overflow-hidden" id="servicos">
       {/* Background design elements */}
@@ -41,13 +44,12 @@ const TransformationalServices: React.FC = () => {
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {services.map((service, index) => <Card key={service.title} className="border-0 overflow-hidden bg-alicerce-orange text-white hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 rounded-3xl">
               <div className="relative">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-full p-4 border-4 border-alicerce-orange">
-                  <div className="rounded-full w-16 h-16 flex items-center justify-center">
-                    <service.icon className="h-10 w-10 text-alicerce-blue" />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
+                  <div className="bg-white rounded-full p-5 w-20 h-20 flex items-center justify-center">
+                    <service.icon className="h-10 w-10 text-alicerce-orange" />
                   </div>
                 </div>
                 <CardHeader className="pt-16 pb-4 text-center">
-                  
                   <h3 className="text-2xl font-bold text-center">{service.title}</h3>
                 </CardHeader>
                 <CardContent className="pb-8 px-6">
@@ -73,4 +75,5 @@ const TransformationalServices: React.FC = () => {
       </div>
     </section>;
 };
+
 export default TransformationalServices;
