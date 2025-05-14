@@ -1,9 +1,10 @@
 import React from 'react';
 import { BookOpen, Users, ArrowDown } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+
 const ProfilePaths: React.FC = () => {
   const scrollToApplicationForm = () => {
-    const applicationForm = document.getElementById('application-form');
+    const applicationForm = document.getElementById('apply-form');
     if (applicationForm) {
       applicationForm.scrollIntoView({
         behavior: 'smooth'
@@ -162,4 +163,5 @@ const ProfilePaths: React.FC = () => {
       </div>
     </section>;
 };
+
 export default ProfilePaths;
