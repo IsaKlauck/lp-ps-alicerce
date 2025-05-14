@@ -1,8 +1,6 @@
-
 import React from 'react';
 import { BookOpen, Users, ArrowDown } from 'lucide-react';
 import { Button } from "@/components/ui/button";
-
 const ProfilePaths: React.FC = () => {
   const scrollToApplicationForm = () => {
     const applicationForm = document.getElementById('application-form');
@@ -12,7 +10,6 @@ const ProfilePaths: React.FC = () => {
       });
     }
   };
-
   return <section className="bg-alicerce-gray py-16 md:py-24 relative" id="perfis">
       {/* Background design elements */}
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diamond-upholstery.png')] opacity-5"></div>
@@ -145,11 +142,11 @@ const ProfilePaths: React.FC = () => {
               </li>
               <li className="flex items-center gap-3 text-left">
                 <div className="h-2 w-2 rounded-full bg-alicerce-blue"></div>
-                <span>Desenvolver habilidades socioemocionais e didática</span>
+                <span>Ter acesso a benefícios exclusivos</span>
               </li>
               <li className="flex items-center gap-3 text-left">
                 <div className="h-2 w-2 rounded-full bg-alicerce-blue"></div>
-                <span>Se preparar para desafios dentro e fora da sala de aula</span>
+                <span>Obter um aumento na remuneração como instrutor</span>
               </li>
             </ul>
             <p className="text-lg font-semibold text-alicerce-blue text-center mt-6">
@@ -165,5 +162,4 @@ const ProfilePaths: React.FC = () => {
       </div>
     </section>;
 };
-
 export default ProfilePaths;
