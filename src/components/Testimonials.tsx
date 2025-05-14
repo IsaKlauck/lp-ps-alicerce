@@ -60,10 +60,8 @@ const Testimonials: React.FC = () => {
             <h3 className="text-2xl font-bold text-white mb-4">
               Pronto(a) para transformar vidas com a gente?
             </h3>
-            <p className="text-white text-xl mb-2">A educação transforma.</p>
-            <p className="text-white text-lg mb-8">
-              E com você, ela pode ir ainda mais longe. Vem mudar vidas com a gente!
-            </p>
+            <p className="text-white text-xl mb-2">A educação transforma e com você, ela pode ir ainda mais longe.</p>
+            <p className="text-white text-lg mb-8"> Venha mudar vidas com a gente!</p>
             <div className="flex justify-center">
               <Button onClick={() => {
               const element = document.getElementById('application-form');
