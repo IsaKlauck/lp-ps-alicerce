@@ -1,9 +1,7 @@
-
 import React from 'react';
 import { BookOpen, GraduationCap, Users } from 'lucide-react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardHeader } from './ui/card';
-
 const services = [{
   icon: Users,
   title: "Educação Infantil",
@@ -20,7 +18,6 @@ const services = [{
   subtitle: "Recuperar o tempo perdido e abrir novos horizontes para o sucesso",
   description: "Para jovens e adultos que precisam recuperar o tempo perdido, nosso programa de qualificação profissional foca na recuperação da base educacional e no desenvolvimento de habilidades técnicas e socioemocionais para garantir o sucesso de cada aluno. Também em formato presencial ou online e com a flexibilidade de 3x ou 5x na semana."
 }];
-
 const TransformationalServices: React.FC = () => {
   return <section className="bg-white py-16 md:py-24 relative overflow-hidden" id="servicos">
       {/* Background design elements */}
@@ -42,8 +39,7 @@ const TransformationalServices: React.FC = () => {
         </div>
         
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {services.map((service, index) => 
-            <div key={service.title} className="relative">
+          {services.map((service, index) => <div key={service.title} className="relative">
               <Card className="border-0 bg-alicerce-orange text-white hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 rounded-3xl mt-12">
                 <CardHeader className="relative pt-16 pb-4 text-center">
                   {/* Icon circle positioned to overlap the card border */}
@@ -59,8 +55,7 @@ const TransformationalServices: React.FC = () => {
                   <p className="text-white/90 text-sm">{service.description}</p>
                 </CardContent>
               </Card>
-            </div>
-          )}
+            </div>)}
         </div>
         
         <div className="flex justify-center mt-16">
@@ -78,5 +73,4 @@ const TransformationalServices: React.FC = () => {
       </div>
     </section>;
 };
-
 export default TransformationalServices;
