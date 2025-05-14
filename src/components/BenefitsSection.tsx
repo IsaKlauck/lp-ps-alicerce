@@ -1,5 +1,7 @@
+
 import React from 'react';
-import { Heart, TrendingUp, Users, GraduationCap, Star } from 'lucide-react';
+import { Heart, TrendingUp, Users, GraduationCap, Star, Briefcase } from 'lucide-react';
+
 const benefits = [{
   icon: Star,
   title: "Trabalhar com propósito",
@@ -20,7 +22,12 @@ const benefits = [{
   icon: Heart,
   title: "Impacto com afeto",
   description: "Aqui, ensinar vai além do conteúdo: é sobre transformar com intenção."
+}, {
+  icon: Briefcase,
+  title: "Flexibilidade com responsabilidade",
+  description: "Tenha autonomia para planejar sua rotina com propósito e impacto."
 }];
+
 const BenefitsSection: React.FC = () => {
   return <section className="bg-alicerce-gray py-16 md:py-24 relative" id="beneficios">
       {/* Background pattern */}
@@ -36,8 +43,8 @@ const BenefitsSection: React.FC = () => {
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {benefits.map((benefit, index) => <div key={benefit.title} className={`bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border-t-4 ${index % 5 === 0 ? 'border-red-500' : index % 5 === 1 ? 'border-yellow-500' : index % 5 === 2 ? 'border-green-500' : index % 5 === 3 ? 'border-blue-500' : 'border-purple-500'}`}>
-              <benefit.icon className={`h-12 w-12 mb-4 ${index % 5 === 0 ? 'text-red-500' : index % 5 === 1 ? 'text-yellow-500' : index % 5 === 2 ? 'text-green-500' : index % 5 === 3 ? 'text-blue-500' : 'text-purple-500'}`} />
+          {benefits.map((benefit, index) => <div key={benefit.title} className={`bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border-t-4 ${index % 6 === 0 ? 'border-red-500' : index % 6 === 1 ? 'border-yellow-500' : index % 6 === 2 ? 'border-green-500' : index % 6 === 3 ? 'border-blue-500' : index % 6 === 4 ? 'border-purple-500' : 'border-orange-500'}`}>
+              <benefit.icon className={`h-12 w-12 mb-4 ${index % 6 === 0 ? 'text-red-500' : index % 6 === 1 ? 'text-yellow-500' : index % 6 === 2 ? 'text-green-500' : index % 6 === 3 ? 'text-blue-500' : index % 6 === 4 ? 'text-purple-500' : 'text-orange-500'}`} />
               <h3 className="text-xl font-bold text-alicerce-blue mb-3 text-left">{benefit.title}</h3>
               <p className="text-gray-700 text-left">{benefit.description}</p>
             </div>)}
@@ -45,4 +52,5 @@ const BenefitsSection: React.FC = () => {
       </div>
     </section>;
 };
+
 export default BenefitsSection;
