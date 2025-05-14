@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { BookOpen, Users, ArrowDown } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -44,6 +45,10 @@ const ProfilePaths: React.FC = () => {
               <div className="space-y-3 border-t border-gray-200 pt-4">
                 <div className="flex items-center gap-2 text-left">
                   <div className="h-2 w-2 rounded-full bg-alicerce-blue"></div>
+                  <span><strong>Licenciado e com experiência em sala de aula</strong></span>
+                </div>
+                <div className="flex items-center gap-2 text-left">
+                  <div className="h-2 w-2 rounded-full bg-alicerce-blue"></div>
                   <span>Vagas presenciais e online</span>
                 </div>
                 <div className="flex items-center gap-2 text-left">
@@ -72,6 +77,10 @@ const ProfilePaths: React.FC = () => {
                 para crianças e jovens.
               </p>
               <div className="space-y-3 border-t border-gray-200 pt-4">
+                <div className="flex items-center gap-2 text-left">
+                  <div className="h-2 w-2 rounded-full bg-alicerce-orange"></div>
+                  <span><strong>Universitários ou recém formados de qualquer área</strong></span>
+                </div>
                 <div className="flex items-center gap-2 text-left">
                   <div className="h-2 w-2 rounded-full bg-alicerce-orange"></div>
                   <span>Vagas presenciais e online</span>
