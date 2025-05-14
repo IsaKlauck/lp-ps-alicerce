@@ -71,8 +71,8 @@ const SelectionProcess: React.FC = () => {
             <TooltipProvider key={index} delayDuration={300}>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <div className={`relative flex flex-row-reverse items-start mb-14 ${step.isLocked ? 'opacity-70' : ''} group`}>
-                    <div className={`rounded-full p-4 shadow-lg relative z-10 ml-6 bg-alicerce-blue group-hover:scale-110 transition-all duration-300`}>
+                  <div className="relative flex flex-row-reverse items-start mb-14 group">
+                    <div className="rounded-full p-4 shadow-lg relative z-10 ml-6 bg-alicerce-blue group-hover:scale-110 transition-all duration-300">
                       {step.icon}
                       {step.lockIcon}
                     </div>
