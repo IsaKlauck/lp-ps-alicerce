@@ -149,9 +149,7 @@ const ProfilePaths: React.FC = () => {
 
         <div className="text-center mt-14">
           <ArrowDown className="w-10 h-10 text-alicerce-orange mx-auto animate-bounce mb-6" />
-          <Button onClick={scrollToApplicationForm} className="bg-alicerce-orange hover:bg-orange-600 text-white px-8 py-6 text-lg font-semibold rounded-md transition-all transform hover:scale-105 shadow-lg">
-            QUERO ME INSCREVER
-          </Button>
+          <Button onClick={scrollToApplicationForm} className="bg-alicerce-orange hover:bg-orange-600 text-white px-8 py-6 text-lg font-semibold rounded-md transition-all transform hover:scale-105 shadow-lg">Quero ser um(a) instrutor(a) Alicerce</Button>
         </div>
       </div>
     </section>;
