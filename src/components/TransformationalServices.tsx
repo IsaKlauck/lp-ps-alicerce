@@ -2,22 +2,24 @@ import React from 'react';
 import { BookOpen, GraduationCap, Users } from 'lucide-react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardHeader } from './ui/card';
+
 const services = [{
   icon: Users,
   title: "Educação Infantil",
-  subtitle: "Um lugar seguro para o desenvolvimento cognitivo",
-  description: "Os primeiros anos de vida são fundamentais para o desenvolvimento integral das crianças. Por isso, nosso foco está no desenvolvimento sensorial e cognitivo, proporcionando atividades que despertam a curiosidade, a criatividade e a capacidade de explorar o mundo ao redor. Em formato presencial, com flexibilidade de 4, 6, 8 ou 12 horas por dia."
+  subtitle: "Forme a base do futuro de nossas crianças",
+  description: "Como instrutor(a) da Educação Infantil, você terá a oportunidade de trabalhar com o desenvolvimento sensorial e cognitivo das crianças em seus primeiros anos de vida. Você planejará e executará atividades que despertam a curiosidade, estimulam a criatividade e desenvolvem habilidades fundamentais. A posição oferece flexibilidade, podendo atuar 4, 6, 8 ou 12 horas diárias em formato presencial."
 }, {
   icon: BookOpen,
   title: "Reforço Escolar",
-  subtitle: "Um lugar seguro e um futuro para crianças e jovens",
-  description: "Para as crianças e jovens que buscam um lugar seguro e um futuro promissor, o contraturno escolar do Alicerce Educação oferece atividades que vão além das aulas tradicionais. Proporcionamos um ambiente acolhedor que estimula o desenvolvimento integral de cada aluno, em formato presencial ou online e com a flexibilidade de 3x ou 5x na semana."
+  subtitle: "Transforme vidas através do conhecimento",
+  description: "Como instrutor(a) do Reforço Escolar, você será responsável por criar um ambiente acolhedor e estimulante para crianças e jovens, ajudando-os a superar dificuldades acadêmicas e desenvolver todo seu potencial. Você terá a oportunidade de trabalhar com metodologias inovadoras que vão além do ensino tradicional, em formato presencial ou online, com flexibilidade de 3 ou 5 dias por semana."
 }, {
   icon: GraduationCap,
   title: "Qualifica",
-  subtitle: "Recuperar o tempo perdido e abrir novos horizontes para o sucesso",
-  description: "Para jovens e adultos que precisam recuperar o tempo perdido, nosso programa de qualificação profissional foca na recuperação da base educacional e no desenvolvimento de habilidades técnicas e socioemocionais para garantir o sucesso de cada aluno. Também em formato presencial ou online e com a flexibilidade de 3x ou 5x na semana."
+  subtitle: "Capacite jovens e adultos para o mercado de trabalho",
+  description: "Como instrutor(a) do programa Qualifica, você ajudará jovens e adultos a recuperarem sua base educacional e desenvolverem habilidades técnicas e socioemocionais essenciais para o mercado de trabalho. Seu papel será fundamental na transformação de vidas através da educação profissionalizante. A posição oferece flexibilidade de trabalho presencial ou online, 3 ou 5 dias por semana."
 }];
+
 const TransformationalServices: React.FC = () => {
   return <section className="bg-white py-16 md:py-24 relative overflow-hidden" id="servicos">
       {/* Background design elements */}
