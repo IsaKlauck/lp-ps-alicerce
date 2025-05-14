@@ -44,12 +44,12 @@ const TransformationalServices: React.FC = () => {
         <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {services.map((service, index) => <Card key={service.title} className="border-0 overflow-hidden bg-alicerce-orange text-white hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 rounded-3xl">
               <div className="relative">
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                  <div className="bg-alicerce-blue rounded-full p-4 w-20 h-20 flex items-center justify-center shadow-lg">
-                    <service.icon className="h-10 w-10 text-alicerce-orange" strokeWidth={2} />
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/3">
+                  <div className="bg-alicerce-blue rounded-full p-5 w-24 h-24 flex items-center justify-center shadow-lg">
+                    <service.icon className="h-12 w-12 text-white" strokeWidth={2} />
                   </div>
                 </div>
-                <CardHeader className="pt-16 pb-4 text-center">
+                <CardHeader className="pt-20 pb-4 text-center">
                   <h3 className="text-2xl font-bold text-center">{service.title}</h3>
                 </CardHeader>
                 <CardContent className="pb-8 px-6">
