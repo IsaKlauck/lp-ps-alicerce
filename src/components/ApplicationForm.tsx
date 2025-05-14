@@ -14,7 +14,7 @@ import { RelationshipSection } from '@/components/form-sections/RelationshipSect
 import { useCepLookup } from '@/hooks/useCepLookup';
 
 // Google Apps Script Web App URL
-const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwMhBkuiiPHU9wQ6BX2nqWRha2d_Y75s_ymOEOjp5AyBp2YaW0xiJTj_aCPv3g6vH8j/exec";
+const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzKYcvGclBmr5xh1ZSj8mKCkmAItlb_qRKSVtB12wUzOh7sy4KYeOz15DGeiHDqaWO-/exec";
 
 const ApplicationForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
