@@ -1,6 +1,8 @@
+
 import React from 'react';
 import { BookOpen, Users, ArrowDown } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+
 const ProfilePaths: React.FC = () => {
   const scrollToApplicationForm = () => {
     const applicationForm = document.getElementById('application-form');
@@ -10,6 +12,7 @@ const ProfilePaths: React.FC = () => {
       });
     }
   };
+
   return <section className="bg-alicerce-gray py-16 md:py-24 relative" id="perfis">
       {/* Background design elements */}
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diamond-upholstery.png')] opacity-5"></div>
@@ -28,44 +31,10 @@ const ProfilePaths: React.FC = () => {
         </div>
         
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {/* Guia Alicerce */}
-          <div className="bg-white rounded-xl shadow-md overflow-hidden card-hover transform transition-all hover:-translate-y-2 border border-alicerce-lightBlue">
-            <div className="bg-gradient-to-r from-alicerce-blue to-alicerce-blue/80 p-6 flex justify-between items-center">
-              <h3 className="text-2xl font-bold text-white">💼 Guia Alicerce</h3>
-              <BookOpen className="h-10 w-10 text-white" />
-            </div>
-            <div className="p-6 space-y-4">
-              <p className="text-gray-700 text-left border-l-4 border-alicerce-blue pl-4 italic">
-                Para profissionais com formação em licenciatura 
-                e experiência em sala de aula, da rede pública ou particular, 
-                formados em diversas áreas, focados no ensino 
-                de adultos que não concluíram os estudos.
-              </p>
-              <div className="space-y-3 border-t border-gray-200 pt-4">
-                <div className="flex items-center gap-2 text-left">
-                  <div className="h-2 w-2 rounded-full bg-alicerce-blue"></div>
-                  <span><strong>Licenciado e com experiência em sala de aula</strong></span>
-                </div>
-                <div className="flex items-center gap-2 text-left">
-                  <div className="h-2 w-2 rounded-full bg-alicerce-blue"></div>
-                  <span>Vagas presenciais e online</span>
-                </div>
-                <div className="flex items-center gap-2 text-left">
-                  <div className="h-2 w-2 rounded-full bg-alicerce-blue"></div>
-                  <span>Contratação como prestador(a) de serviço (PJ via MEI)</span>
-                </div>
-                <div className="flex items-center gap-2 font-semibold text-left">
-                  <div className="h-2 w-2 rounded-full bg-alicerce-blue"></div>
-                  <span>Valor hora: R$35,43</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Líder Alicerce */}
+          {/* Líder Alicerce - Now first */}
           <div className="bg-white rounded-xl shadow-md overflow-hidden card-hover transform transition-all hover:-translate-y-2 border border-alicerce-lightBlue">
             <div className="bg-gradient-to-r from-alicerce-orange to-alicerce-orange/80 p-6 flex justify-between items-center">
-              <h3 className="text-2xl font-bold text-white">✨ Líder Alicerce</h3>
+              <h3 className="text-2xl font-bold text-white">Líder Alicerce</h3>
               <Users className="h-10 w-10 text-white" />
             </div>
             <div className="p-6 space-y-4">
@@ -91,6 +60,40 @@ const ProfilePaths: React.FC = () => {
                 <div className="flex items-center gap-2 font-semibold text-left">
                   <div className="h-2 w-2 rounded-full bg-alicerce-orange"></div>
                   <span>Valor hora: R$17,71</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Guia Alicerce - Now second */}
+          <div className="bg-white rounded-xl shadow-md overflow-hidden card-hover transform transition-all hover:-translate-y-2 border border-alicerce-lightBlue">
+            <div className="bg-gradient-to-r from-alicerce-blue to-alicerce-blue/80 p-6 flex justify-between items-center">
+              <h3 className="text-2xl font-bold text-white">Guia Alicerce</h3>
+              <BookOpen className="h-10 w-10 text-white" />
+            </div>
+            <div className="p-6 space-y-4">
+              <p className="text-gray-700 text-left border-l-4 border-alicerce-blue pl-4 italic">
+                Para profissionais com formação em licenciatura 
+                e experiência em sala de aula, da rede pública ou particular, 
+                formados em diversas áreas, focados no ensino 
+                de adultos que não concluíram os estudos.
+              </p>
+              <div className="space-y-3 border-t border-gray-200 pt-4">
+                <div className="flex items-center gap-2 text-left">
+                  <div className="h-2 w-2 rounded-full bg-alicerce-blue"></div>
+                  <span><strong>Licenciado e com experiência em sala de aula</strong></span>
+                </div>
+                <div className="flex items-center gap-2 text-left">
+                  <div className="h-2 w-2 rounded-full bg-alicerce-blue"></div>
+                  <span>Vagas presenciais e online</span>
+                </div>
+                <div className="flex items-center gap-2 text-left">
+                  <div className="h-2 w-2 rounded-full bg-alicerce-blue"></div>
+                  <span>Contratação como prestador(a) de serviço (PJ via MEI)</span>
+                </div>
+                <div className="flex items-center gap-2 font-semibold text-left">
+                  <div className="h-2 w-2 rounded-full bg-alicerce-blue"></div>
+                  <span>Valor hora: R$35,43</span>
                 </div>
               </div>
             </div>
@@ -162,4 +165,5 @@ const ProfilePaths: React.FC = () => {
       </div>
     </section>;
 };
+
 export default ProfilePaths;
