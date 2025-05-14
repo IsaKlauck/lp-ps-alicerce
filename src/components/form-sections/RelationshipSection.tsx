@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Control } from 'react-hook-form';
 import { FormSchema } from '@/schemas/formSchema';
@@ -110,42 +109,16 @@ export const RelationshipSection: React.FC<RelationshipSectionProps> = ({
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Selecione a unidade/projeto*</FormLabel>
-                <Select onValueChange={field.onChange} value={field.value}>
-                  <FormControl>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Selecione um projeto" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    {projects.map((project) => (
-                      <SelectItem key={project.id} value={project.name}>
-                        {project.name}
-                      </SelectItem>
-                    ))}
-                    <SelectItem value="Outro">Outro</SelectItem>
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        )}
-
-        {selectedProject === 'Outro' && (
-          <FormField
-            control={control}
-            name="otherProject"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Especifique o projeto*</FormLabel>
                 <FormControl>
-                  <Input placeholder="Digite o nome do projeto" {...field} />
+                  <Input placeholder="Digite o nome da unidade ou projeto" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
         )}
+
+        {/* Remove the "otherProject" field since we're now using a text input for all projects */}
       </div>
     </div>
   );
