@@ -8,8 +8,8 @@ const benefits = [{
   description: "Você é mais que um instrutor: é exemplo, referência e agente de mudança."
 }, {
   icon: TrendingUp,
-  title: "Crescimento real",
-  description: "Formação contínua, apoio pedagógico e oportunidades de desenvolvimento."
+  title: "Propósito sem abrir mão da carreira",
+  description: "Oferecemos um trabalho com grande propósito mas com possibilidades de crescimento profissional exponenciais."
 }, {
   icon: GraduationCap,
   title: "Trilha de desenvolvimento pensada em você",
