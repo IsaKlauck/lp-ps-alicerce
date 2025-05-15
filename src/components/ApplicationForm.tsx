@@ -12,12 +12,21 @@ import { AccessibilitySection } from '@/components/form-sections/AccessibilitySe
 import { EducationSection } from '@/components/form-sections/EducationSection';
 import { RelationshipSection } from '@/components/form-sections/RelationshipSection';
 import { useCepLookup } from '@/hooks/useCepLookup';
+import { 
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogFooter
+} from '@/components/ui/dialog';
+import { AlertCircle } from 'lucide-react';
 
 // Google Apps Script Web App URL
 const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzKYcvGclBmr5xh1ZSj8mKCkmAItlb_qRKSVtB12wUzOh7sy4KYeOz15DGeiHDqaWO-/exec";
 
 const ApplicationForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
   
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
@@ -96,14 +105,11 @@ const ApplicationForm: React.FC = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        mode: 'no-cors', // Required for cross-origin requests
         body: JSON.stringify(formattedData),
       });
 
-      toast({
-        title: "Sucesso!",
-        description: "Inscrição realizada com sucesso! Em breve entraremos em contato.",
-      });
+      // Open the success modal
+      setIsSuccessModalOpen(true);
       form.reset();
     } catch (error) {
       console.error('Erro ao enviar formulário:', error);
@@ -170,6 +176,57 @@ const ApplicationForm: React.FC = () => {
               </div>
             </form>
           </Form>
+          
+          {/* Success Modal */}
+          <Dialog open={isSuccessModalOpen} onOpenChange={setIsSuccessModalOpen}>
+            <DialogContent className="sm:max-w-md">
+              <DialogHeader>
+                <DialogTitle className="text-center text-xl">
+                  Parabéns! Etapa 1 Concluída
+                </DialogTitle>
+              </DialogHeader>
+              <div className="flex flex-col items-center space-y-4 py-4">
+                <div className="rounded-full bg-green-100 p-3">
+                  <svg 
+                    className="h-6 w-6 text-green-600" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24" 
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path 
+                      strokeLinecap="round" 
+                      strokeLinejoin="round" 
+                      strokeWidth={2} 
+                      d="M5 13l4 4L19 7" 
+                    />
+                  </svg>
+                </div>
+                <div className="text-center space-y-2">
+                  <p>
+                    Sua inscrição foi recebida com sucesso!
+                  </p>
+                  <p>
+                    Por favor, verifique seu email para instruções sobre a próxima etapa do processo seletivo.
+                  </p>
+                  <div className="flex items-center justify-center mt-2 text-amber-600">
+                    <AlertCircle className="w-4 h-4 mr-1" />
+                    <p className="text-sm">
+                      Caso não receba o email nas próximas horas, entre em contato pelo email <a href="mailto:selecao@alicerceedu.com.br" className="underline text-blue-600">selecao@alicerceedu.com.br</a> ou com o representante Alicerce.
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <DialogFooter className="sm:justify-center">
+                <Button 
+                  onClick={() => setIsSuccessModalOpen(false)}
+                  className="bg-alicerce-orange hover:bg-orange-600 text-white font-medium"
+                >
+                  Entendi
+                </Button>
+              </DialogFooter>
+            </DialogContent>
+          </Dialog>
         </div>
       </div>
     </section>
