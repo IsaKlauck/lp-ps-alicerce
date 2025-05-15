@@ -12,17 +12,13 @@ export type FormattedData = {
 
 export const submitFormData = async (formattedData: FormattedData): Promise<void> => {
   try {
-    // Convert the data to a proper JSON string
-    const jsonData = JSON.stringify(formattedData);
-    
-    // Create a FormData object and append the JSON data
-    const formData = new FormData();
-    formData.append('data', jsonData);
-    
-    // Use fetch to send the data
+    // Send data as JSON directly
     const response = await fetch(GOOGLE_SCRIPT_URL, {
       method: 'POST',
-      body: formData,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(formattedData),
       mode: 'no-cors' // Use no-cors mode since this is a cross-domain request
     });
     
