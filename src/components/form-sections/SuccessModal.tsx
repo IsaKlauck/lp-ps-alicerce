@@ -51,7 +51,7 @@ export const SuccessModal: React.FC<SuccessModalProps> = ({ isOpen, onOpenChange
             <div className="flex items-center justify-center mt-2 text-amber-600">
               <AlertCircle className="w-4 h-4 mr-1" />
               <p className="text-sm">
-                Caso não receba o email nas próximas horas, entre em contato pelo email <a href="mailto:selecao@alicerceedu.com.br" className="underline text-blue-600">selecao@alicerceedu.com.br</a> ou com o representante Alicerce.
+                Caso não receba o email nas próximas horas, entre em contato pelo email <a href="mailto:selecao@alicerceedu.com.br" className="underline text-blue-600">selecao@alicerceedu.com.br</a> ou com o representante Alicerce que está em contato com você.
               </p>
             </div>
           </div>
