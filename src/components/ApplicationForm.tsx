@@ -100,13 +100,23 @@ const ApplicationForm: React.FC = () => {
       const formattedData = prepareFormData(data);
       console.log('Formatted data:', formattedData);
       
-      const response = await fetch(GOOGLE_SCRIPT_URL, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formattedData),
-      });
+      // Use jsonp approach by creating a form and submitting it
+      const form = document.createElement('form');
+      form.method = 'POST';
+      form.action = GOOGLE_SCRIPT_URL;
+      form.target = '_blank'; // This opens response in a new tab, can be set to 'none' or iframe name
+      
+      // Add data as a hidden input
+      const hiddenField = document.createElement('input');
+      hiddenField.type = 'hidden';
+      hiddenField.name = 'data';
+      hiddenField.value = JSON.stringify(formattedData);
+      form.appendChild(hiddenField);
+      
+      // Add the form to the page and submit it
+      document.body.appendChild(form);
+      form.submit();
+      document.body.removeChild(form);
 
       // Open the success modal
       setIsSuccessModalOpen(true);
