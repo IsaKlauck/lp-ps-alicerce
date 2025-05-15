@@ -6,7 +6,8 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-  DialogFooter
+  DialogFooter,
+  DialogDescription
 } from '@/components/ui/dialog';
 import { Button } from '@/components/ui/button';
 
@@ -23,6 +24,9 @@ export const SuccessModal: React.FC<SuccessModalProps> = ({ isOpen, onOpenChange
           <DialogTitle className="text-center text-xl">
             Parabéns! Etapa 1 Concluída
           </DialogTitle>
+          <DialogDescription className="text-center text-sm text-muted-foreground">
+            Sua inscrição foi recebida e está sendo processada.
+          </DialogDescription>
         </DialogHeader>
         <div className="flex flex-col items-center space-y-4 py-4">
           <div className="rounded-full bg-green-100 p-3">

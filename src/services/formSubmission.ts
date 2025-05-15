@@ -11,21 +11,26 @@ export type FormattedData = {
 };
 
 export const submitFormData = async (formattedData: FormattedData): Promise<void> => {
-  // Use jsonp approach by creating a form and submitting it
-  const form = document.createElement('form');
-  form.method = 'POST';
-  form.action = GOOGLE_SCRIPT_URL;
-  form.target = '_blank'; // This opens response in a new tab, can be set to 'none' or iframe name
-  
-  // Add data as a hidden input
-  const hiddenField = document.createElement('input');
-  hiddenField.type = 'hidden';
-  hiddenField.name = 'data';
-  hiddenField.value = JSON.stringify(formattedData);
-  form.appendChild(hiddenField);
-  
-  // Add the form to the page and submit it
-  document.body.appendChild(form);
-  form.submit();
-  document.body.removeChild(form);
+  try {
+    // Convert the data to a proper JSON string
+    const jsonData = JSON.stringify(formattedData);
+    
+    // Create a FormData object and append the JSON data
+    const formData = new FormData();
+    formData.append('data', jsonData);
+    
+    // Use fetch to send the data
+    const response = await fetch(GOOGLE_SCRIPT_URL, {
+      method: 'POST',
+      body: formData,
+      mode: 'no-cors' // Use no-cors mode since this is a cross-domain request
+    });
+    
+    // Note: With no-cors mode, we can't access the response content
+    console.log('Form submitted successfully');
+    
+  } catch (error) {
+    console.error('Error submitting form:', error);
+    throw error;
+  }
 };
