@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -62,7 +61,7 @@ const ApplicationForm: React.FC = () => {
       const formattedData = prepareFormData(data);
       console.log('Formatted data:', formattedData);
       
-      // Submit the form data
+      // Submit the form data with JSON
       await submitFormData(formattedData);
 
       // Show success toast
