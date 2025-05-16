@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -59,10 +60,11 @@ const ApplicationForm: React.FC = () => {
       
       // Format the data according to Google Script requirements
       const formattedData = prepareFormData(data);
-      console.log('Formatted data:', formattedData);
+      console.log('Formatted data being sent:', formattedData);
       
       // Submit the form data with JSON
       await submitFormData(formattedData);
+      console.log('Form submission request completed');
 
       // Show success toast
       toast({
