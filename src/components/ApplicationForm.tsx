@@ -14,10 +14,12 @@ import { useCepLookup } from '@/hooks/useCepLookup';
 import { SuccessModal } from '@/components/form-sections/SuccessModal';
 import { useFormDataPreparation } from '@/hooks/useFormDataPreparation';
 import { submitFormData } from '@/services/formSubmission';
+import { useToast } from '@/components/ui/use-toast';
 
 const ApplicationForm: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccessModalOpen, setIsSuccessModalOpen] = useState(false);
+  const { toast } = useToast();
   
   const form = useForm<FormSchema>({
     resolver: zodResolver(formSchema),
@@ -63,11 +65,26 @@ const ApplicationForm: React.FC = () => {
       // Submit the form data
       await submitFormData(formattedData);
 
+      // Show success toast
+      toast({
+        title: "Formulário enviado",
+        description: "Sua inscrição foi recebida com sucesso!",
+        duration: 5000,
+      });
+
       // Open the success modal
       setIsSuccessModalOpen(true);
       form.reset();
     } catch (error) {
       console.error('Erro ao enviar formulário:', error);
+      
+      // Show error toast
+      toast({
+        title: "Erro ao enviar formulário",
+        description: "Ocorreu um erro ao enviar seu formulário. Por favor, tente novamente.",
+        variant: "destructive",
+        duration: 5000,
+      });
     } finally {
       setIsSubmitting(false);
     }

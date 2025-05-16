@@ -12,17 +12,28 @@ export type FormattedData = {
 
 export const submitFormData = async (formattedData: FormattedData): Promise<void> => {
   try {
-    // Send data as JSON directly
+    // Format the data as a regular form submission - Google Apps Script often handles this better
+    const formData = new FormData();
+    
+    // Add the JSON data as a single parameter
+    formData.append('data', JSON.stringify(formattedData));
+    
+    // Use a hybrid approach - send data as FormData but with JSON inside
     const response = await fetch(GOOGLE_SCRIPT_URL, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formattedData),
-      mode: 'no-cors' // Use no-cors mode since this is a cross-domain request
+      body: formData,
+      // Don't set Content-Type header - let the browser set it with the boundary
     });
     
-    // Note: With no-cors mode, we can't access the response content
+    console.log('Form submission response status:', response.status);
+    console.log('Form data sent:', formattedData);
+    
+    // Even though we can't see the response content with CORS limitations,
+    // we can at least check if the request was sent
+    if (!response.ok && response.status !== 0) {
+      throw new Error(`Form submission failed with status: ${response.status}`);
+    }
+    
     console.log('Form submitted successfully');
     
   } catch (error) {
