@@ -32,8 +32,8 @@ export const EducationSection: React.FC<EducationSectionProps> = ({ control }) =
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  <SelectItem value="Superior Completo">Ensino Superior Completo</SelectItem>
                   <SelectItem value="Superior Cursando">Ensino Superior Cursando</SelectItem>
+                  <SelectItem value="Superior Concluido">Ensino Superior Concluído</SelectItem>
                   <SelectItem value="Pós-graduação">Pós-graduação</SelectItem>
                 </SelectContent>
               </Select>
@@ -42,7 +42,7 @@ export const EducationSection: React.FC<EducationSectionProps> = ({ control }) =
           )}
         />
 
-        {selectedEducation === 'Superior Completo' && (
+        {selectedEducation === 'Superior Concluido' && (
           <FormField
             control={control}
             name="completionYear"
@@ -87,10 +87,10 @@ export const EducationSection: React.FC<EducationSectionProps> = ({ control }) =
           name="academicBackground"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Formação Acadêmica*</FormLabel>
+              <FormLabel>Formação Acadêmica* (curso e instituição)</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="Ex: Direito - UFMG, 2020"
+                  placeholder="Ex: Direito - Universidade Federal de Minas Gerais"
                   className="resize-none"
                   {...field}
                 />

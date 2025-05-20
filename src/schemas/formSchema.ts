@@ -1,4 +1,3 @@
-
 import * as z from 'zod';
 
 export const formSchema = z.object({
@@ -67,7 +66,7 @@ export const formSchema = z.object({
     path: ["otherProject"],
   }
 ).refine(
-  (data) => !(data.education === 'Superior Completo' && !data.completionYear), {
+  (data) => !(data.education === 'Superior Concluido' && !data.completionYear), {
     message: "Por favor, informe o ano de conclusão",
     path: ["completionYear"],
   }
