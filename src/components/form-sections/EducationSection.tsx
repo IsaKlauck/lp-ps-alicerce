@@ -6,12 +6,15 @@ import { FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/comp
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
+import { Input } from '@/components/ui/input';
 
 interface EducationSectionProps {
   control: Control<FormSchema>;
 }
 
 export const EducationSection: React.FC<EducationSectionProps> = ({ control }) => {
+  const selectedEducation = control._formValues?.education || '';
+
   return (
     <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
       <h3 className="text-xl font-semibold text-alicerce-blue mb-6">3. Educação</h3>
@@ -29,10 +32,8 @@ export const EducationSection: React.FC<EducationSectionProps> = ({ control }) =
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  <SelectItem value="Ensino Fundamental">Ensino Fundamental</SelectItem>
-                  <SelectItem value="Ensino Médio">Ensino Médio</SelectItem>
-                  <SelectItem value="Superior Incompleto">Superior Incompleto</SelectItem>
-                  <SelectItem value="Superior Completo">Superior Completo</SelectItem>
+                  <SelectItem value="Superior Completo">Ensino Superior Completo</SelectItem>
+                  <SelectItem value="Superior Cursando">Ensino Superior Cursando</SelectItem>
                   <SelectItem value="Pós-graduação">Pós-graduação</SelectItem>
                 </SelectContent>
               </Select>
@@ -40,6 +41,46 @@ export const EducationSection: React.FC<EducationSectionProps> = ({ control }) =
             </FormItem>
           )}
         />
+
+        {selectedEducation === 'Superior Completo' && (
+          <FormField
+            control={control}
+            name="completionYear"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Ano de Conclusão*</FormLabel>
+                <FormControl>
+                  <Input
+                    type="text"
+                    placeholder="Ex: 2022"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        )}
+
+        {selectedEducation === 'Superior Cursando' && (
+          <FormField
+            control={control}
+            name="expectedCompletionYear"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Previsão de Conclusão*</FormLabel>
+                <FormControl>
+                  <Input
+                    type="text"
+                    placeholder="Ex: 2025"
+                    {...field}
+                  />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        )}
 
         <FormField
           control={control}

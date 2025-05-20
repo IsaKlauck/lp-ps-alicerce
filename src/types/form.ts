@@ -15,6 +15,8 @@ export type FormData = {
   hasDisability: string;
   disabilityDetails?: string;
   education: string;
+  completionYear?: string;
+  expectedCompletionYear?: string;
   academicBackground: string;
   schoolType: string[];
   howDidYouKnow: string;

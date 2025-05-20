@@ -28,6 +28,8 @@ export const useFormDataPreparation = () => {
       },
       EducationSection: {
         education: data.education || "",
+        completionYear: data.completionYear || "",
+        expectedCompletionYear: data.expectedCompletionYear || "",
         academicBackground: data.academicBackground || "",
         schoolType: data.schoolType.join(", ") || ""
       },

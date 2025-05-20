@@ -25,6 +25,8 @@ export const formSchema = z.object({
   hasDisability: z.string(),
   disabilityDetails: z.string().optional(),
   education: z.string().min(1, { message: "Grau de escolaridade é obrigatório" }),
+  completionYear: z.string().optional(),
+  expectedCompletionYear: z.string().optional(),
   academicBackground: z.string().min(3, { message: "Formação acadêmica é obrigatória" }),
   schoolType: z.array(z.string()).refine(value => value.length > 0, {
     message: "Selecione pelo menos um tipo de escola",
@@ -63,6 +65,16 @@ export const formSchema = z.object({
   (data) => !(data.projectUnit === 'Outro' && !data.otherProject), {
     message: "Por favor, especifique o projeto",
     path: ["otherProject"],
+  }
+).refine(
+  (data) => !(data.education === 'Superior Completo' && !data.completionYear), {
+    message: "Por favor, informe o ano de conclusão",
+    path: ["completionYear"],
+  }
+).refine(
+  (data) => !(data.education === 'Superior Cursando' && !data.expectedCompletionYear), {
+    message: "Por favor, informe a previsão de conclusão",
+    path: ["expectedCompletionYear"],
   }
 );
 
