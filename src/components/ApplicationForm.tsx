@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -37,7 +36,7 @@ const ApplicationForm: React.FC = () => {
       hasDisability: 'Não',
       education: '',
       academicBackground: '',
-      schoolType: [],
+      schoolType: [''],
       howDidYouKnow: '',
       interestedInProject: 'Não',
     },

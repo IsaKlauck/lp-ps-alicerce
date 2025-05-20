@@ -5,7 +5,7 @@ import { FormSchema } from '@/schemas/formSchema';
 import { FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
-import { Checkbox } from '@/components/ui/checkbox';
+import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 
 interface EducationSectionProps {
   control: Control<FormSchema>;
@@ -65,29 +65,26 @@ export const EducationSection: React.FC<EducationSectionProps> = ({ control }) =
           render={({ field }) => (
             <FormItem>
               <FormLabel>Tipo de Escola no Ensino Básico*</FormLabel>
-              <div className="space-y-2">
-                {[
-                  { id: 'public', label: 'Pública' },
-                  { id: 'private', label: 'Particular sem bolsa' },
-                  { id: 'scholarship', label: 'Particular com bolsa' },
-                ].map((option) => (
-                  <div key={option.id} className="flex items-center space-x-2">
-                    <Checkbox
-                      id={option.id}
-                      checked={field.value?.includes(option.label)}
-                      onCheckedChange={(checked) => {
-                        const currentValue = field.value || [];
-                        if (checked) {
-                          field.onChange([...currentValue, option.label]);
-                        } else {
-                          field.onChange(currentValue.filter((value) => value !== option.label));
-                        }
-                      }}
-                    />
-                    <label htmlFor={option.id}>{option.label}</label>
-                  </div>
-                ))}
-              </div>
+              <FormControl>
+                <RadioGroup
+                  onValueChange={(value) => field.onChange([value])}
+                  value={field.value?.[0] || ""}
+                  className="space-y-2"
+                >
+                  {[
+                    { id: 'public', label: 'Pública' },
+                    { id: 'private', label: 'Particular sem bolsa' },
+                    { id: 'scholarship', label: 'Particular com bolsa' },
+                  ].map((option) => (
+                    <div key={option.id} className="flex items-center space-x-2">
+                      <RadioGroupItem value={option.label} id={option.id} />
+                      <label htmlFor={option.id} className="text-sm font-medium">
+                        {option.label}
+                      </label>
+                    </div>
+                  ))}
+                </RadioGroup>
+              </FormControl>
               <FormMessage />
             </FormItem>
           )}
