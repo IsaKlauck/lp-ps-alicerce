@@ -1,7 +1,8 @@
 
 import React from 'react';
-import { Lock, LockOpen, FileText, CheckSquare, FileUp, Users, GraduationCap } from 'lucide-react';
+import { Lock, LockOpen, FileText, CheckSquare, FileUp, Users, GraduationCap, AlertCircle } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 
 const SelectionProcess: React.FC = () => {
   const steps = [
@@ -65,6 +66,14 @@ const SelectionProcess: React.FC = () => {
         </div>
         
         <div className="relative max-w-3xl mx-auto">
+          <Alert variant="default" className="mb-8 border-amber-300 bg-amber-50">
+            <AlertCircle className="h-5 w-5 text-amber-600" />
+            <AlertTitle className="text-amber-800">Atenção</AlertTitle>
+            <AlertDescription className="text-amber-700">
+              Todas as etapas do processo seletivo são eliminatórias. É necessário ser aprovado em cada fase para avançar à próxima.
+            </AlertDescription>
+          </Alert>
+          
           <div className="absolute top-0 bottom-0 right-[42px] w-1 bg-alicerce-blue rounded-full"></div>
           
           {steps.map((step, index) => (
