@@ -25,7 +25,7 @@ const Navbar: React.FC = () => {
     { name: "Serviços", href: "#servicos" },
     { name: "Benefícios", href: "#beneficios" },
     { name: "Oportunidades", href: "#perfis" },
-    { name: "Processo Seletivo", href: "#processo" },
+    { name: "Processo", href: "#processo" },
     { name: "FAQ", href: "#faq" },
   ];
 
@@ -61,7 +61,7 @@ const Navbar: React.FC = () => {
                 e.preventDefault();
                 scrollToSection(link.href.substring(1));
               }}
-              className={`font-medium hover:text-alicerce-orange transition-colors duration-300 hover:scale-105 ${
+              className={`font-medium hover:text-alicerce-orange transition-colors duration-300 transform hover:scale-105 ${
                 isScrolled 
                   ? 'text-alicerce-blue' 
                   : 'text-white'
@@ -75,7 +75,7 @@ const Navbar: React.FC = () => {
             <Button
               className={`${
                 isScrolled 
-                  ? 'bg-alicerce-orange' 
+                  ? 'bg-alicerce-orange text-white' 
                   : 'bg-white text-alicerce-orange'
               } hover:bg-orange-600 hover:text-white transition-all duration-300 transform hover:scale-105 font-medium px-6 shadow-md`}
               onClick={() => scrollToSection('apply-form')}

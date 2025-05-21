@@ -9,42 +9,42 @@ const SelectionProcess: React.FC = () => {
     {
       title: "Inscrição",
       icon: <FileText className="h-10 w-10 text-white" />,
-      description: "Preencha o formulário e conte sobre sua trajetória e interesse em transformar a educação com a gente.",
+      description: "Compartilhe sua trajetória e o que te motiva a transformar a educação conosco.",
       isLocked: false,
       lockIcon: <LockOpen className="h-6 w-6 text-green-500 absolute -top-2 -right-2" />
     },
     {
       title: "MAPA - Prova de Conhecimento",
       icon: <CheckSquare className="h-10 w-10 text-white" />,
-      description: "Avaliamos seus conhecimentos em conteúdos essenciais. Queremos que você se sinta confiante para ensinar.",
+      description: "Avaliação de conhecimentos essenciais para garantir que você se sinta preparado para ensinar.",
       isLocked: false,
       lockIcon: <LockOpen className="h-6 w-6 text-green-500 absolute -top-2 -right-2" />
     },
     {
       title: "Envio de Documentos",
       icon: <FileUp className="h-10 w-10 text-white" />,
-      description: "Caso tenha bom desempenho na prova, você envia currículo e comprovações de formação ou matrícula.",
+      description: "Após bom desempenho na prova, envie seu currículo e comprovações acadêmicas.",
       isLocked: true,
       lockIcon: <Lock className="h-6 w-6 text-gray-400 absolute -top-2 -right-2" />
     },
     {
       title: "Triagem Curricular",
       icon: <CheckSquare className="h-10 w-10 text-white" />,
-      description: "Nosso time analisa seu perfil e experiências.",
+      description: "Nossa equipe analisa cuidadosamente seu perfil e experiências.",
       isLocked: true,
       lockIcon: <Lock className="h-6 w-6 text-gray-400 absolute -top-2 -right-2" />
     },
     {
       title: "Entrevista",
       icon: <Users className="h-10 w-10 text-white" />,
-      description: "Uma conversa para nos conhecermos melhor e entendermos seu alinhamento com nossos valores.",
+      description: "Um bate-papo para conhecermos melhor você e seu alinhamento com nossos valores.",
       isLocked: true,
       lockIcon: <Lock className="h-6 w-6 text-gray-400 absolute -top-2 -right-2" />
     },
     {
       title: "Formação Inicial",
       icon: <GraduationCap className="h-10 w-10 text-white" />,
-      description: "Você recebe a Formação Pedagógica Alicerce e começa sua jornada de impacto na educação.",
+      description: "Receba a Formação Pedagógica Alicerce e comece sua jornada de impacto na educação.",
       isLocked: true,
       lockIcon: <Lock className="h-6 w-6 text-gray-400 absolute -top-2 -right-2" />
     }
@@ -62,7 +62,11 @@ const SelectionProcess: React.FC = () => {
             <span className="text-alicerce-teal font-medium">Jornada de seleção</span>
           </div>
           
-          <h2 className="section-title text-center">Etapas do Processo Seletivo</h2>
+          <h2 className="section-title text-center">Como Se Tornar um Educador Alicerce</h2>
+          
+          <p className="text-center text-lg text-gray-700 max-w-3xl mx-auto mt-4">
+            Conheça o passo a passo do nosso processo seletivo contínuo.
+          </p>
         </div>
         
         <div className="relative max-w-3xl mx-auto">
@@ -94,7 +98,7 @@ const SelectionProcess: React.FC = () => {
                 <TooltipContent side="left" className="max-w-[250px] p-4 bg-alicerce-blue text-white">
                   <p>{step.description}</p>
                   {step.isLocked ? (
-                    <div className="mt-2 text-sm text-yellow-200">Esta etapa é desbloqueada após concluir as etapas anteriores.</div>
+                    <div className="mt-2 text-sm text-yellow-200">Esta etapa é desbloqueada após concluir as anteriores.</div>
                   ) : (
                     <div className="mt-2 text-sm text-green-200">Esta etapa está disponível para você agora!</div>
                   )}

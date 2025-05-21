@@ -2,6 +2,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Globe } from 'lucide-react';
+
 const HeroSection: React.FC = () => {
   const scrollToApplicationForm = () => {
     const applicationForm = document.getElementById('apply-form');
@@ -11,7 +12,9 @@ const HeroSection: React.FC = () => {
       });
     }
   };
-  return <section className="bg-gradient-to-br from-alicerce-orange to-alicerce-purple text-white py-20 md:py-28 relative overflow-hidden">
+  
+  return (
+    <section className="bg-gradient-to-br from-alicerce-orange to-alicerce-purple text-white py-20 md:py-28 relative overflow-hidden">
       {/* Background pattern overlay */}
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
       
@@ -22,17 +25,20 @@ const HeroSection: React.FC = () => {
               <span className="text-white font-medium">Processo Seletivo Contínuo</span>
             </div>
             
-            <h1 className="text-5xl md:text-6xl font-bold leading-tight">Seja Protagonista da Educação</h1>
+            <h1 className="text-5xl md:text-6xl font-bold leading-tight">Transforme Vidas pela Educação</h1>
             
             <p className="text-xl md:text-2xl opacity-90 mt-6">
-              No Alicerce, você faz parte de algo maior. Aqui, reunimos 
-              instrutores(as) que acreditam num Brasil mais justo 
-              e cheio de oportunidades.
+              No Alicerce, você faz parte de algo maior. Junte-se a educadores 
+              apaixonados construindo um Brasil mais justo através do poder 
+              transformador do conhecimento.
             </p>
             
-            <div className="flex justify-center mt-10">
-              <Button className="bg-white text-alicerce-orange hover:bg-gray-100 px-8 py-6 text-lg font-semibold rounded-md transition-all transform hover:scale-105 shadow-lg" onClick={scrollToApplicationForm}>
-                QUERO ME INSCREVER AGORA
+            <div className="flex justify-center md:justify-start mt-10">
+              <Button 
+                className="bg-white text-alicerce-orange hover:bg-gray-100 px-8 py-6 text-lg font-semibold rounded-md transition-all transform hover:scale-105 hover:shadow-xl shadow-lg" 
+                onClick={scrollToApplicationForm}
+              >
+                COMECE SUA JORNADA AGORA
               </Button>
             </div>
           </div>
@@ -57,26 +63,27 @@ const HeroSection: React.FC = () => {
               <Globe className="text-white h-8 w-8" />
             </div>
             <div>
-              <h3 className="font-bold text-xl mb-4 text-center">Estamos no Brasil todo — e de portas abertas para você!</h3>
+              <h3 className="font-bold text-xl mb-4">Oportunidades em Todo o Brasil</h3>
               <div className="space-y-4 opacity-90">
                 <p>
-                  Nosso processo seletivo é contínuo, porque acreditamos que grandes 
-                  educadores merecem grandes oportunidades, o ano inteiro.
+                  Nosso processo seletivo está sempre aberto, porque acreditamos que grandes 
+                  talentos merecem grandes oportunidades, o ano inteiro.
                 </p>
                 <p>
-                  Temos polos espalhados por todo o país, e mesmo que não haja uma vaga 
-                  imediata na sua região, seu perfil pode entrar para o nosso 
-                  banco de talentos.
+                  Com polos em diversas regiões do país, mesmo sem vagas imediatas na sua localidade, 
+                  seu perfil pode fazer parte do nosso banco de talentos para futuras oportunidades.
                 </p>
                 <p>
-                  Se você compartilha da nossa paixão por transformar vidas por meio 
-                  da educação, venha fazer parte desse movimento com a gente.
+                  Se você acredita na educação como caminho para transformar realidades,
+                  venha ser parte desse movimento com a gente.
                 </p>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default HeroSection;

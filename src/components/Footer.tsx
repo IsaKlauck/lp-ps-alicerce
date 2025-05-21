@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
           <div className="space-y-4">
             <AlicerceLogo className="mb-6" darkBackground={true} />
             <p className="text-lg opacity-90">
-              "O Alicerce acredita no poder da educação que transforma vidas."
+              "Através da educação, transformamos vidas e construímos um Brasil mais justo."
             </p>
             
             <div className="flex space-x-4 mt-6">
@@ -50,12 +50,12 @@ const Footer: React.FC = () => {
               href="https://alicerceedu.com.br" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="inline-block btn-secondary bg-transparent text-white border-white hover:bg-white/10"
+              className="inline-block bg-transparent text-white border border-white hover:bg-white/10 px-6 py-3 rounded-md transition-all"
             >
-              Visite nosso site principal
+              Conheça mais sobre o Alicerce
             </a>
 
-            <p className="mt-4 text-sm opacity-70">
+            <p className="mt-6 text-sm opacity-70">
               © {new Date().getFullYear()} Alicerce Educação. Todos os direitos reservados.
             </p>
           </div>

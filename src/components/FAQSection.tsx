@@ -11,27 +11,27 @@ const FAQSection: React.FC = () => {
   const faqs = [
     {
       question: "Quem pode se inscrever?",
-      answer: "Temos vagas para professores formados ou em formação e para universitários com até 30 anos. Cada perfil tem requisitos específicos, mas ambos podem se inscrever em nosso processo contínuo."
+      answer: "Recebemos inscrições de professores formados ou em formação e de universitários com até 30 anos. Cada perfil tem requisitos específicos, alinhados com nossas diferentes oportunidades."
     },
     {
       question: "Como funciona o MAPA?",
-      answer: "O processo começa com a inscrição no processo seletivo. Em seguida, os candidatos devem realizar o MAPA (uma avaliação divididos em três trilhas): Leitura, Matemática e Inglês (opcional)."
+      answer: "O MAPA é nossa avaliação de conhecimentos, dividida em três trilhas: Leitura, Matemática e Inglês (opcional). É uma etapa importante do processo seletivo que acontece após sua inscrição inicial."
     },
     {
       question: "Preciso ter experiência?",
-      answer: "Para o Produto Qualifica, preferimos candidatos com experiência prévia na área educacional. Já para o Produto Reforço, aceitamos candidatos sem experiência anterior, desde que demonstrem paixão pelo ensino e boa comunicação."
+      answer: "Para o Qualifica, valorizamos candidatos com experiência prévia em educação. Já para o Reforço, aceitamos candidatos sem experiência anterior, desde que demonstrem paixão pelo ensino e boa comunicação."
     },
     {
       question: "Quanto tempo dura o processo?",
-      answer: "O processo seletivo completo pode durar de 2 a 3 semanas, dependendo da disponibilidade do candidato para realizar cada etapa e da demanda atual. Como nosso processo é contínuo, mesmo após finalizar todas as etapas, você pode entrar em nosso banco de talentos."
+      answer: "O processo seletivo completo geralmente leva de 2 a 3 semanas, dependendo da sua disponibilidade para cada etapa e da demanda atual. Como nosso processo é contínuo, mesmo após finalizar todas as etapas, você pode entrar em nosso banco de talentos."
     },
     {
       question: "Posso atuar 100% online?",
-      answer: "Sim, para o Produto Qualifica temos opções de trabalho completamente remotas ou híbridas. Já para o Produto Reforço, as vagas são principalmente presenciais em nossos diversos polos espalhados pelo Brasil."
+      answer: "Sim! Para o Qualifica temos opções totalmente remotas ou híbridas. Para o Reforço, oferecemos principalmente vagas presenciais em nossos diversos polos pelo Brasil, mas também temos algumas oportunidades online."
     },
     {
       question: "O que é o MOVAA?",
-      answer: "O MOVAA é um programa de reconhecimento com objetivo de desenvolver líderes e guias, e assim impulsionar seus conhecimentos técnicos, pedagógicos e profissionais através de suas experiências práticas em sala de aula. Tudo isso por meio de níveis que reconhecem e incentivam essa jornada na metodologia Alicerce."
+      answer: "O MOVAA é nosso programa de desenvolvimento profissional que visa formar líderes e guias de excelência, impulsionando seus conhecimentos técnicos, pedagógicos e profissionais através de experiências práticas. O programa oferece níveis progressivos que reconhecem e incentivam sua jornada na metodologia Alicerce."
     }
   ];
 
@@ -46,20 +46,32 @@ const FAQSection: React.FC = () => {
             <span className="text-alicerce-purple font-medium">Dúvidas frequentes</span>
           </div>
           <h2 className="section-title text-center">Perguntas Frequentes</h2>
+          
+          <p className="text-center text-lg text-gray-700 max-w-3xl mx-auto mt-4">
+            Encontre respostas para as principais dúvidas sobre o processo seletivo e sobre o trabalho no Alicerce.
+          </p>
         </div>
         
         <div className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible className="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100">
+          <Accordion 
+            type="single" 
+            collapsible 
+            className="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100"
+          >
             {faqs.map((faq, index) => (
               <AccordionItem 
                 key={index} 
                 value={`item-${index}`} 
                 className="border-b border-alicerce-lightBlue last:border-0 group"
               >
-                <AccordionTrigger className="px-6 py-5 text-right text-alicerce-blue hover:text-alicerce-orange transition-colors duration-300 font-medium">
+                <AccordionTrigger 
+                  className="px-6 py-5 text-right text-alicerce-blue hover:text-alicerce-orange transition-colors duration-300 font-medium"
+                >
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="px-6 pb-5 text-gray-700 animate-slide-up bg-gray-50">
+                <AccordionContent 
+                  className="px-6 pb-5 text-gray-700 animate-slide-up bg-gray-50"
+                >
                   <div className="text-right">{faq.answer}</div>
                 </AccordionContent>
               </AccordionItem>
