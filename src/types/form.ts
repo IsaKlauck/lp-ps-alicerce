@@ -18,9 +18,11 @@ export type FormData = {
   completionYear?: string;
   expectedCompletionYear?: string;
   academicBackground: string;
+  institutionType: string;
   schoolType: string[];
   howDidYouKnow: string;
   otherSource?: string;
+  ambassadorName?: string;
   interestedInProject: string;
   projectUnit?: string;
   otherProject?: string;

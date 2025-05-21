@@ -24,7 +24,7 @@ export const AccessibilitySection: React.FC<AccessibilitySectionProps> = ({
           name="hasDisability"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Possui deficiência?*</FormLabel>
+              <FormLabel>Você possui alguma deficiência ou condição que demande adaptações de acessibilidade?*</FormLabel>
               <FormControl>
                 <RadioGroup
                   onValueChange={field.onChange}
@@ -52,7 +52,7 @@ export const AccessibilitySection: React.FC<AccessibilitySectionProps> = ({
             name="disabilityDetails"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Descreva sua deficiência e necessidades*</FormLabel>
+                <FormLabel>Descreva brevemente sua deficiência ou condição e quais recursos ou adaptações podem ser necessários*</FormLabel>
                 <FormControl>
                   <Textarea
                     placeholder="Descreva suas necessidades específicas..."

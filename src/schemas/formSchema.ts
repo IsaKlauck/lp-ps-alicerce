@@ -33,11 +33,13 @@ export const formSchema = z.object({
   completionYear: z.string().optional(),
   expectedCompletionYear: z.string().optional(),
   academicBackground: z.string().min(3, { message: "Formação acadêmica é obrigatória" }),
+  institutionType: z.string().min(1, { message: "Tipo de instituição é obrigatório" }),
   schoolType: z.array(z.string()).refine(value => value.length > 0, {
     message: "Selecione pelo menos um tipo de escola",
   }),
   howDidYouKnow: z.string().min(1, { message: "Este campo é obrigatório" }),
   otherSource: z.string().optional(),
+  ambassadorName: z.string().optional(),
   interestedInProject: z.string(),
   projectUnit: z.string().optional(),
   otherProject: z.string().optional(),
@@ -60,6 +62,11 @@ export const formSchema = z.object({
   (data) => !(data.howDidYouKnow === 'Outro' && !data.otherSource), {
     message: "Por favor, especifique como conheceu o Alicerce",
     path: ["otherSource"],
+  }
+).refine(
+  (data) => !(data.howDidYouKnow === 'Embaixador' && !data.ambassadorName), {
+    message: "Por favor, informe o nome do embaixador",
+    path: ["ambassadorName"],
   }
 ).refine(
   (data) => !(data.interestedInProject === 'Sim' && !data.projectUnit), {

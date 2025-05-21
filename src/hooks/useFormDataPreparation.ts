@@ -23,14 +23,17 @@ export const useFormDataPreparation = () => {
       },
       RelationshipSection: {
         howDidYouKnow: data.howDidYouKnow || "",
+        ambassadorName: data.ambassadorName || "",
         interestedInProject: data.interestedInProject || "Não",
-        projectUnit: data.projectUnit || ""
+        projectUnit: data.projectUnit || "",
+        otherProject: data.otherProject || ""
       },
       EducationSection: {
         education: data.education || "",
         completionYear: data.completionYear || "",
         expectedCompletionYear: data.expectedCompletionYear || "",
         academicBackground: data.academicBackground || "",
+        institutionType: data.institutionType || "",
         schoolType: data.schoolType.join(", ") || ""
       },
       submissionDate: new Date().toISOString()

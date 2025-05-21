@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Control } from 'react-hook-form';
 import { FormSchema } from '@/schemas/formSchema';
@@ -47,10 +48,10 @@ export const RelationshipSection: React.FC<RelationshipSectionProps> = ({
                   </SelectTrigger>
                 </FormControl>
                 <SelectContent>
-                  <SelectItem value="Redes Sociais">Redes Sociais</SelectItem>
-                  <SelectItem value="Indicação">Indicação</SelectItem>
-                  <SelectItem value="Site">Site</SelectItem>
-                  <SelectItem value="Evento">Evento</SelectItem>
+                  <SelectItem value="Redes Sociais">Redes sociais</SelectItem>
+                  <SelectItem value="Indicação">Indicação de amigo(a) ou familiar</SelectItem>
+                  <SelectItem value="Embaixador">Embaixador(a) do Alicerce</SelectItem>
+                  <SelectItem value="Site">Site ou blog</SelectItem>
                   <SelectItem value="Outro">Outro</SelectItem>
                 </SelectContent>
               </Select>
@@ -58,6 +59,22 @@ export const RelationshipSection: React.FC<RelationshipSectionProps> = ({
             </FormItem>
           )}
         />
+
+        {howDidYouKnow === 'Embaixador' && (
+          <FormField
+            control={control}
+            name="ambassadorName"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Nome do(a) embaixador(a)*</FormLabel>
+                <FormControl>
+                  <Input placeholder="Digite o nome completo ou como a pessoa é conhecida" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        )}
 
         {howDidYouKnow === 'Outro' && (
           <FormField
@@ -109,16 +126,40 @@ export const RelationshipSection: React.FC<RelationshipSectionProps> = ({
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Selecione a unidade/projeto*</FormLabel>
-                <FormControl>
-                  <Input placeholder="Digite o nome da unidade ou projeto" {...field} />
-                </FormControl>
+                <Select onValueChange={field.onChange} value={field.value}>
+                  <FormControl>
+                    <SelectTrigger>
+                      <SelectValue placeholder="Selecione um projeto" />
+                    </SelectTrigger>
+                  </FormControl>
+                  <SelectContent>
+                    {projects.map(project => (
+                      <SelectItem key={project.id} value={project.name}>{project.name}</SelectItem>
+                    ))}
+                    <SelectItem value="Outro">Outro</SelectItem>
+                  </SelectContent>
+                </Select>
                 <FormMessage />
               </FormItem>
             )}
           />
         )}
 
-        {/* Remove the "otherProject" field since we're now using a text input for all projects */}
+        {interestedInProject === 'Sim' && selectedProject === 'Outro' && (
+          <FormField
+            control={control}
+            name="otherProject"
+            render={({ field }) => (
+              <FormItem>
+                <FormLabel>Especifique o projeto*</FormLabel>
+                <FormControl>
+                  <Input placeholder="Digite o nome do projeto" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+        )}
       </div>
     </div>
   );
