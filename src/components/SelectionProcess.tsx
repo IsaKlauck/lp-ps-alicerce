@@ -66,7 +66,7 @@ const SelectionProcess: React.FC = () => {
         </div>
         
         <div className="relative max-w-3xl mx-auto">
-          <Alert variant="default" className="mb-8 border-amber-300 bg-amber-50">
+          <Alert variant="default" className="mb-8 border-amber-300 bg-amber-50 max-w-lg mx-auto">
             <AlertCircle className="h-5 w-5 text-amber-600" />
             <AlertTitle className="text-amber-800">Atenção</AlertTitle>
             <AlertDescription className="text-amber-700">
