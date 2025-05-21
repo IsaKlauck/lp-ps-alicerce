@@ -1,4 +1,6 @@
+
 import * as z from 'zod';
+import { validateCpfAlgorithm } from '@/utils/cpfValidator';
 
 export const formSchema = z.object({
   name: z.string().min(3, { message: "Nome completo é obrigatório" }),
@@ -6,9 +8,13 @@ export const formSchema = z.object({
     message: "Telefone deve seguir o formato (00) 00000-0000" 
   }),
   email: z.string().email({ message: "E-mail inválido" }),
-  cpf: z.string().regex(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/, {
-    message: "CPF deve seguir o formato 000.000.000-00"
-  }),
+  cpf: z.string()
+    .regex(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/, {
+      message: "CPF deve seguir o formato 000.000.000-00"
+    })
+    .refine((cpf) => validateCpfAlgorithm(cpf), {
+      message: "CPF inválido"
+    }),
   cep: z.string().regex(/^\d{5}-\d{3}$/, {
     message: "CEP deve seguir o formato 00000-000"
   }),

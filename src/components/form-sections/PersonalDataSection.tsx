@@ -1,4 +1,5 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import { Control } from 'react-hook-form';
 import { FormSchema } from '@/schemas/formSchema';
 import { FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form';
@@ -6,6 +7,8 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { useCepLookup } from '@/hooks/useCepLookup';
 import { applyMask } from '@/utils/masks';
+import { validateCpf } from '@/utils/cpfValidator';
+import { Loader2 } from 'lucide-react';
 
 interface PersonalDataSectionProps {
   control: Control<FormSchema>;
@@ -22,6 +25,8 @@ export const PersonalDataSection: React.FC<PersonalDataSectionProps> = ({
   selectedEthnicity,
   isLoadingCep
 }) => {
+  const [isValidatingCpf, setIsValidatingCpf] = useState(false);
+
   const states = [
     { value: 'AC', label: 'Acre' },
     { value: 'AL', label: 'Alagoas' },
@@ -51,6 +56,22 @@ export const PersonalDataSection: React.FC<PersonalDataSectionProps> = ({
     { value: 'SE', label: 'Sergipe' },
     { value: 'TO', label: 'Tocantins' }
   ];
+
+  const handleCpfBlur = async (cpf: string, onChange: (value: string) => void, setError: (message: string) => void) => {
+    if (cpf.length === 14) {
+      setIsValidatingCpf(true);
+      try {
+        const isValid = await validateCpf(cpf);
+        if (!isValid) {
+          setError('CPF inválido');
+        }
+      } catch (error) {
+        console.error('Error validating CPF:', error);
+      } finally {
+        setIsValidatingCpf(false);
+      }
+    }
+  };
 
   return (
     <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
@@ -113,20 +134,34 @@ export const PersonalDataSection: React.FC<PersonalDataSectionProps> = ({
         <FormField
           control={control}
           name="cpf"
-          render={({ field }) => (
+          render={({ field, fieldState }) => (
             <FormItem>
               <FormLabel>CPF*</FormLabel>
-              <FormControl>
-                <Input 
-                  placeholder="000.000.000-00"
-                  {...field}
-                  onChange={(e) => {
-                    const value = e.target.value.replace(/\D/g, '');
-                    field.onChange(applyMask(value, '000.000.000-00'));
-                  }}
-                  maxLength={14}
-                />
-              </FormControl>
+              <div className="relative">
+                <FormControl>
+                  <Input 
+                    placeholder="000.000.000-00"
+                    {...field}
+                    onChange={(e) => {
+                      const value = e.target.value.replace(/\D/g, '');
+                      field.onChange(applyMask(value, '000.000.000-00'));
+                    }}
+                    onBlur={(e) => {
+                      field.onBlur();
+                      handleCpfBlur(e.target.value, field.onChange, (message) => {
+                        // This will be handled by the schema validation
+                      });
+                    }}
+                    maxLength={14}
+                    disabled={isValidatingCpf}
+                  />
+                </FormControl>
+                {isValidatingCpf && (
+                  <div className="absolute right-3 top-2">
+                    <Loader2 className="animate-spin h-5 w-5 text-gray-400" />
+                  </div>
+                )}
+              </div>
               <FormMessage />
             </FormItem>
           )}
