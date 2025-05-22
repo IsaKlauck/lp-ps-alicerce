@@ -43,7 +43,7 @@ const FAQSection: React.FC = () => {
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="px-6 pb-5 text-gray-700 animate-slide-up bg-gray-50">
-                  <div className="text-right">{faq.answer}</div>
+                  <div className="text-left">{faq.answer}</div>
                 </AccordionContent>
               </AccordionItem>)}
           </Accordion>
