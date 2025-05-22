@@ -11,27 +11,27 @@ const FAQSection: React.FC = () => {
   const faqs = [
     {
       question: "Quem pode se inscrever?",
-      answer: "Recebemos inscrições de professores formados ou em formação e de universitários com até 30 anos. Cada perfil tem requisitos específicos, alinhados com nossas diferentes oportunidades."
+      answer: "Temos vagas para professores formados ou em formação, além universitários com até 30 anos. Cada perfil tem requisitos específicos de acordo com o projeto e a região, mas ambos podem participar do nosso processo seletivo contínuo."
     },
     {
-      question: "Como funciona o MAPA?",
-      answer: "O MAPA é nossa avaliação de conhecimentos, dividida em três trilhas: Leitura, Matemática e Inglês (opcional). É uma etapa importante do processo seletivo que acontece após sua inscrição inicial."
+      question: "Como funciona a etapa de avaliação (MAPA)?",
+      answer: "Após a inscrição, você fará o MAPA — uma avaliação diagnóstica inicial nas trilhas de Leitura, Matemática e, opcionalmente, Inglês. Essa etapa nos ajuda a conhecer melhor o seu perfil e a direcionar sua trilha de formação, de acordo com os princípios da metodologia Alicerce."
     },
     {
       question: "Preciso ter experiência?",
-      answer: "Para o Qualifica, valorizamos candidatos com experiência prévia em educação. Já para o Reforço, aceitamos candidatos sem experiência anterior, desde que demonstrem paixão pelo ensino e boa comunicação."
+      answer: "Depende do produto! No Produto Qualifica, buscamos candidatos com experiência prévia na área educacional. No Produto Reforço, não exigimos experiência: valorizamos a paixão por ensinar e boa comunicação."
     },
     {
       question: "Quanto tempo dura o processo?",
-      answer: "O processo seletivo completo geralmente leva de 2 a 3 semanas, dependendo da sua disponibilidade para cada etapa e da demanda atual. Como nosso processo é contínuo, mesmo após finalizar todas as etapas, você pode entrar em nosso banco de talentos."
+      answer: "O processo seletivo completo costuma durar de 2 a 3 semanas, dependendo da sua disponibilidade e da demanda do momento. Como nosso processo é contínuo, mesmo após concluir todas as etapas, você pode ser incluído em nosso banco de talentos e ser chamado futuramente."
     },
     {
       question: "Posso atuar 100% online?",
-      answer: "Sim! Para o Qualifica temos opções totalmente remotas ou híbridas. Para o Reforço, oferecemos principalmente vagas presenciais em nossos diversos polos pelo Brasil, mas também temos algumas oportunidades online."
+      answer: "Sim, em alguns casos! Embora a maioria das nossas vagas seja presencial, também temos oportunidades remotas, dependendo da região e do projeto. Mas quando presencial, contamos com polos em diversas cidades do Brasil."
     },
     {
       question: "O que é o MOVAA?",
-      answer: "O MOVAA é nosso programa de desenvolvimento profissional que visa formar líderes e guias de excelência, impulsionando seus conhecimentos técnicos, pedagógicos e profissionais através de experiências práticas. O programa oferece níveis progressivos que reconhecem e incentivam sua jornada na metodologia Alicerce."
+      answer: "O MOVAA é o nosso programa de reconhecimento e desenvolvimento de quem atua conosco. Ele aprofunda o conhecimento prático e pedagógico, além de certificar líderes e guias em diferentes níveis dentro da metodologia Alicerce. É uma jornada gamificada com oportunidades únicas, que possibilita o aumento na remuneração como instrutor conforme avança na trilha."
     }
   ];
 
