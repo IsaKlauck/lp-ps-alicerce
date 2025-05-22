@@ -1,9 +1,11 @@
+
 import React from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+
 const FAQSection: React.FC = () => {
   const faqs = [{
     question: "Quem pode se inscrever?",
-    answer: "Temos vagas para professores formados ou em formação, além universitários com até 30 anos. Cada perfil tem requisitos específicos de acordo com o projeto e a região, mas ambos podem participar do nosso processo seletivo contínuo."
+    answer: "Podem se inscrever pessoas com paixão por educação! Para atuar como líder, aceitamos universitários de qualquer área e recém-formados, desde que tenham interesse em desenvolver habilidades pedagógicas. Para atuar como guia, buscamos profissionais de licenciatura com experiência comprovada em sala de aula. Assim, acreditamos na valorização tanto de quem já tem trajetória no ensino quanto de quem deseja iniciar uma jornada impactando vidas!"
   }, {
     question: "Como funciona a etapa de avaliação (MAPA)?",
     answer: "Após a inscrição, você fará o MAPA — uma avaliação diagnóstica inicial nas trilhas de Leitura, Matemática e, opcionalmente, Inglês. Essa etapa nos ajuda a conhecer melhor o seu perfil e a direcionar sua trilha de formação, de acordo com os princípios da metodologia Alicerce."
@@ -20,6 +22,7 @@ const FAQSection: React.FC = () => {
     question: "O que é o MOVAA?",
     answer: "O MOVAA é o nosso programa de reconhecimento e desenvolvimento de quem atua conosco. Ele aprofunda o conhecimento prático e pedagógico, além de certificar líderes e guias em diferentes níveis dentro da metodologia Alicerce. É uma jornada gamificada com oportunidades únicas, que possibilita o aumento na remuneração como instrutor conforme avança na trilha."
   }];
+
   return <section className="py-16 md:py-24 bg-alicerce-gray relative" id="faq">
       {/* Background design elements */}
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/brushed-alum-dark.png')] opacity-5"></div>
@@ -51,4 +54,5 @@ const FAQSection: React.FC = () => {
       </div>
     </section>;
 };
+
 export default FAQSection;
