@@ -122,8 +122,8 @@ const ProfilePaths: React.FC = () => {
           </ul>
         </div>
 
-        {/* MOVAA Program Section - Updated */}
-        <div className="mt-12 max-w-4xl mx-auto bg-gradient-to-r from-alicerce-blue/5 to-alicerce-orange/5 rounded-xl shadow-md p-8 relative overflow-hidden border border-gray-100">
+        {/* MOVAA Program Section - Updated with integrated image */}
+        <div className="mt-12 max-w-4xl mx-auto bg-gradient-to-r from-alicerce-blue/5 to-alicerce-orange/5 rounded-xl p-8 relative overflow-hidden border border-gray-100">
           <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
           <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center">
             <div>
@@ -175,7 +175,7 @@ const ProfilePaths: React.FC = () => {
               <img 
                 src="/lovable-uploads/85b8fe00-a4f4-418c-bbd3-c7b0167b8ac0.png" 
                 alt="Níveis de crescimento MOVAA: Alfa, Beta e Gama" 
-                className="max-w-full h-auto rounded-lg shadow-lg"
+                className="max-w-full h-auto"
               />
             </div>
           </div>
