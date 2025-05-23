@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { BookOpen, Users, ArrowDown } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -56,7 +57,7 @@ const ProfilePaths: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-2 font-semibold">
                   <div className="h-2 w-2 rounded-full bg-alicerce-orange"></div>
-                  <span>Valor hora: R$17,71</span>
+                  <span>Valor hora: R$17,71 *</span>
                 </div>
               </div>
             </div>
@@ -89,11 +90,16 @@ const ProfilePaths: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-2 font-semibold">
                   <div className="h-2 w-2 rounded-full bg-alicerce-blue"></div>
-                  <span>Valor hora: R$35,43</span>
+                  <span>Valor hora: R$35,43 *</span>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+
+        {/* Note about MOVAA and hourly rates */}
+        <div className="text-center mt-4 text-sm text-gray-600 max-w-2xl mx-auto">
+          <p>* Valores iniciais. Através do programa MOVAA, você pode obter até 10% de aumento no valor hora ao alcançar o nível Gama.</p>
         </div>
 
         {/* Important Information Section */}
@@ -126,7 +132,7 @@ const ProfilePaths: React.FC = () => {
               <div className="inline-block bg-alicerce-blue/10 px-4 py-2 rounded-full mb-6">
                 <span className="text-alicerce-blue font-medium">Crescimento contínuo</span>
               </div>
-              <h3 className="text-xl font-bold text-alicerce-blue mb-5">Seu desenvolvimento tem nome: MOVAA 🚀</h3>
+              <h3 className="text-xl font-bold text-alicerce-blue mb-5">Seu crescimento tem nome: MOVAA 🚀</h3>
               <p className="text-gray-700 mb-4">
                 O programa gamificado que reconhece e valoriza seu desenvolvimento no Alicerce
               </p>
