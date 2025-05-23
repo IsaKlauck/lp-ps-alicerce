@@ -122,37 +122,62 @@ const ProfilePaths: React.FC = () => {
           </ul>
         </div>
 
-        {/* MOVAA Program Section */}
+        {/* MOVAA Program Section - Updated */}
         <div className="mt-12 max-w-4xl mx-auto bg-gradient-to-r from-alicerce-blue/5 to-alicerce-orange/5 rounded-xl shadow-md p-8 relative overflow-hidden border border-gray-100">
           <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]"></div>
-          <div className="relative z-10">
-            <div className="inline-block bg-alicerce-blue/10 px-4 py-2 rounded-full mb-6">
-              <span className="text-alicerce-blue font-medium">Crescimento contínuo</span>
+          <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <div className="inline-block bg-alicerce-blue/10 px-4 py-2 rounded-full mb-6">
+                <span className="text-alicerce-blue font-medium">Crescimento contínuo</span>
+              </div>
+              <h3 className="text-xl font-bold text-alicerce-blue mb-5">Seu crescimento tem nome: MOVAA 🚀</h3>
+              <p className="text-gray-700 mb-4">
+                O programa gamificado que reconhece e valoriza seu desenvolvimento no Alicerce
+              </p>
+              <p className="text-gray-700 mb-4">
+                Ser instrutor(a) no Alicerce é muito mais do que dar aula — é entrar em uma jornada real de evolução.
+              </p>
+              <p className="text-gray-700 mb-4">
+                Com o MOVAA (Movimento de Aprendizagem Ativa), você avança por três níveis de crescimento — Alfa, Beta e Gama — e é reconhecido(a) por cada passo que dá.
+              </p>
+              <p className="text-gray-700 mb-4">
+                Ao longo dessa jornada, você desenvolve habilidades como educador(a), comunicador(a) e líder, e ainda conquista:
+              </p>
+              <ul className="space-y-2 text-gray-700 mb-4">
+                <li className="flex items-start gap-3">
+                  <span>🔸</span>
+                  <span>Mentorias e formações exclusivas</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span>🔸</span>
+                  <span>Benefícios e recompensas a cada avanço</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span>🔸</span>
+                  <span>Aumento na remuneração de acordo com seu nível</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span>🔸</span>
+                  <span>Reconhecimento visível do seu impacto na missão do Alicerce</span>
+                </li>
+              </ul>
+              <p className="text-gray-700 mb-4">
+                Tudo isso com um modelo gamificado que torna sua evolução mais clara, motivadora e recompensadora.
+              </p>
+              <p className="text-gray-700 mb-4">
+                ➡️ Você cresce. Sua carreira avança. Seu impacto transforma.
+              </p>
+              <p className="text-gray-700 font-medium">
+                No Alicerce, quem ensina também aprende — e é valorizado por isso.
+              </p>
             </div>
-            <h3 className="text-xl font-bold text-alicerce-blue mb-5">🚀 MOVAA — Desenvolvimento Profissional Integrado</h3>
-            <p className="text-gray-700 mb-6 max-w-2xl">
-              Como instrutor(a) Alicerce, você terá acesso ao MOVAA: 
-              um programa completo de formação e crescimento que acompanha 
-              sua evolução durante toda a jornada conosco.
-            </p>
-            <p className="text-gray-700 mb-4">O MOVAA oferece:</p>
-            <ul className="space-y-3 text-gray-700 mb-6">
-              <li className="flex items-center gap-3">
-                <div className="h-2 w-2 rounded-full bg-alicerce-blue"></div>
-                <span>Trilhas de desenvolvimento em habilidades educacionais, comunicativas e de liderança</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <div className="h-2 w-2 rounded-full bg-alicerce-blue"></div>
-                <span>Benefícios exclusivos que reconhecem seu crescimento</span>
-              </li>
-              <li className="flex items-center gap-3">
-                <div className="h-2 w-2 rounded-full bg-alicerce-blue"></div>
-                <span>Oportunidades de aumento em sua remuneração baseadas em seus avanços</span>
-              </li>
-            </ul>
-            <p className="text-lg font-semibold text-alicerce-blue text-center mt-6">
-              No MOVAA, seu crescimento caminha junto com o impacto que você gera.
-            </p>
+            <div className="flex justify-center">
+              <img 
+                src="/lovable-uploads/85b8fe00-a4f4-418c-bbd3-c7b0167b8ac0.png" 
+                alt="Níveis de crescimento MOVAA: Alfa, Beta e Gama" 
+                className="max-w-full h-auto rounded-lg shadow-lg"
+              />
+            </div>
           </div>
         </div>
 
