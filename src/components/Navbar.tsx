@@ -49,7 +49,11 @@ const Navbar: React.FC = () => {
       }`}
     >
       <div className="container mx-auto px-4 flex justify-between items-center">
-        <AlicerceLogo className="h-12" darkBackground={useDarkBackgroundLogo} />
+        <AlicerceLogo 
+          className="h-12" 
+          darkBackground={useDarkBackgroundLogo} 
+          isScrolled={isScrolled}
+        />
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
