@@ -6,6 +6,8 @@ export type FormData = {
   cpf: string;
   birthDate: string;
   cep: string;
+  address?: string;
+  neighborhood?: string;
   state: string;
   city: string;
   gender: string;

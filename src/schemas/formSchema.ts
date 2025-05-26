@@ -1,90 +1,117 @@
 
-import * as z from 'zod';
-import { validateCpfAlgorithm } from '@/utils/cpfValidator';
+import { z } from 'zod';
+
+const validateAge = (birthDate: string): boolean => {
+  if (!birthDate) return false;
+  
+  const [day, month, year] = birthDate.split('/').map(Number);
+  if (!day || !month || !year) return false;
+  
+  const birth = new Date(year, month - 1, day);
+  const today = new Date();
+  const age = today.getFullYear() - birth.getFullYear();
+  const monthDiff = today.getMonth() - birth.getMonth();
+  
+  if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birth.getDate())) {
+    return age - 1 >= 16;
+  }
+  
+  return age >= 16;
+};
 
 export const formSchema = z.object({
-  name: z.string().min(3, { message: "Nome completo é obrigatório" }),
-  phone: z.string().regex(/^\(\d{2}\) \d{5}-\d{4}$/, { 
-    message: "Telefone deve seguir o formato (00) 00000-0000" 
-  }),
-  email: z.string().email({ message: "E-mail inválido" }),
-  cpf: z.string()
-    .regex(/^\d{3}\.\d{3}\.\d{3}-\d{2}$/, {
-      message: "CPF deve seguir o formato 000.000.000-00"
-    })
-    .refine((cpf) => validateCpfAlgorithm(cpf), {
-      message: "CPF inválido"
-    }),
-  cep: z.string().regex(/^\d{5}-\d{3}$/, {
-    message: "CEP deve seguir o formato 00000-000"
-  }),
-  birthDate: z.string().regex(/^\d{2}\/\d{2}\/\d{4}$/, {
-    message: "Data deve seguir o formato DD/MM/AAAA"
-  }),
-  state: z.string().min(1, { message: "Estado é obrigatório" }),
-  city: z.string().min(1, { message: "Cidade é obrigatória" }),
-  gender: z.string().min(1, { message: "Gênero é obrigatório" }),
+  // Dados Pessoais
+  name: z.string().min(1, "Nome é obrigatório"),
+  phone: z.string().min(1, "Telefone é obrigatório"),
+  email: z.string().email("E-mail inválido"),
+  cpf: z.string().min(1, "CPF é obrigatório"),
+  cep: z.string().min(1, "CEP é obrigatório"),
+  address: z.string().optional(),
+  neighborhood: z.string().optional(),
+  birthDate: z.string()
+    .min(1, "Data de nascimento é obrigatória")
+    .refine(validateAge, "Você deve ter pelo menos 16 anos"),
+  state: z.string().min(1, "Estado é obrigatório"),
+  city: z.string().min(1, "Cidade é obrigatória"),
+  gender: z.string().min(1, "Gênero é obrigatório"),
   otherGender: z.string().optional(),
-  ethnicity: z.string().min(1, { message: "Raça/Etnia é obrigatória" }),
+  ethnicity: z.string().min(1, "Raça/Etnia é obrigatória"),
   otherEthnicity: z.string().optional(),
+  
+  // Acessibilidade
   hasDisability: z.string(),
   disabilityDetails: z.string().optional(),
-  education: z.string().min(1, { message: "Grau de escolaridade é obrigatório" }),
+  
+  // Educação
+  education: z.string().min(1, "Escolaridade é obrigatória"),
   completionYear: z.string().optional(),
   expectedCompletionYear: z.string().optional(),
-  academicBackground: z.string().min(3, { message: "Formação acadêmica é obrigatória" }),
-  institutionType: z.string().min(1, { message: "Tipo de instituição é obrigatório" }),
-  howDidYouKnow: z.string().min(1, { message: "Este campo é obrigatório" }),
+  academicBackground: z.string().min(1, "Área de formação é obrigatória"),
+  institutionType: z.string().min(1, "Tipo de instituição é obrigatório"),
+  
+  // Relacionamento
+  howDidYouKnow: z.string().min(1, "Como conheceu o Alicerce é obrigatório"),
   otherSource: z.string().optional(),
   ambassadorName: z.string().optional(),
   interestedInProject: z.string(),
   projectUnit: z.string().optional(),
   otherProject: z.string().optional(),
-}).refine(
-  (data) => !(data.gender === 'Outro' && !data.otherGender), {
-    message: "Por favor, especifique seu gênero",
-    path: ["otherGender"],
+}).refine((data) => {
+  if (data.gender === "Outro" && !data.otherGender) {
+    return false;
   }
-).refine(
-  (data) => !(data.ethnicity === 'Outro' && !data.otherEthnicity), {
-    message: "Por favor, especifique sua etnia",
-    path: ["otherEthnicity"],
+  return true;
+}, {
+  message: "Especifique seu gênero",
+  path: ["otherGender"]
+}).refine((data) => {
+  if (data.ethnicity === "Outro" && !data.otherEthnicity) {
+    return false;
   }
-).refine(
-  (data) => !(data.hasDisability === 'Sim' && !data.disabilityDetails), {
-    message: "Por favor, descreva sua deficiência",
-    path: ["disabilityDetails"],
+  return true;
+}, {
+  message: "Especifique sua raça/etnia",
+  path: ["otherEthnicity"]
+}).refine((data) => {
+  if (data.hasDisability === "Sim" && !data.disabilityDetails) {
+    return false;
   }
-).refine(
-  (data) => !(data.howDidYouKnow === 'Outro' && !data.otherSource), {
-    message: "Por favor, especifique como conheceu o Alicerce",
-    path: ["otherSource"],
+  return true;
+}, {
+  message: "Descreva sua deficiência",
+  path: ["disabilityDetails"]
+}).refine((data) => {
+  if (data.howDidYouKnow === "Outro" && !data.otherSource) {
+    return false;
   }
-).refine(
-  (data) => !(data.howDidYouKnow === 'Embaixador' && !data.ambassadorName), {
-    message: "Por favor, informe o nome do embaixador",
-    path: ["ambassadorName"],
+  return true;
+}, {
+  message: "Especifique como conheceu o Alicerce",
+  path: ["otherSource"]
+}).refine((data) => {
+  if (data.howDidYouKnow === "Embaixador" && !data.ambassadorName) {
+    return false;
   }
-).refine(
-  (data) => !(data.interestedInProject === 'Sim' && !data.projectUnit), {
-    message: "Por favor, selecione uma unidade ou projeto",
-    path: ["projectUnit"],
+  return true;
+}, {
+  message: "Nome do embaixador é obrigatório",
+  path: ["ambassadorName"]
+}).refine((data) => {
+  if (data.interestedInProject === "Sim" && !data.projectUnit) {
+    return false;
   }
-).refine(
-  (data) => !(data.projectUnit === 'Outro' && !data.otherProject), {
-    message: "Por favor, especifique o projeto",
-    path: ["otherProject"],
+  return true;
+}, {
+  message: "Selecione uma unidade do projeto",
+  path: ["projectUnit"]
+}).refine((data) => {
+  if (data.projectUnit === "Outro" && !data.otherProject) {
+    return false;
   }
-).refine(
-  (data) => !(data.education === 'Superior Concluido' && !data.completionYear), {
-    message: "Por favor, informe o ano de conclusão",
-    path: ["completionYear"],
-  }
-).refine(
-  (data) => !(data.education === 'Superior Cursando' && !data.expectedCompletionYear), {
-    message: "Por favor, informe a previsão de conclusão",
-    path: ["expectedCompletionYear"],
-  }
-);
+  return true;
+}, {
+  message: "Especifique o projeto",
+  path: ["otherProject"]
+});
 
 export type FormSchema = z.infer<typeof formSchema>;

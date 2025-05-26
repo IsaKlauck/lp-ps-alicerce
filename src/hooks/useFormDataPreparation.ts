@@ -18,6 +18,8 @@ export const useFormDataPreparation = () => {
         birthDate: data.birthDate || "",
         phone: data.phone || "",
         cep: data.cep || "",
+        address: data.address || "",
+        neighborhood: data.neighborhood || "",
         state: data.state || "",
         city: data.city || "",
         gender: data.gender || "",

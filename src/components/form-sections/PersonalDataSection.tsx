@@ -218,6 +218,34 @@ export const PersonalDataSection: React.FC<PersonalDataSectionProps> = ({
 
         <FormField
           control={control}
+          name="address"
+          render={({ field }) => (
+            <FormItem className="col-span-2">
+              <FormLabel>Endereço</FormLabel>
+              <FormControl>
+                <Input placeholder="Rua, Avenida, etc." {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={control}
+          name="neighborhood"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Bairro</FormLabel>
+              <FormControl>
+                <Input placeholder="Nome do bairro" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={control}
           name="state"
           render={({ field }) => (
             <FormItem>

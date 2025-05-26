@@ -22,6 +22,8 @@ export const useCepLookup = (setValue: UseFormSetValue<FormSchema>) => {
         return;
       }
 
+      setValue('address', data.logradouro);
+      setValue('neighborhood', data.bairro);
       setValue('state', data.uf);
       setValue('city', data.localidade);
       toast.success('Endereço preenchido automaticamente');
