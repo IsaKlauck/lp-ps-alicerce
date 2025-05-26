@@ -20,17 +20,6 @@ export const RelationshipSection: React.FC<RelationshipSectionProps> = ({
   interestedInProject,
   selectedProject,
 }) => {
-  // Instead of using useQuery directly, we'll use pre-loaded project data or fetch conditionally
-  // This is a simplified approach to remove the need for useQuery in this component
-  const projects = [
-    { id: 1, name: 'Projeto Alicerce SP - Capital' },
-    { id: 2, name: 'Qualifica Campinas' },
-    { id: 3, name: 'Alicerce Rio Centro' },
-    { id: 4, name: 'Projeto Qualifica Niterói' },
-    { id: 5, name: 'Alicerce BH' },
-    { id: 6, name: 'Qualifica Uberlândia' }
-  ];
-
   return (
     <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
       <h3 className="text-xl font-semibold text-alicerce-blue mb-6">4. Relacionamento com o Alicerce</h3>
@@ -125,35 +114,9 @@ export const RelationshipSection: React.FC<RelationshipSectionProps> = ({
             name="projectUnit"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Selecione a unidade/projeto*</FormLabel>
-                <Select onValueChange={field.onChange} value={field.value}>
-                  <FormControl>
-                    <SelectTrigger>
-                      <SelectValue placeholder="Selecione um projeto" />
-                    </SelectTrigger>
-                  </FormControl>
-                  <SelectContent>
-                    {projects.map(project => (
-                      <SelectItem key={project.id} value={project.name}>{project.name}</SelectItem>
-                    ))}
-                    <SelectItem value="Outro">Outro</SelectItem>
-                  </SelectContent>
-                </Select>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        )}
-
-        {interestedInProject === 'Sim' && selectedProject === 'Outro' && (
-          <FormField
-            control={control}
-            name="otherProject"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Especifique o projeto*</FormLabel>
+                <FormLabel>Qual projeto tem interesse?*</FormLabel>
                 <FormControl>
-                  <Input placeholder="Digite o nome do projeto" {...field} />
+                  <Input placeholder="Digite o nome do projeto de seu interesse" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
