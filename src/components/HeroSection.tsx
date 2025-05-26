@@ -18,6 +18,11 @@ const HeroSection: React.FC = () => {
       {/* Background pattern overlay */}
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
       
+      {/* Valores iniciais text in top right */}
+      <div className="absolute top-8 right-8 z-20 text-white text-sm font-medium">
+        *Valores iniciais
+      </div>
+      
       <div className="section-container relative z-10">
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="text-center md:text-left space-y-8 animate-fade-in">

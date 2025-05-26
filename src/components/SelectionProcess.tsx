@@ -3,6 +3,7 @@ import React from 'react';
 import { Lock, LockOpen, FileText, CheckSquare, FileUp, Users, GraduationCap, AlertCircle } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import CTAButton from './CTAButton';
 
 const SelectionProcess: React.FC = () => {
   const steps = [
@@ -65,7 +66,7 @@ const SelectionProcess: React.FC = () => {
           <h2 className="section-title text-center">Como Se Tornar um Educador Alicerce</h2>
           
           <p className="text-center text-lg text-gray-700 max-w-3xl mx-auto mt-4">
-            Conheça o passo a passo do nosso processo seletivo contínuo.
+            CONHEÇA CADA ETAPA DO NOSSO PROCESSO SELETIVO
           </p>
         </div>
         
@@ -107,6 +108,8 @@ const SelectionProcess: React.FC = () => {
             </TooltipProvider>
           ))}
         </div>
+        
+        <CTAButton />
       </div>
     </section>
   );

@@ -1,79 +1,80 @@
 
 import React from 'react';
-import { Heart, TrendingUp, Users, GraduationCap, Star, Briefcase } from 'lucide-react';
-
-const benefits = [{
-  icon: Star,
-  title: "Trabalho com Propósito",
-  description: "Seja mais que um instrutor: seja exemplo, referência e agente de transformação na vida dos estudantes."
-}, {
-  icon: TrendingUp,
-  title: "Propósito e Carreira",
-  description: "Combinamos impacto social com crescimento profissional exponencial para quem quer fazer a diferença."
-}, {
-  icon: GraduationCap,
-  title: "Desenvolvimento Contínuo",
-  description: "O MOVAA, nosso programa gamificado de desenvolvimento, oferece formação exclusiva e benefícios únicos."
-}, {
-  icon: Users,
-  title: "Rede Nacional",
-  description: "Conecte-se com uma comunidade de educadores apaixonados pelo mesmo propósito em todo o Brasil."
-}, {
-  icon: Heart,
-  title: "Impacto com Afeto",
-  description: "Aqui, ensinar vai além do conteúdo: é sobre transformar com intenção e construir conexões genuínas."
-}, {
-  icon: Briefcase,
-  title: "Flexibilidade Responsável",
-  description: "Tenha autonomia para planejar sua rotina equilibrando propósito, impacto e vida pessoal."
-}];
+import { DollarSign, Clock, BookOpen, Users, Heart, Trophy } from 'lucide-react';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import CTAButton from './CTAButton';
 
 const BenefitsSection: React.FC = () => {
+  const benefits = [
+    {
+      icon: DollarSign,
+      title: "Remuneração Competitiva",
+      description: "Salários atrativos e compatíveis com o mercado, valorizando seu conhecimento e dedicação."
+    },
+    {
+      icon: Clock,
+      title: "Flexibilidade de Horários",
+      description: "Diferentes cargas horárias disponíveis para se adequar ao seu estilo de vida."
+    },
+    {
+      icon: BookOpen,
+      title: "Formação Continuada",
+      description: "Investimento constante no seu desenvolvimento profissional através de capacitações e workshops."
+    },
+    {
+      icon: Users,
+      title: "Ambiente Colaborativo",
+      description: "Faça parte de uma equipe unida, onde todos trabalham pelo mesmo objetivo transformador."
+    },
+    {
+      icon: Heart,
+      title: "Propósito Real",
+      description: "Veja diariamente o impacto positivo do seu trabalho na vida de crianças, jovens e adultos."
+    },
+    {
+      icon: Trophy,
+      title: "Reconhecimento",
+      description: "Sua dedicação é valorizada e reconhecida através de programas de mérito e crescimento."
+    }
+  ];
+
   return (
-    <section className="bg-alicerce-gray py-16 md:py-24 relative" id="beneficios">
-      {/* Background pattern */}
-      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/brushed-alum.png')] opacity-5"></div>
+    <section className="py-16 md:py-24 bg-white relative overflow-hidden" id="beneficios">
+      {/* Background design elements */}
+      <div className="absolute top-0 right-0 w-64 h-64 bg-alicerce-teal/10 rounded-full translate-x-1/2 -translate-y-1/2"></div>
+      <div className="absolute bottom-0 left-0 w-96 h-96 bg-alicerce-purple/10 rounded-full -translate-x-1/2 translate-y-1/2"></div>
       
       <div className="section-container relative z-10">
         <div className="text-center mb-16">
-          <div className="inline-block mx-auto bg-alicerce-blue/10 px-4 py-2 rounded-full mb-4">
-            <span className="text-alicerce-blue font-medium">Seus benefícios</span>
+          <div className="inline-block mx-auto bg-alicerce-purple/10 px-4 py-2 rounded-full mb-4">
+            <span className="text-alicerce-purple font-medium">Seus benefícios</span>
           </div>
           
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-alicerce-blue mb-6">Por que se juntar ao Alicerce?</h2>
+          <h2 className="section-title text-center">O que Oferecemos para Você</h2>
           
-          <p className="text-xl text-center text-gray-700 max-w-3xl mx-auto">
-            Fazer parte do Alicerce é mais do que um trabalho — é uma jornada de crescimento, 
-            propósito e impacto real na sociedade.
+          <p className="text-center text-lg text-gray-700 max-w-3xl mx-auto mt-4">
+            Ser um educador Alicerce vai muito além de um emprego. É fazer parte de uma 
+            família que valoriza seu crescimento pessoal e profissional.
           </p>
         </div>
         
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {benefits.map((benefit, index) => (
-            <div 
-              key={benefit.title} 
-              className={`bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border-t-4 ${
-                index % 6 === 0 ? 'border-red-500' : 
-                index % 6 === 1 ? 'border-yellow-500' : 
-                index % 6 === 2 ? 'border-green-500' : 
-                index % 6 === 3 ? 'border-blue-500' : 
-                index % 6 === 4 ? 'border-purple-500' : 'border-orange-500'
-              }`}
-            >
-              <benefit.icon 
-                className={`h-12 w-12 mb-4 ${
-                  index % 6 === 0 ? 'text-red-500' : 
-                  index % 6 === 1 ? 'text-yellow-500' : 
-                  index % 6 === 2 ? 'text-green-500' : 
-                  index % 6 === 3 ? 'text-blue-500' : 
-                  index % 6 === 4 ? 'text-purple-500' : 'text-orange-500'
-                }`} 
-              />
-              <h3 className="text-xl font-bold text-alicerce-blue mb-3">{benefit.title}</h3>
-              <p className="text-gray-700">{benefit.description}</p>
-            </div>
+            <Card key={benefit.title} className="border-0 shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-white rounded-2xl">
+              <CardHeader className="text-center pb-4">
+                <div className="mx-auto bg-gradient-to-br from-alicerce-blue to-alicerce-teal rounded-full p-4 w-16 h-16 flex items-center justify-center mb-4 shadow-lg">
+                  <benefit.icon className="h-8 w-8 text-white" strokeWidth={2} />
+                </div>
+                <h3 className="text-xl font-bold text-alicerce-blue">{benefit.title}</h3>
+              </CardHeader>
+              <CardContent className="text-center px-6 pb-8">
+                <p className="text-gray-600">{benefit.description}</p>
+              </CardContent>
+            </Card>
           ))}
         </div>
+        
+        <CTAButton />
       </div>
     </section>
   );

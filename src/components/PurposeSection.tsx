@@ -1,51 +1,65 @@
 
 import React from 'react';
-import { Button } from '@/components/ui/button';
+import { Heart, Users, Target } from 'lucide-react';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import CTAButton from './CTAButton';
 
 const PurposeSection: React.FC = () => {
+  const values = [
+    {
+      icon: Heart,
+      title: "Amor pela Educação",
+      description: "Acreditamos no poder transformador da educação e no impacto que um educador dedicado pode causar na vida de seus alunos."
+    },
+    {
+      icon: Users,
+      title: "Compromisso Social",
+      description: "Trabalhamos para reduzir desigualdades e criar oportunidades reais de crescimento para todos os brasileiros."
+    },
+    {
+      icon: Target,
+      title: "Excelência e Inovação",
+      description: "Buscamos constantemente novas metodologias e abordagens para tornar o aprendizado mais efetivo e envolvente."
+    }
+  ];
+
   return (
-    <section className="bg-white py-16 md:py-24 relative overflow-hidden">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/white-diamond-dark.png')] opacity-5"></div>
+    <section className="py-16 md:py-24 bg-gray-50 relative overflow-hidden">
+      {/* Background design elements */}
+      <div className="absolute top-0 left-0 w-96 h-96 bg-alicerce-lightBlue/20 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+      <div className="absolute bottom-0 right-0 w-64 h-64 bg-alicerce-orange/10 rounded-full translate-x-1/2 translate-y-1/2"></div>
       
       <div className="section-container relative z-10">
-        <div className="max-w-3xl mx-auto space-y-8">
-          <div className="inline-block mx-auto bg-alicerce-lightBlue px-4 py-2 rounded-full mb-2">
-            <span className="text-alicerce-blue font-medium">Nossa Missão</span>
+        <div className="text-center mb-16">
+          <div className="inline-block mx-auto bg-alicerce-blue/10 px-4 py-2 rounded-full mb-4">
+            <span className="text-alicerce-blue font-medium">Nosso propósito</span>
           </div>
           
-          <h2 className="text-4xl md:text-5xl font-bold text-center text-alicerce-blue">Educar é Transformar — Faça Parte Dessa História</h2>
+          <h2 className="section-title text-center">Por que Existimos</h2>
           
-          <div className="space-y-5 text-xl text-gray-700 text-center">
-            <p>Você acredita que a educação tem o poder de mudar o mundo?</p>
-            <p>A gente também — e estamos fazendo isso acontecer todos os dias.</p>
-            <p className="mt-6">
-              No Alicerce, cada aula é uma oportunidade de transformar realidades. 
-              Com metodologias que realmente funcionam, estamos acelerando o aprendizado 
-              e abrindo portas para milhares de estudantes brasileiros.
-            </p>
-            <p>
-              Se você sonha em fazer parte de algo maior, que usa a educação como 
-              ferramenta de justiça social e transformação, seu lugar é aqui.
-            </p>
-          </div>
-          
-          <div className="flex justify-center pt-6">
-            <Button 
-              className="bg-alicerce-orange text-white hover:bg-orange-600 transition-transform hover:scale-105 px-8 py-6 text-lg font-semibold shadow-lg" 
-              onClick={() => {
-                const applicationForm = document.getElementById('apply-form');
-                if (applicationForm) {
-                  applicationForm.scrollIntoView({
-                    behavior: 'smooth'
-                  });
-                }
-              }}
-            >
-              QUERO TRANSFORMAR VIDAS
-            </Button>
-          </div>
+          <p className="text-center text-lg text-gray-700 max-w-3xl mx-auto mt-4">
+            No Alicerce, acreditamos que a educação é a base de uma sociedade mais justa e próspera. 
+            Nosso trabalho vai além do ensino - é sobre criar pontes para o futuro.
+          </p>
         </div>
+        
+        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          {values.map((value, index) => (
+            <Card key={value.title} className="border-0 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2 bg-white rounded-3xl">
+              <CardHeader className="text-center pb-4">
+                <div className="mx-auto bg-alicerce-blue rounded-full p-4 w-16 h-16 flex items-center justify-center mb-4 shadow-md">
+                  <value.icon className="h-8 w-8 text-white" strokeWidth={2} />
+                </div>
+                <h3 className="text-xl font-bold text-alicerce-blue">{value.title}</h3>
+              </CardHeader>
+              <CardContent className="text-center px-6 pb-8">
+                <p className="text-gray-600">{value.description}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+        
+        <CTAButton />
       </div>
     </section>
   );
