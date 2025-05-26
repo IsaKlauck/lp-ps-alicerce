@@ -7,17 +7,17 @@ import { Card, CardContent, CardHeader } from './ui/card';
 const services = [{
   icon: Users,
   title: "Educação Infantil",
-  subtitle: "Base sólida para o futuro",
+  subtitle: "Primeiros Passos para um Futuro Brilhante",
   description: "Como instrutor(a) da Educação Infantil, você trabalhará com o desenvolvimento sensorial e cognitivo em fases cruciais da infância. Criará atividades envolventes que despertam curiosidade, estimulam criatividade e desenvolvem habilidades fundamentais. Flexibilidade de 4, 6, 8 ou 12 horas diárias em formato presencial."
 }, {
   icon: BookOpen,
   title: "Reforço Escolar",
-  subtitle: "Potencial além das dificuldades",
+  subtitle: "Base sólida para o futuro",
   description: "Como instrutor(a) do Reforço Escolar, você criará um ambiente acolhedor onde crianças e jovens superam dificuldades acadêmicas e descobrem seu potencial. Trabalhará com metodologias que vão além do ensino tradicional, em formato presencial ou online, com flexibilidade de 3 ou 5 dias por semana."
 }, {
   icon: GraduationCap,
   title: "Qualificação Profissional",
-  subtitle: "Capacitação para o futuro",
+  subtitle: "educacao de jovens e e adultos",
   description: "Como instrutor(a) do Qualifica, você ajudará jovens e adultos a recuperarem sua base educacional enquanto desenvolvem habilidades técnicas e socioemocionais essenciais para o mercado. Seu papel será transformar vidas através da educação profissionalizante, com opções de trabalho presencial ou online, 3 ou 5 dias por semana."
 }];
 
