@@ -19,6 +19,11 @@ const HeroSection: React.FC = () => {
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
       
       <div className="section-container relative z-10">
+        {/* Top right text */}
+        <div className="absolute top-4 right-4 text-white/80 text-sm">
+          *Valores iniciais
+        </div>
+        
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="text-center md:text-left space-y-8 animate-fade-in">
             <div className="inline-block bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
@@ -38,7 +43,7 @@ const HeroSection: React.FC = () => {
                 className="bg-white text-alicerce-orange hover:bg-gray-100 px-8 py-6 text-lg font-semibold rounded-md transition-all transform hover:scale-105 hover:shadow-xl shadow-lg" 
                 onClick={scrollToApplicationForm}
               >
-                COMECE SUA JORNADA AGORA
+                QUERO COMEÇAR MINHA JORNADA
               </Button>
             </div>
           </div>

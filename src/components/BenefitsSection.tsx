@@ -94,7 +94,7 @@ const BenefitsSection: React.FC = () => {
                 }
               }}
             >
-              QUERO FAZER PARTE DESSE TIME
+              QUERO SER LÍDER
             </button>
           </div>
         </div>

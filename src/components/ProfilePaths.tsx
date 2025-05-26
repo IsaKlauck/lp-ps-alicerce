@@ -1,6 +1,7 @@
 import React from 'react';
 import { BookOpen, Users, ArrowDown } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+
 const ProfilePaths: React.FC = () => {
   const scrollToApplicationForm = () => {
     const applicationForm = document.getElementById('apply-form');
@@ -10,7 +11,9 @@ const ProfilePaths: React.FC = () => {
       });
     }
   };
-  return <section className="bg-alicerce-gray py-16 md:py-24 relative" id="perfis">
+
+  return (
+    <section className="bg-alicerce-gray py-16 md:py-24 relative" id="perfis">
       {/* Background design elements */}
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/diamond-upholstery.png')] opacity-5"></div>
       
@@ -181,10 +184,12 @@ const ProfilePaths: React.FC = () => {
         <div className="text-center mt-14">
           <ArrowDown className="w-10 h-10 text-alicerce-orange mx-auto animate-bounce mb-6" />
           <Button onClick={scrollToApplicationForm} className="bg-alicerce-orange hover:bg-orange-600 text-white px-8 py-6 text-lg font-semibold rounded-md transition-all transform hover:scale-105 shadow-lg">
-            QUERO INICIAR MINHA JORNADA ALICERCE
+            QUERO COMEÇAR MINHA JORNADA
           </Button>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default ProfilePaths;

@@ -76,7 +76,7 @@ const TransformationalServices: React.FC = () => {
               }
             }}
           >
-            QUERO FAZER PARTE DESSE TIME
+            QUERO COMEÇAR MINHA JORNADA
           </Button>
         </div>
       </div>

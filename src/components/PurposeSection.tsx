@@ -42,7 +42,7 @@ const PurposeSection: React.FC = () => {
                 }
               }}
             >
-              QUERO TRANSFORMAR VIDAS
+              QUERO SER LÍDER
             </Button>
           </div>
         </div>

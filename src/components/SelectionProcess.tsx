@@ -1,8 +1,8 @@
-
 import React from 'react';
 import { Lock, LockOpen, FileText, CheckSquare, FileUp, Users, GraduationCap, AlertCircle } from 'lucide-react';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
+import { Button } from "@/components/ui/button";
 
 const SelectionProcess: React.FC = () => {
   const steps = [
@@ -65,7 +65,7 @@ const SelectionProcess: React.FC = () => {
           <h2 className="section-title text-center">Como Se Tornar um Educador Alicerce</h2>
           
           <p className="text-center text-lg text-gray-700 max-w-3xl mx-auto mt-4">
-            Conheça o passo a passo do nosso processo seletivo contínuo.
+            CONHEÇA CADA ETAPA DO NOSSO PROCESSO SELETIVO
           </p>
         </div>
         
@@ -106,6 +106,22 @@ const SelectionProcess: React.FC = () => {
               </Tooltip>
             </TooltipProvider>
           ))}
+        </div>
+        
+        <div className="flex justify-center mt-16">
+          <Button 
+            className="bg-alicerce-orange text-white hover:bg-orange-600 transition-transform hover:scale-105 shadow-lg px-8 py-6 text-lg" 
+            onClick={() => {
+              const applicationForm = document.getElementById('apply-form');
+              if (applicationForm) {
+                applicationForm.scrollIntoView({
+                  behavior: 'smooth'
+                });
+              }
+            }}
+          >
+            QUERO SER LÍDER
+          </Button>
         </div>
       </div>
     </section>

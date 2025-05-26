@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
@@ -88,7 +87,7 @@ const Testimonials: React.FC = () => {
                 }} 
                 className="bg-white hover:bg-gray-100 text-alicerce-purple font-semibold text-lg px-8 py-4 transform hover:scale-105 transition-all shadow-lg"
               >
-                QUERO ME INSCREVER AGORA
+                QUERO COMEÇAR MINHA JORNADA
               </Button>
             </div>
             <div className="mt-8 text-center">
