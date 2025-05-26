@@ -18,7 +18,7 @@ const SelectionProcess: React.FC = () => {
     isLocked: false,
     lockIcon: <LockOpen className="h-6 w-6 text-green-500 absolute -top-2 -right-2" />
   }, {
-    title: "Análise de Documentos",
+    title: "Triagem de Documentos",
     icon: <FileUp className="h-10 w-10 text-white" />,
     description: "Após bom desempenho na prova, envie seu currículo e comprovações acadêmicas para análise do nosso time.",
     isLocked: true,
