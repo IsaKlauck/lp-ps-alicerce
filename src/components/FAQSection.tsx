@@ -1,13 +1,14 @@
 import React from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
+
 const FAQSection: React.FC = () => {
   const faqs = [{
     question: "Quem pode se inscrever?",
     answer: "Podem se inscrever pessoas com paixão por educação! Para atuar como líder, aceitamos universitários de qualquer área e recém-formados, desde que tenham interesse em desenvolver habilidades pedagógicas. Para atuar como guia, buscamos profissionais de licenciatura com experiência comprovada em sala de aula. Assim, acreditamos na valorização tanto de quem já tem trajetória no ensino quanto de quem deseja iniciar uma jornada impactando vidas!"
   }, {
     question: "Como funciona a etapa de avaliação (MAPA)?",
-    answer: "Após a inscrição, você fará o MAPA — uma avaliação diagnóstica inicial nas trilhas de Leitura, Matemática e, opcionalmente, Inglês. Essa etapa nos ajuda a conhecer melhor o seu perfil e a direcionar sua trilha de formação, de acordo com os princípios da metodologia Alicerce."
+    answer: "O MAPA é uma prova online com questões de múltipla escolha sobre conhecimentos básicos de Português e Matemática. Dependendo da vaga, também pode incluir questões de Inglês. A avaliação dura cerca de 1 hora e tem como objetivo verificar se você domina os conteúdos essenciais que irá ensinar. É eliminatória e você precisa atingir a nota mínima para avançar no processo."
   }, {
     question: "Preciso ter experiência?",
     answer: "Depende do produto! No Produto Qualifica, buscamos candidatos com experiência prévia na área educacional. No Produto Reforço, não exigimos experiência: valorizamos a paixão por ensinar e boa comunicação."
@@ -16,7 +17,10 @@ const FAQSection: React.FC = () => {
     answer: "O processo seletivo completo costuma durar de 2 a 3 semanas, dependendo da sua disponibilidade e da demanda do momento. Como nosso processo é contínuo, mesmo após concluir todas as etapas, você pode ser incluído em nosso banco de talentos e ser chamado futuramente."
   }, {
     question: "Posso atuar 100% online?",
-    answer: "Sim, em alguns casos! Embora a maioria das nossas vagas seja presencial, também temos oportunidades remotas, dependendo da região e do projeto. Mas quando presencial, contamos com polos em diversas cidades do Brasil."
+    answer: "Sim, em alguns casos! Embora a maioria das vagas seja presencial, também temos oportunidades remotas em alguns projetos."
+  }, {
+    question: "Tem projeto em todo o Brasil?",
+    answer: "Sim! Temos projetos iniciando toda semana em diversas cidades do país."
   }, {
     question: "O que é o MOVAA?",
     answer: "O MOVAA é o nosso programa de reconhecimento e desenvolvimento de quem atua conosco. Ele aprofunda o conhecimento prático e pedagógico, além de certificar líderes e guias em diferentes níveis dentro da metodologia Alicerce. É uma jornada gamificada com oportunidades únicas, que possibilita o aumento na remuneração como instrutor conforme avança na trilha."
