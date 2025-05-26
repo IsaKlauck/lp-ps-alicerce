@@ -1,7 +1,6 @@
 import React from 'react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
-
 const FAQSection: React.FC = () => {
   const faqs = [{
     question: "Quem pode se inscrever?",
@@ -22,9 +21,7 @@ const FAQSection: React.FC = () => {
     question: "O que é o MOVAA?",
     answer: "O MOVAA é o nosso programa de reconhecimento e desenvolvimento de quem atua conosco. Ele aprofunda o conhecimento prático e pedagógico, além de certificar líderes e guias em diferentes níveis dentro da metodologia Alicerce. É uma jornada gamificada com oportunidades únicas, que possibilita o aumento na remuneração como instrutor conforme avança na trilha."
   }];
-
-  return (
-    <section className="py-16 md:py-24 bg-alicerce-gray relative" id="faq">
+  return <section className="py-16 md:py-24 bg-alicerce-gray relative" id="faq">
       {/* Background design elements */}
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/brushed-alum-dark.png')] opacity-5"></div>
       
@@ -54,23 +51,16 @@ const FAQSection: React.FC = () => {
         </div>
         
         <div className="flex justify-center mt-12">
-          <Button 
-            className="bg-alicerce-blue text-white hover:bg-blue-700 transition-transform hover:scale-105 shadow-lg px-8 py-6 text-lg" 
-            onClick={() => {
-              const applicationForm = document.getElementById('apply-form');
-              if (applicationForm) {
-                applicationForm.scrollIntoView({
-                  behavior: 'smooth'
-                });
-              }
-            }}
-          >
-            QUERO SER LÍDER
-          </Button>
+          <Button className="bg-alicerce-blue text-white hover:bg-blue-700 transition-transform hover:scale-105 shadow-lg px-8 py-6 text-lg" onClick={() => {
+          const applicationForm = document.getElementById('apply-form');
+          if (applicationForm) {
+            applicationForm.scrollIntoView({
+              behavior: 'smooth'
+            });
+          }
+        }}>ME INSCREVER AGORA</Button>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default FAQSection;
