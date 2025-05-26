@@ -1,8 +1,6 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Globe } from 'lucide-react';
-
 const HeroSection: React.FC = () => {
   const scrollToApplicationForm = () => {
     const applicationForm = document.getElementById('apply-form');
@@ -12,13 +10,14 @@ const HeroSection: React.FC = () => {
       });
     }
   };
-
-  return (
-    <section className="bg-gradient-to-br from-alicerce-orange to-alicerce-purple text-white py-20 md:py-28 relative overflow-hidden">
+  return <section className="bg-gradient-to-br from-alicerce-orange to-alicerce-purple text-white py-20 md:py-28 relative overflow-hidden">
       {/* Background pattern overlay */}
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
       
       <div className="section-container relative z-10">
+        {/* Top right text */}
+        
+        
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="text-center md:text-left space-y-8 animate-fade-in">
             <div className="inline-block bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
@@ -43,12 +42,12 @@ const HeroSection: React.FC = () => {
           <div className="relative hidden md:block">
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
-                <img src="/lovable-uploads/8082169e-2cc7-4d16-89b0-3d390ffccf3b.png" alt="Estudantes em aula de qualificação profissional" className="rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 h-48 w-full object-cover" />
+                <img src="/lovable-uploads/0a6740fb-61b1-433a-800b-0c51038a9dcf.png" alt="Educadora Alicerce com estudantes" className="rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 h-48 w-full object-cover" />
                 <img src="/lovable-uploads/60f7d322-8ea9-4808-835e-4b919830b7a0.png" alt="Educador Alicerce com alunas" className="rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 h-64 w-full object-cover" />
               </div>
               <div className="mt-8 space-y-4">
                 <img src="/lovable-uploads/2961ccd4-9643-4c05-ae2b-69a7509ffb9f.png" alt="Educadora Alicerce orientando estudantes" className="rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 h-64 w-full object-cover" />
-                <img src="/lovable-uploads/9c0b2c3b-08aa-4d77-902b-d217f63f0089.png" alt="Aula de qualificação profissional com instrutor" className="rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 h-48 w-full object-cover" />
+                <img src="/lovable-uploads/122d99a8-00df-48c8-ab2b-bb85c4778d08.png" alt="Educadora Alicerce com estudantes sorridentes" className="rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 h-48 w-full object-cover" />
               </div>
             </div>
           </div>
@@ -79,8 +78,6 @@ const HeroSection: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;

@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader } from './ui/card';
 const services = [{
   icon: Users,
   title: "Educação Infantil",
-  subtitle: "Primeiros Passos para o Futuro",
+  subtitle: "Primeiros Passos para um Futuro Brilhante",
   description: "Como instrutor(a) da Educação Infantil, você trabalhará com o desenvolvimento sensorial e cognitivo em fases cruciais da infância. Criará atividades envolventes que despertam curiosidade, estimulam criatividade e desenvolvem habilidades fundamentais. Flexibilidade de 4, 6, 8 ou 12 horas diárias em formato presencial."
 }, {
   icon: BookOpen,
@@ -62,45 +62,6 @@ const TransformationalServices: React.FC = () => {
               </Card>
             </div>
           ))}
-        </div>
-
-        {/* Gallery section with mixed images */}
-        <div className="mt-16 max-w-6xl mx-auto">
-          <h3 className="text-2xl font-bold text-center text-alicerce-blue mb-8">
-            Nossos Programas em Ação
-          </h3>
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="relative group">
-              <img 
-                src="/lovable-uploads/0a6740fb-61b1-433a-800b-0c51038a9dcf.png" 
-                alt="Educadora Alicerce com estudantes do reforço escolar" 
-                className="rounded-lg shadow-lg w-full h-48 object-cover transform group-hover:scale-105 transition-all duration-300" 
-              />
-              <div className="absolute inset-0 bg-alicerce-blue/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center">
-                <span className="text-white font-semibold text-lg">Reforço Escolar</span>
-              </div>
-            </div>
-            <div className="relative group">
-              <img 
-                src="/lovable-uploads/8082169e-2cc7-4d16-89b0-3d390ffccf3b.png" 
-                alt="Estudantes em aula de qualificação profissional" 
-                className="rounded-lg shadow-lg w-full h-48 object-cover transform group-hover:scale-105 transition-all duration-300" 
-              />
-              <div className="absolute inset-0 bg-alicerce-orange/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center">
-                <span className="text-white font-semibold text-lg">Qualificação Profissional</span>
-              </div>
-            </div>
-            <div className="relative group">
-              <img 
-                src="/lovable-uploads/9c0b2c3b-08aa-4d77-902b-d217f63f0089.png" 
-                alt="Instrutor orientando estudantes" 
-                className="rounded-lg shadow-lg w-full h-48 object-cover transform group-hover:scale-105 transition-all duration-300" 
-              />
-              <div className="absolute inset-0 bg-alicerce-purple/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-lg flex items-center justify-center">
-                <span className="text-white font-semibold text-lg">Educação Transformadora</span>
-              </div>
-            </div>
-          </div>
         </div>
         
         <div className="flex justify-center mt-16">
