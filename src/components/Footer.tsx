@@ -16,7 +16,7 @@ const Footer: React.FC = () => {
             
             <div className="flex space-x-4 mt-6">
               <a 
-                href="https://www.instagram.com/alicerceeducacao/" 
+                href="https://www.instagram.com/alicerceedu/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all"
@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
                 <Instagram className="h-5 w-5" />
               </a>
               <a 
-                href="https://www.linkedin.com/company/alicerceeducacao/" 
+                href="https://www.linkedin.com/company/alicerceedu/?_l=pt_BR" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-white/10 hover:bg-white/20 p-3 rounded-full transition-all"

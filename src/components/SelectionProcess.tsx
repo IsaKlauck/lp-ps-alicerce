@@ -3,6 +3,7 @@ import { Lock, LockOpen, FileText, CheckSquare, FileUp, Users, GraduationCap, Al
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { Alert, AlertTitle, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
+
 const SelectionProcess: React.FC = () => {
   const steps = [{
     title: "Inscrição",
@@ -13,19 +14,13 @@ const SelectionProcess: React.FC = () => {
   }, {
     title: "MAPA - Prova de Conhecimento",
     icon: <CheckSquare className="h-10 w-10 text-white" />,
-    description: "Avaliação de conhecimentos essenciais para garantir que você se sinta preparado para ensinar.",
+    description: "Avaliação teórica de conhecimentos essenciais de Português, Matemática e/ou Inglês, para garantir que você domina os conteúdos.",
     isLocked: false,
     lockIcon: <LockOpen className="h-6 w-6 text-green-500 absolute -top-2 -right-2" />
   }, {
-    title: "Envio de Documentos",
+    title: "Análise de Documentos",
     icon: <FileUp className="h-10 w-10 text-white" />,
-    description: "Após bom desempenho na prova, envie seu currículo e comprovações acadêmicas.",
-    isLocked: true,
-    lockIcon: <Lock className="h-6 w-6 text-gray-400 absolute -top-2 -right-2" />
-  }, {
-    title: "Triagem Curricular",
-    icon: <CheckSquare className="h-10 w-10 text-white" />,
-    description: "Nossa equipe analisa cuidadosamente seu perfil e experiências.",
+    description: "Após bom desempenho na prova, envie seu currículo e comprovações acadêmicas para análise do nosso time.",
     isLocked: true,
     lockIcon: <Lock className="h-6 w-6 text-gray-400 absolute -top-2 -right-2" />
   }, {
@@ -41,7 +36,8 @@ const SelectionProcess: React.FC = () => {
     isLocked: true,
     lockIcon: <Lock className="h-6 w-6 text-gray-400 absolute -top-2 -right-2" />
   }];
-  return <section className="py-16 md:py-24 bg-white relative overflow-hidden" id="processo">
+  return (
+    <section className="py-16 md:py-24 bg-white relative overflow-hidden" id="processo">
       {/* Background design elements */}
       <div className="absolute right-0 top-0 w-64 h-64 bg-alicerce-orange/10 rounded-full"></div>
       <div className="absolute left-0 bottom-0 w-96 h-96 bg-alicerce-blue/10 rounded-full"></div>
@@ -70,7 +66,8 @@ const SelectionProcess: React.FC = () => {
           
           <div className="absolute top-0 bottom-0 right-[42px] w-1 bg-alicerce-blue rounded-full"></div>
           
-          {steps.map((step, index) => <TooltipProvider key={index} delayDuration={300}>
+          {steps.map((step, index) => (
+            <TooltipProvider key={index} delayDuration={300}>
               <Tooltip>
                 <TooltipTrigger asChild>
                   <div className="relative flex flex-row-reverse items-start mb-14 group">
@@ -86,23 +83,35 @@ const SelectionProcess: React.FC = () => {
                 </TooltipTrigger>
                 <TooltipContent side="left" className="max-w-[250px] p-4 bg-alicerce-blue text-white">
                   <p>{step.description}</p>
-                  {step.isLocked ? <div className="mt-2 text-sm text-yellow-200">Esta etapa é desbloqueada após concluir as anteriores.</div> : <div className="mt-2 text-sm text-green-200">Esta etapa está disponível para você agora!</div>}
+                  {step.isLocked ? (
+                    <div className="mt-2 text-sm text-yellow-200">Esta etapa é desbloqueada após concluir as anteriores.</div>
+                  ) : (
+                    <div className="mt-2 text-sm text-green-200">Esta etapa está disponível para você agora!</div>
+                  )}
                 </TooltipContent>
               </Tooltip>
-            </TooltipProvider>)}
+            </TooltipProvider>
+          ))}
         </div>
         
         <div className="flex justify-center mt-16">
-          <Button className="bg-alicerce-orange text-white hover:bg-orange-600 transition-transform hover:scale-105 shadow-lg px-8 py-6 text-lg" onClick={() => {
-          const applicationForm = document.getElementById('apply-form');
-          if (applicationForm) {
-            applicationForm.scrollIntoView({
-              behavior: 'smooth'
-            });
-          }
-        }}>QUERO ME INSCREVER</Button>
+          <Button 
+            className="bg-alicerce-orange text-white hover:bg-orange-600 transition-transform hover:scale-105 shadow-lg px-8 py-6 text-lg" 
+            onClick={() => {
+              const applicationForm = document.getElementById('apply-form');
+              if (applicationForm) {
+                applicationForm.scrollIntoView({
+                  behavior: 'smooth'
+                });
+              }
+            }}
+          >
+            QUERO ME INSCREVER
+          </Button>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default SelectionProcess;

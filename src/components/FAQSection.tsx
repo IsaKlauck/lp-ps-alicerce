@@ -8,7 +8,7 @@ const FAQSection: React.FC = () => {
     answer: "Podem se inscrever pessoas com paixão por educação! Para atuar como líder, aceitamos universitários de qualquer área e recém-formados, desde que tenham interesse em desenvolver habilidades pedagógicas. Para atuar como guia, buscamos profissionais de licenciatura com experiência comprovada em sala de aula. Assim, acreditamos na valorização tanto de quem já tem trajetória no ensino quanto de quem deseja iniciar uma jornada impactando vidas!"
   }, {
     question: "Como funciona a etapa de avaliação (MAPA)?",
-    answer: "O MAPA é uma prova online com questões de múltipla escolha sobre conhecimentos básicos de Português e Matemática. Dependendo da vaga, também pode incluir questões de Inglês. A avaliação dura cerca de 1 hora e tem como objetivo verificar se você domina os conteúdos essenciais que irá ensinar. É eliminatória e você precisa atingir a nota mínima para avançar no processo."
+    answer: "É uma prova online simples com questões de múltipla escolha sobre conhecimentos básicos. Você responderá perguntas de Português e Matemática e, dependendo da vaga, também de Inglês. Dura cerca de 1 hora e serve para verificar se você tem domínio dos conteúdos que vai ensinar. Para continuar no processo, você precisa atingir a nota mínima."
   }, {
     question: "Preciso ter experiência?",
     answer: "Depende do produto! No Produto Qualifica, buscamos candidatos com experiência prévia na área educacional. No Produto Reforço, não exigimos experiência: valorizamos a paixão por ensinar e boa comunicação."
@@ -25,7 +25,8 @@ const FAQSection: React.FC = () => {
     question: "O que é o MOVAA?",
     answer: "O MOVAA é o nosso programa de reconhecimento e desenvolvimento de quem atua conosco. Ele aprofunda o conhecimento prático e pedagógico, além de certificar líderes e guias em diferentes níveis dentro da metodologia Alicerce. É uma jornada gamificada com oportunidades únicas, que possibilita o aumento na remuneração como instrutor conforme avança na trilha."
   }];
-  return <section className="py-16 md:py-24 bg-alicerce-gray relative" id="faq">
+  return (
+    <section className="py-16 md:py-24 bg-alicerce-gray relative" id="faq">
       {/* Background design elements */}
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/brushed-alum-dark.png')] opacity-5"></div>
       
@@ -43,28 +44,37 @@ const FAQSection: React.FC = () => {
         
         <div className="max-w-3xl mx-auto">
           <Accordion type="single" collapsible className="bg-white rounded-xl overflow-hidden shadow-md border border-gray-100">
-            {faqs.map((faq, index) => <AccordionItem key={index} value={`item-${index}`} className="border-b border-alicerce-lightBlue last:border-0 group">
+            {faqs.map((faq, index) => (
+              <AccordionItem key={index} value={`item-${index}`} className="border-b border-alicerce-lightBlue last:border-0 group">
                 <AccordionTrigger className="px-6 py-5 text-left text-alicerce-blue hover:text-alicerce-orange transition-colors duration-300 font-medium">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="px-6 pb-5 text-gray-700 animate-slide-up bg-gray-50">
                   <div className="text-left">{faq.answer}</div>
                 </AccordionContent>
-              </AccordionItem>)}
+              </AccordionItem>
+            ))}
           </Accordion>
         </div>
         
         <div className="flex justify-center mt-12">
-          <Button className="bg-alicerce-blue text-white hover:bg-blue-700 transition-transform hover:scale-105 shadow-lg px-8 py-6 text-lg" onClick={() => {
-          const applicationForm = document.getElementById('apply-form');
-          if (applicationForm) {
-            applicationForm.scrollIntoView({
-              behavior: 'smooth'
-            });
-          }
-        }}>ME INSCREVER AGORA</Button>
+          <Button 
+            className="bg-alicerce-blue text-white hover:bg-blue-700 transition-transform hover:scale-105 shadow-lg px-8 py-6 text-lg" 
+            onClick={() => {
+              const applicationForm = document.getElementById('apply-form');
+              if (applicationForm) {
+                applicationForm.scrollIntoView({
+                  behavior: 'smooth'
+                });
+              }
+            }}
+          >
+            ME INSCREVER AGORA
+          </Button>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default FAQSection;
