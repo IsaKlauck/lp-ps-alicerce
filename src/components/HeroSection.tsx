@@ -1,8 +1,6 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Globe } from 'lucide-react';
-
 const HeroSection: React.FC = () => {
   const scrollToApplicationForm = () => {
     const applicationForm = document.getElementById('apply-form');
@@ -12,17 +10,13 @@ const HeroSection: React.FC = () => {
       });
     }
   };
-  
-  return (
-    <section className="bg-gradient-to-br from-alicerce-orange to-alicerce-purple text-white py-20 md:py-28 relative overflow-hidden">
+  return <section className="bg-gradient-to-br from-alicerce-orange to-alicerce-purple text-white py-20 md:py-28 relative overflow-hidden">
       {/* Background pattern overlay */}
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
       
       <div className="section-container relative z-10">
         {/* Top right text */}
-        <div className="absolute top-4 right-4 text-white/80 text-sm">
-          *Valores iniciais
-        </div>
+        
         
         <div className="grid md:grid-cols-2 gap-8 items-center">
           <div className="text-center md:text-left space-y-8 animate-fade-in">
@@ -39,10 +33,7 @@ const HeroSection: React.FC = () => {
             </p>
             
             <div className="flex justify-center md:justify-start mt-10">
-              <Button 
-                className="bg-white text-alicerce-orange hover:bg-gray-100 px-8 py-6 text-lg font-semibold rounded-md transition-all transform hover:scale-105 hover:shadow-xl shadow-lg" 
-                onClick={scrollToApplicationForm}
-              >
+              <Button className="bg-white text-alicerce-orange hover:bg-gray-100 px-8 py-6 text-lg font-semibold rounded-md transition-all transform hover:scale-105 hover:shadow-xl shadow-lg" onClick={scrollToApplicationForm}>
                 QUERO COMEÇAR MINHA JORNADA
               </Button>
             </div>
@@ -87,8 +78,6 @@ const HeroSection: React.FC = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default HeroSection;
