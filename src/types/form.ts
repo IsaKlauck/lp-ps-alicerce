@@ -19,7 +19,6 @@ export type FormData = {
   expectedCompletionYear?: string;
   academicBackground: string;
   institutionType: string;
-  schoolType: string[];
   howDidYouKnow: string;
   otherSource?: string;
   ambassadorName?: string;

@@ -132,37 +132,6 @@ export const EducationSection: React.FC<EducationSectionProps> = ({ control }) =
             </FormItem>
           )}
         />
-
-        <FormField
-          control={control}
-          name="schoolType"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Tipo de Escola no Ensino Básico*</FormLabel>
-              <FormControl>
-                <RadioGroup
-                  onValueChange={(value) => field.onChange([value])}
-                  value={field.value?.[0] || ""}
-                  className="space-y-2"
-                >
-                  {[
-                    { id: 'public', label: 'Pública' },
-                    { id: 'private', label: 'Particular sem bolsa' },
-                    { id: 'scholarship', label: 'Particular com bolsa' },
-                  ].map((option) => (
-                    <div key={option.id} className="flex items-center space-x-2">
-                      <RadioGroupItem value={option.label} id={`basic-${option.id}`} />
-                      <label htmlFor={`basic-${option.id}`} className="text-sm font-medium">
-                        {option.label}
-                      </label>
-                    </div>
-                  ))}
-                </RadioGroup>
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
       </div>
     </div>
   );

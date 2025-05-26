@@ -33,8 +33,7 @@ export const useFormDataPreparation = () => {
         completionYear: data.completionYear || "",
         expectedCompletionYear: data.expectedCompletionYear || "",
         academicBackground: data.academicBackground || "",
-        institutionType: data.institutionType || "",
-        schoolType: data.schoolType.join(", ") || ""
+        institutionType: data.institutionType || ""
       },
       submissionDate: new Date().toISOString()
     };

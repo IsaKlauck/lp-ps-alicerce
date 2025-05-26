@@ -34,9 +34,6 @@ export const formSchema = z.object({
   expectedCompletionYear: z.string().optional(),
   academicBackground: z.string().min(3, { message: "Formação acadêmica é obrigatória" }),
   institutionType: z.string().min(1, { message: "Tipo de instituição é obrigatório" }),
-  schoolType: z.array(z.string()).refine(value => value.length > 0, {
-    message: "Selecione pelo menos um tipo de escola",
-  }),
   howDidYouKnow: z.string().min(1, { message: "Este campo é obrigatório" }),
   otherSource: z.string().optional(),
   ambassadorName: z.string().optional(),
