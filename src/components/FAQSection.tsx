@@ -8,7 +8,7 @@ const FAQSection: React.FC = () => {
     answer: "Podem se inscrever pessoas com paixão por educação! Para atuar como líder, aceitamos universitários de qualquer área e recém-formados, desde que tenham interesse em desenvolver habilidades pedagógicas. Para atuar como guia, buscamos profissionais de licenciatura com experiência comprovada em sala de aula. Assim, acreditamos na valorização tanto de quem já tem trajetória no ensino quanto de quem deseja iniciar uma jornada impactando vidas!"
   }, {
     question: "Como funciona a etapa de avaliação (MAPA)?",
-    answer: "É uma prova online simples com questões de múltipla escolha sobre conhecimentos básicos. Você responderá perguntas de Português e Matemática e, dependendo da vaga, também de Inglês. Dura cerca de 1 hora e serve para verificar se você tem domínio dos conteúdos que vai ensinar. Para continuar no processo, você precisa atingir a nota mínima."
+    answer: "O MAPA é uma avaliação online composta por até três provas: Português, Matemática e, opcionalmente, Inglês (caso tenha interesse em dar aulas de inglês). Essa etapa serve para verificar se você domina os conteúdos que irá ensinar. Para seguir no processo seletivo, é necessário atingir a nota mínima exigida."
   }, {
     question: "Preciso ter experiência?",
     answer: "Depende do produto! No Produto Qualifica, buscamos candidatos com experiência prévia na área educacional. No Produto Reforço, não exigimos experiência: valorizamos a paixão por ensinar e boa comunicação."
