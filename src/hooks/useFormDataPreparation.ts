@@ -4,6 +4,12 @@ import { FormattedData } from "@/services/formSubmission";
 
 export const useFormDataPreparation = () => {
   const prepareFormData = (data: FormSchema): FormattedData => {
+    // Prepare the howDidYouKnow field with ambassador name if applicable
+    let howDidYouKnowValue = data.howDidYouKnow || "";
+    if (data.howDidYouKnow === "Embaixador" && data.ambassadorName) {
+      howDidYouKnowValue = `Embaixador; ${data.ambassadorName}`;
+    }
+
     return {
       PersonalDataSection: {
         name: data.name || "",
@@ -22,7 +28,7 @@ export const useFormDataPreparation = () => {
         disabilityDetails: data.disabilityDetails || ""
       },
       RelationshipSection: {
-        howDidYouKnow: data.howDidYouKnow || "",
+        howDidYouKnow: howDidYouKnowValue,
         ambassadorName: data.ambassadorName || "",
         interestedInProject: data.interestedInProject || "Não",
         projectUnit: data.projectUnit || "",
