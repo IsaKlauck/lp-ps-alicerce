@@ -16,7 +16,7 @@ const services = [{
   description: "Como instrutor(a) do Reforço Escolar, você criará um ambiente acolhedor onde crianças e jovens superam dificuldades acadêmicas e descobrem seu potencial. Trabalhará com metodologias que vão além do ensino tradicional, em formato presencial ou online, com flexibilidade de 3 ou 5 dias por semana."
 }, {
   icon: GraduationCap,
-  title: "Qualifica",
+  title: "Qualificação Profissional",
   subtitle: "Capacitação para o futuro",
   description: "Como instrutor(a) do Qualifica, você ajudará jovens e adultos a recuperarem sua base educacional enquanto desenvolvem habilidades técnicas e socioemocionais essenciais para o mercado. Seu papel será transformar vidas através da educação profissionalizante, com opções de trabalho presencial ou online, 3 ou 5 dias por semana."
 }];
