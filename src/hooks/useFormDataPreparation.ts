@@ -38,6 +38,9 @@ export const useFormDataPreparation = () => {
       },
       EducationSection: {
         education: data.education || "",
+        course: data.course || "",
+        courseType: data.courseType || "",
+        university: data.university || "",
         completionYear: data.completionYear || "",
         expectedCompletionYear: data.expectedCompletionYear || "",
         academicBackground: data.academicBackground || "",

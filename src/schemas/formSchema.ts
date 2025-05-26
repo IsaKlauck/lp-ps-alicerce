@@ -44,10 +44,13 @@ export const formSchema = z.object({
   
   // Educação
   education: z.string().min(1, "Escolaridade é obrigatória"),
+  course: z.string().optional(),
+  courseType: z.string().optional(),
+  university: z.string().optional(),
   completionYear: z.string().optional(),
   expectedCompletionYear: z.string().optional(),
-  academicBackground: z.string().min(1, "Área de formação é obrigatória"),
-  institutionType: z.string().min(1, "Tipo de instituição é obrigatório"),
+  academicBackground: z.string().optional(),
+  institutionType: z.string().optional(),
   
   // Relacionamento
   howDidYouKnow: z.string().min(1, "Como conheceu o Alicerce é obrigatório"),
@@ -112,6 +115,29 @@ export const formSchema = z.object({
 }, {
   message: "Especifique o projeto",
   path: ["otherProject"]
+}).refine((data) => {
+  // Validate education fields based on education level
+  const isGraduated = ['Superior Concluido', 'Pós-graduação', 'Mestrado', 'Doutorado'].includes(data.education);
+  const isCurrentlyStudying = data.education === 'Superior Cursando';
+  
+  if (isGraduated || isCurrentlyStudying) {
+    if (!data.course || !data.courseType || !data.university || !data.institutionType) {
+      return false;
+    }
+    
+    if (isGraduated && !data.completionYear) {
+      return false;
+    }
+    
+    if (isCurrentlyStudying && !data.expectedCompletionYear) {
+      return false;
+    }
+  }
+  
+  return true;
+}, {
+  message: "Todos os campos de educação são obrigatórios",
+  path: ["course"]
 });
 
 export type FormSchema = z.infer<typeof formSchema>;

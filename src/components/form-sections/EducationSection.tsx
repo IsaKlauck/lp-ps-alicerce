@@ -4,7 +4,6 @@ import { Control } from 'react-hook-form';
 import { FormSchema } from '@/schemas/formSchema';
 import { FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Textarea } from '@/components/ui/textarea';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Input } from '@/components/ui/input';
 
@@ -14,6 +13,10 @@ interface EducationSectionProps {
 
 export const EducationSection: React.FC<EducationSectionProps> = ({ control }) => {
   const selectedEducation = control._formValues?.education || '';
+  
+  // Determine if user is graduated or currently studying
+  const isGraduated = ['Superior Concluido', 'Pós-graduação', 'Mestrado', 'Doutorado'].includes(selectedEducation);
+  const isCurrentlyStudying = selectedEducation === 'Superior Cursando';
 
   return (
     <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
@@ -44,13 +47,117 @@ export const EducationSection: React.FC<EducationSectionProps> = ({ control }) =
           )}
         />
 
-        {selectedEducation === 'Superior Concluido' && (
+        {/* Fields for both graduated and currently studying */}
+        {(isGraduated || isCurrentlyStudying) && (
+          <>
+            <FormField
+              control={control}
+              name="course"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Curso*</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="text"
+                      placeholder="Ex: Direito, Administração, Engenharia Civil"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={control}
+              name="courseType"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Modalidade*</FormLabel>
+                  <FormControl>
+                    <RadioGroup
+                      onValueChange={field.onChange}
+                      value={field.value}
+                      className="space-y-2"
+                    >
+                      {[
+                        { id: 'licenciatura', label: 'Licenciatura' },
+                        { id: 'bacharelado', label: 'Bacharelado' },
+                        { id: 'tecnologo', label: 'Tecnólogo' },
+                      ].map((option) => (
+                        <div key={option.id} className="flex items-center space-x-2">
+                          <RadioGroupItem value={option.label} id={option.id} />
+                          <label htmlFor={option.id} className="text-sm font-medium">
+                            {option.label}
+                          </label>
+                        </div>
+                      ))}
+                    </RadioGroup>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={control}
+              name="university"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Universidade*</FormLabel>
+                  <FormControl>
+                    <Input
+                      type="text"
+                      placeholder="Ex: Universidade Federal de Minas Gerais"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={control}
+              name="institutionType"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Tipo de universidade*</FormLabel>
+                  <FormControl>
+                    <RadioGroup
+                      onValueChange={field.onChange}
+                      value={field.value}
+                      className="space-y-2"
+                    >
+                      {[
+                        { id: 'public', label: 'Pública' },
+                        { id: 'private', label: 'Privada sem bolsa de estudos' },
+                        { id: 'scholarship', label: 'Privada com bolsa de estudos' },
+                      ].map((option) => (
+                        <div key={option.id} className="flex items-center space-x-2">
+                          <RadioGroupItem value={option.label} id={option.id} />
+                          <label htmlFor={option.id} className="text-sm font-medium">
+                            {option.label}
+                          </label>
+                        </div>
+                      ))}
+                    </RadioGroup>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </>
+        )}
+
+        {/* Graduation year for graduated students */}
+        {isGraduated && (
           <FormField
             control={control}
             name="completionYear"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Ano de Conclusão*</FormLabel>
+                <FormLabel>Ano de Formação*</FormLabel>
                 <FormControl>
                   <Input
                     type="text"
@@ -64,13 +171,14 @@ export const EducationSection: React.FC<EducationSectionProps> = ({ control }) =
           />
         )}
 
-        {selectedEducation === 'Superior Cursando' && (
+        {/* Expected completion year for current students */}
+        {isCurrentlyStudying && (
           <FormField
             control={control}
             name="expectedCompletionYear"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Previsão de Conclusão*</FormLabel>
+                <FormLabel>Previsão de conclusão (ano)*</FormLabel>
                 <FormControl>
                   <Input
                     type="text"
@@ -83,55 +191,6 @@ export const EducationSection: React.FC<EducationSectionProps> = ({ control }) =
             )}
           />
         )}
-
-        <FormField
-          control={control}
-          name="academicBackground"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Formação Acadêmica* (curso e instituição)</FormLabel>
-              <FormControl>
-                <Textarea
-                  placeholder="Ex: Direito - Universidade Federal de Minas Gerais"
-                  className="resize-none"
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-
-        <FormField
-          control={control}
-          name="institutionType"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Tipo de instituição de ensino superior*</FormLabel>
-              <FormControl>
-                <RadioGroup
-                  onValueChange={field.onChange}
-                  value={field.value}
-                  className="space-y-2"
-                >
-                  {[
-                    { id: 'public', label: 'Instituição pública' },
-                    { id: 'private', label: 'Instituição particular sem bolsa' },
-                    { id: 'scholarship', label: 'Instituição particular com bolsa de estudos' },
-                  ].map((option) => (
-                    <div key={option.id} className="flex items-center space-x-2">
-                      <RadioGroupItem value={option.label} id={option.id} />
-                      <label htmlFor={option.id} className="text-sm font-medium">
-                        {option.label}
-                      </label>
-                    </div>
-                  ))}
-                </RadioGroup>
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
       </div>
     </div>
   );

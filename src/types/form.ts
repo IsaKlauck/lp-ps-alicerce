@@ -17,9 +17,12 @@ export type FormData = {
   hasDisability: string;
   disabilityDetails?: string;
   education: string;
+  course?: string;
+  courseType?: string;
+  university?: string;
   completionYear?: string;
   expectedCompletionYear?: string;
-  academicBackground: string;
+  academicBackground?: string;
   institutionType: string;
   howDidYouKnow: string;
   otherSource?: string;
