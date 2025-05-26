@@ -1,7 +1,5 @@
-
 import React from 'react';
 import { Heart, TrendingUp, Users, GraduationCap, Star, Briefcase, DollarSign, Clock, BookOpen, Trophy } from 'lucide-react';
-
 const benefits = [{
   icon: DollarSign,
   title: "Trabalho com Propósito",
@@ -27,10 +25,8 @@ const benefits = [{
   title: "Flexibilidade Responsável",
   description: "Tenha autonomia para planejar sua rotina equilibrando propósito, impacto e vida pessoal."
 }];
-
 const BenefitsSection: React.FC = () => {
-  return (
-    <section className="bg-alicerce-gray py-16 md:py-24 relative" id="beneficios">
+  return <section className="bg-alicerce-gray py-16 md:py-24 relative" id="beneficios">
       {/* Background pattern */}
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/brushed-alum.png')] opacity-5"></div>
       
@@ -51,56 +47,39 @@ const BenefitsSection: React.FC = () => {
         <div className="max-w-6xl mx-auto">
           {/* First row */}
           <div className="grid md:grid-cols-3 gap-8 mb-12">
-            {benefits.slice(0, 3).map((benefit, index) => (
-              <div 
-                key={benefit.title} 
-                className="bg-white p-8 rounded-lg shadow-sm text-center border border-gray-100"
-              >
+            {benefits.slice(0, 3).map((benefit, index) => <div key={benefit.title} className="bg-white p-8 rounded-lg shadow-sm text-center border border-gray-100">
                 <div className="w-16 h-16 bg-alicerce-blue rounded-full flex items-center justify-center mx-auto mb-6">
                   <benefit.icon className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-alicerce-blue mb-4">{benefit.title}</h3>
                 <p className="text-gray-700 leading-relaxed">{benefit.description}</p>
-              </div>
-            ))}
+              </div>)}
           </div>
           
           {/* Second row */}
           <div className="grid md:grid-cols-3 gap-8 mb-12">
-            {benefits.slice(3, 6).map((benefit, index) => (
-              <div 
-                key={benefit.title} 
-                className="bg-white p-8 rounded-lg shadow-sm text-center border border-gray-100"
-              >
+            {benefits.slice(3, 6).map((benefit, index) => <div key={benefit.title} className="bg-white p-8 rounded-lg shadow-sm text-center border border-gray-100">
                 <div className="w-16 h-16 bg-alicerce-blue rounded-full flex items-center justify-center mx-auto mb-6">
                   <benefit.icon className="h-8 w-8 text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-alicerce-blue mb-4">{benefit.title}</h3>
                 <p className="text-gray-700 leading-relaxed">{benefit.description}</p>
-              </div>
-            ))}
+              </div>)}
           </div>
           
           {/* CTA Button */}
           <div className="flex justify-center pt-6">
-            <button 
-              className="bg-alicerce-blue text-white hover:bg-blue-700 transition-colors px-8 py-4 text-lg font-semibold rounded-md shadow-lg" 
-              onClick={() => {
-                const applicationForm = document.getElementById('apply-form');
-                if (applicationForm) {
-                  applicationForm.scrollIntoView({
-                    behavior: 'smooth'
-                  });
-                }
-              }}
-            >
-              QUERO SER LÍDER
-            </button>
+            <button className="bg-alicerce-blue text-white hover:bg-blue-700 transition-colors px-8 py-4 text-lg font-semibold rounded-md shadow-lg" onClick={() => {
+            const applicationForm = document.getElementById('apply-form');
+            if (applicationForm) {
+              applicationForm.scrollIntoView({
+                behavior: 'smooth'
+              });
+            }
+          }}>QUERO FAZER PARTE!</button>
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default BenefitsSection;
