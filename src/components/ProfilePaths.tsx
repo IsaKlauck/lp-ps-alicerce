@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { BookOpen, Users, ArrowDown } from 'lucide-react';
 import { Button } from "@/components/ui/button";
@@ -99,7 +98,7 @@ const ProfilePaths: React.FC = () => {
 
         {/* Note about MOVAA and hourly rates */}
         <div className="text-center mt-4 text-sm text-gray-600 max-w-2xl mx-auto">
-          <p>* Valores iniciais. Através do programa MOVAA, você pode obter até 10% de aumento no valor hora ao alcançar o nível Gama.</p>
+          <p className="text-right">* Valores iniciais</p>
         </div>
 
         {/* Important Information Section */}
