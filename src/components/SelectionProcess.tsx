@@ -14,13 +14,13 @@ const SelectionProcess: React.FC = () => {
   }, {
     title: "MAPA - Prova de Conhecimento",
     icon: <CheckSquare className="h-10 w-10 text-white" />,
-    description: "Avaliação teórica de conhecimentos essenciais de Português, Matemática e/ou Inglês, para garantir que você domina os conteúdos.",
+    description: "Avaliação teórica de conhecimentos essenciais de Português, Matemática e/ou Inglês, para garantir que você domina os conteúdos que você irá lecionar.",
     isLocked: false,
     lockIcon: <LockOpen className="h-6 w-6 text-green-500 absolute -top-2 -right-2" />
   }, {
-    title: "Triagem de Documentos",
+    title: "Comprovação de Status Acadêmico",
     icon: <FileUp className="h-10 w-10 text-white" />,
-    description: "Após bom desempenho na prova, envie seu currículo e comprovações acadêmicas para análise do nosso time.",
+    description: "Envio de documentos e informações sobre currículo, experiências prévias e carta de motivação.",
     isLocked: true,
     lockIcon: <Lock className="h-6 w-6 text-gray-400 absolute -top-2 -right-2" />
   }, {
@@ -32,7 +32,7 @@ const SelectionProcess: React.FC = () => {
   }, {
     title: "Formação Inicial",
     icon: <GraduationCap className="h-10 w-10 text-white" />,
-    description: "Receba a Formação Pedagógica Alicerce e comece sua jornada de impacto na educação.",
+    description: "Receba sobre a metodologia Alicerce para habilitação de alocação em turmas.",
     isLocked: true,
     lockIcon: <Lock className="h-6 w-6 text-gray-400 absolute -top-2 -right-2" />
   }];
