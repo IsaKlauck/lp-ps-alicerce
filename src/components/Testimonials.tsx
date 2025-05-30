@@ -1,4 +1,5 @@
 
+
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
@@ -42,12 +43,21 @@ const Testimonials: React.FC = () => {
             </p>
           </div>
           
-          <div className="hidden md:block">
-            <img 
-              src="/lovable-uploads/122d99a8-00df-48c8-ab2b-bb85c4778d08.png" 
-              alt="Educadora Alicerce com estudantes" 
-              className="rounded-lg shadow-2xl transform hover:scale-[1.01] transition-all border-4 border-white/20 w-full h-auto object-cover" 
-            />
+          <div className="hidden md:block space-y-6">
+            <div className="relative">
+              <img 
+                src="/lovable-uploads/122d99a8-00df-48c8-ab2b-bb85c4778d08.png" 
+                alt="Educadora Alicerce com estudantes" 
+                className="rounded-lg shadow-2xl transform hover:scale-[1.02] transition-all duration-500 border-4 border-white/20 w-full h-auto object-cover" 
+              />
+            </div>
+            <div className="relative ml-8 -mt-4">
+              <img 
+                src="/lovable-uploads/a3930f98-d452-4efd-a0c5-e146cd0bca58.png" 
+                alt="Equipe Alicerce em atividade de formação" 
+                className="rounded-lg shadow-xl transform hover:scale-[1.03] transition-all duration-700 border-3 border-white/15 w-5/6 h-auto object-cover rotate-2 hover:rotate-0" 
+              />
+            </div>
           </div>
         </div>
 
@@ -102,3 +112,4 @@ const Testimonials: React.FC = () => {
 };
 
 export default Testimonials;
+
