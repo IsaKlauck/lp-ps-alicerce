@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Control } from 'react-hook-form';
 import { FormSchema } from '@/schemas/formSchema';
@@ -6,6 +5,7 @@ import { FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/comp
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 
 interface EducationSectionProps {
   control: Control<FormSchema>;
@@ -57,9 +57,9 @@ export const EducationSection: React.FC<EducationSectionProps> = ({ control }) =
                 <FormItem>
                   <FormLabel>Curso*</FormLabel>
                   <FormControl>
-                    <Input
-                      type="text"
+                    <Textarea
                       placeholder="Ex: Direito, Administração, Engenharia Civil"
+                      className="min-h-[80px]"
                       {...field}
                     />
                   </FormControl>
