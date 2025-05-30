@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
@@ -46,14 +47,14 @@ const Testimonials: React.FC = () => {
               <img 
                 src="/lovable-uploads/122d99a8-00df-48c8-ab2b-bb85c4778d08.png" 
                 alt="Educadora Alicerce com estudantes" 
-                className="rounded-lg shadow-2xl transform hover:scale-[1.02] transition-all duration-500 border-4 border-white/20 w-full h-auto object-cover" 
+                className="rounded-lg shadow-2xl transform hover:scale-[1.02] transition-all duration-500 border-4 border-white/20 w-[90%] h-auto object-cover mx-auto" 
               />
             </div>
             <div className="relative">
               <img 
                 src="/lovable-uploads/a3930f98-d452-4efd-a0c5-e146cd0bca58.png" 
                 alt="Equipe Alicerce em atividade de formação" 
-                className="rounded-lg shadow-xl transform hover:scale-[1.02] transition-all duration-500 border-4 border-white/20 w-full h-auto object-cover" 
+                className="rounded-lg shadow-xl transform hover:scale-[1.02] transition-all duration-500 border-4 border-white/20 w-[90%] h-auto object-cover mx-auto" 
               />
             </div>
           </div>
