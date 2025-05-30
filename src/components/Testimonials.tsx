@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
@@ -59,8 +60,8 @@ const Testimonials: React.FC = () => {
           <div className="max-w-4xl mx-auto px-4">
             <div className="aspect-video w-full rounded-xl overflow-hidden shadow-2xl transform transition-transform hover:scale-[1.01] border-4 border-white/20">
               <iframe 
-                src="https://www.youtube.com/embed/alkBt-sSrc8?autoplay=0&controls=1" 
-                title="Vídeo Institucional Alicerce" 
+                src="https://www.youtube.com/embed/LH8EJ1k7fTc?autoplay=0&controls=1" 
+                title="Missão Alicerce" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen" 
                 allowFullScreen 
                 className="w-full h-full"
