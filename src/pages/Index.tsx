@@ -11,6 +11,7 @@ import FAQSection from '@/components/FAQSection';
 import ApplicationForm from '@/components/ApplicationForm';
 import Footer from '@/components/Footer';
 import TransformationalServices from '@/components/TransformationalServices';
+import TestimonialsCarousel from '@/components/TestimonialsCarousel';
 import ScrollTopButton from '@/components/ScrollTopButton';
 
 const Index = () => {
@@ -20,6 +21,7 @@ const Index = () => {
       <HeroSection />
       <PurposeSection />
       <TransformationalServices />
+      <TestimonialsCarousel />
       <BenefitsSection />
       <ProfilePaths />
       <SelectionProcess />
