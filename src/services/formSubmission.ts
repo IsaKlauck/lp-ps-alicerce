@@ -3,10 +3,44 @@
 export const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwoggMPtk0cnGUzeD97sncp_iMVhxAExOcB5pyaheUiKEQnGpCw7Ax0PulTyrmR7mVP/exec";
 
 export type FormattedData = {
-  PersonalDataSection: Record<string, string>;
-  AccessibilitySection: Record<string, string>;
-  RelationshipSection: Record<string, string>;
-  EducationSection: Record<string, string>;
+  PersonalDataSection: {
+    name: string;
+    email: string;
+    cpf: string;
+    birthDate: string;
+    phone: string;
+    cep: string;
+    address: string;
+    neighborhood: string; // Campo bairro para coluna J
+    state: string;
+    city: string;
+    gender: string;
+    otherGender: string;
+    ethnicity: string;
+    otherEthnicity: string;
+  };
+  AccessibilitySection: {
+    hasDisability: string;
+    disabilityDetails: string;
+  };
+  RelationshipSection: {
+    howDidYouKnow: string;
+    otherSource: string;
+    ambassadorName: string;
+    interestedInProject: string;
+    projectUnit: string;
+    otherProject: string;
+  };
+  EducationSection: {
+    education: string;
+    course: string;
+    courseType: string;
+    university: string;
+    completionYear: string;
+    expectedCompletionYear: string;
+    academicBackground: string;
+    institutionType: string;
+  };
   submissionDate: string;
 };
 

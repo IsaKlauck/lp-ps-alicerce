@@ -10,6 +10,30 @@ export const useFormDataPreparation = () => {
       howDidYouKnowValue = `Embaixador; ${data.ambassadorName}`;
     }
 
+    // Prepare gender field with other specification if applicable
+    let genderValue = data.gender || "";
+    if (data.gender === "Outro" && data.otherGender) {
+      genderValue = `Outro; ${data.otherGender}`;
+    }
+
+    // Prepare ethnicity field with other specification if applicable
+    let ethnicityValue = data.ethnicity || "";
+    if (data.ethnicity === "Outro" && data.otherEthnicity) {
+      ethnicityValue = `Outro; ${data.otherEthnicity}`;
+    }
+
+    // Prepare project interest field with other specification if applicable
+    let projectUnitValue = data.projectUnit || "";
+    if (data.projectUnit === "Outro" && data.otherProject) {
+      projectUnitValue = `Outro; ${data.otherProject}`;
+    }
+
+    // Prepare education source field with other specification if applicable
+    let howDidYouKnowSourceValue = data.howDidYouKnow || "";
+    if (data.howDidYouKnow === "Outro" && data.otherSource) {
+      howDidYouKnowSourceValue = `Outro; ${data.otherSource}`;
+    }
+
     return {
       PersonalDataSection: {
         name: data.name || "",
@@ -19,21 +43,24 @@ export const useFormDataPreparation = () => {
         phone: data.phone || "",
         cep: data.cep || "",
         address: data.address || "",
-        neighborhood: data.neighborhood || "",
+        neighborhood: data.neighborhood || "", // Garantindo que bairro seja enviado (coluna J)
         state: data.state || "",
         city: data.city || "",
-        gender: data.gender || "",
-        ethnicity: data.ethnicity || ""
+        gender: genderValue,
+        otherGender: data.otherGender || "",
+        ethnicity: ethnicityValue,
+        otherEthnicity: data.otherEthnicity || ""
       },
       AccessibilitySection: {
         hasDisability: data.hasDisability || "Não",
         disabilityDetails: data.disabilityDetails || ""
       },
       RelationshipSection: {
-        howDidYouKnow: howDidYouKnowValue,
+        howDidYouKnow: data.howDidYouKnow === "Embaixador" ? howDidYouKnowValue : (data.howDidYouKnow === "Outro" ? howDidYouKnowSourceValue : data.howDidYouKnow || ""),
+        otherSource: data.otherSource || "",
         ambassadorName: data.ambassadorName || "",
         interestedInProject: data.interestedInProject || "Não",
-        projectUnit: data.projectUnit || "",
+        projectUnit: projectUnitValue,
         otherProject: data.otherProject || ""
       },
       EducationSection: {
