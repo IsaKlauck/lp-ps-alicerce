@@ -21,7 +21,7 @@ export const useFormDataPreparation = () => {
     return age.toString();
   };
 
-  const prepareFormData = (data: FormSchema): any => {
+  const prepareFormData = (data: FormSchema): FormattedData => {
     console.log('Form data being prepared:', data);
     
     // Prepare gender field with other specification if applicable
@@ -45,13 +45,15 @@ export const useFormDataPreparation = () => {
     }
 
     // Prepare project interest field
-    let projectUnitValue = "";
+    let projectInterestValue = "";
     if (data.interestedInProject === "Sim") {
       if (data.projectUnit === "Outro" && data.otherProject) {
-        projectUnitValue = data.otherProject;
+        projectInterestValue = `Sim: ${data.otherProject}`;
       } else {
-        projectUnitValue = data.projectUnit || "";
+        projectInterestValue = `Sim: ${data.projectUnit || ""}`;
       }
+    } else {
+      projectInterestValue = "Não";
     }
 
     // Prepare completion year (either completed or expected)
@@ -59,48 +61,59 @@ export const useFormDataPreparation = () => {
     if (data.completionYear) {
       completionYearValue = data.completionYear;
     } else if (data.expectedCompletionYear) {
-      completionYearValue = data.expectedCompletionYear;
+      completionYearValue = `Previsão: ${data.expectedCompletionYear}`;
     }
 
-    // Format data according to Google Apps Script structure
     const formattedData = {
-      PersonalDataSection: {
-        name: data.name || "",
-        email: data.email || "",
-        cpf: data.cpf || "",
-        birthDate: data.birthDate || "",
-        phone: data.phone || "",
-        state: data.state || "",
-        city: data.city || "",
-        neighborhood: data.neighborhood || "",
-        gender: genderValue,
-        ethnicity: ethnicityValue
-      },
-      AccessibilitySection: {
-        hasDisability: data.hasDisability || "Não",
-        disabilityDetails: data.disabilityDetails || ""
-      },
-      EducationSection: {
-        education: data.education || "",
-        course: data.course || "",
-        courseType: data.courseType || "",
-        university: data.university || "",
-        completionYear: completionYearValue,
-        institutionType: data.institutionType || "",
-        academicBackground: data.course || "" // Usando course como academicBackground
-      },
-      RelationshipSection: {
-        howDidYouKnow: howDidYouKnowValue,
-        projectUnit: projectUnitValue
-      },
+      // Coluna B: Nome Completo
+      name: data.name || "",
+      // Coluna C: E-mail
+      email: data.email || "",
+      // Coluna D: CPF
+      cpf: data.cpf || "",
+      // Coluna E: Data de Nascimento
+      birthDate: data.birthDate || "",
+      // Coluna F: Idade (calculada automaticamente)
+      age: calculateAge(data.birthDate || ""),
+      // Coluna G: Telefone
+      phone: data.phone || "",
+      // Coluna H: Estado (UF)
+      state: data.state || "",
+      // Coluna I: Cidade
+      city: data.city || "",
+      // Coluna J: Bairro
+      neighborhood: data.neighborhood || "",
+      // Coluna K: Gênero
+      gender: genderValue,
+      // Coluna L: Raça/Etnia
+      ethnicity: ethnicityValue,
+      // Coluna M: Deficiência
+      hasDisability: data.hasDisability || "Não",
+      // Coluna N: Descrição da deficiência
+      disabilityDetails: data.disabilityDetails || "",
+      // Coluna O: Como conheceu o Alicerce?
+      howDidYouKnow: howDidYouKnowValue,
+      // Coluna P: Projeto de interesse
+      projectInterest: projectInterestValue,
+      // Coluna Q: Grau de Escolaridade
+      education: data.education || "",
+      // Coluna R: Formação
+      course: data.course || "",
+      // Coluna S: Modalidade
+      courseType: data.courseType || "",
+      // Coluna T: Ano de conclusão ou previsão
+      completionYear: completionYearValue,
+      // Coluna U: Tipo de universidade
+      institutionType: data.institutionType || "",
+      // Data de submissão (para controle interno)
       submissionDate: new Date().toISOString()
     };
 
-    console.log('Formatted data for Google Apps Script:', formattedData);
-    console.log('Neighborhood value:', formattedData.PersonalDataSection.neighborhood);
-    console.log('Course type value:', formattedData.EducationSection.courseType);
-    console.log('Completion year value:', formattedData.EducationSection.completionYear);
-    console.log('Institution type value:', formattedData.EducationSection.institutionType);
+    console.log('Formatted data:', formattedData);
+    console.log('Neighborhood value:', formattedData.neighborhood);
+    console.log('Course type value:', formattedData.courseType);
+    console.log('Completion year value:', formattedData.completionYear);
+    console.log('Institution type value:', formattedData.institutionType);
 
     return formattedData;
   };
