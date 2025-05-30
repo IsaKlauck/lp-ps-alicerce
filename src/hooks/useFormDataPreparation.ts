@@ -22,6 +22,8 @@ export const useFormDataPreparation = () => {
   };
 
   const prepareFormData = (data: FormSchema): FormattedData => {
+    console.log('Form data being prepared:', data);
+    
     // Prepare gender field with other specification if applicable
     let genderValue = data.gender || "";
     if (data.gender === "Outro" && data.otherGender) {
@@ -62,7 +64,7 @@ export const useFormDataPreparation = () => {
       completionYearValue = `Previsão: ${data.expectedCompletionYear}`;
     }
 
-    return {
+    const formattedData = {
       // Coluna B: Nome Completo
       name: data.name || "",
       // Coluna C: E-mail
@@ -106,6 +108,14 @@ export const useFormDataPreparation = () => {
       // Data de submissão (para controle interno)
       submissionDate: new Date().toISOString()
     };
+
+    console.log('Formatted data:', formattedData);
+    console.log('Neighborhood value:', formattedData.neighborhood);
+    console.log('Course type value:', formattedData.courseType);
+    console.log('Completion year value:', formattedData.completionYear);
+    console.log('Institution type value:', formattedData.institutionType);
+
+    return formattedData;
   };
 
   return { prepareFormData };
