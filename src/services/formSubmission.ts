@@ -3,44 +3,47 @@
 export const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwoggMPtk0cnGUzeD97sncp_iMVhxAExOcB5pyaheUiKEQnGpCw7Ax0PulTyrmR7mVP/exec";
 
 export type FormattedData = {
-  PersonalDataSection: {
-    name: string;
-    email: string;
-    cpf: string;
-    birthDate: string;
-    phone: string;
-    cep: string;
-    address: string;
-    neighborhood: string; // Campo bairro para coluna J
-    state: string;
-    city: string;
-    gender: string;
-    otherGender: string;
-    ethnicity: string;
-    otherEthnicity: string;
-  };
-  AccessibilitySection: {
-    hasDisability: string;
-    disabilityDetails: string;
-  };
-  RelationshipSection: {
-    howDidYouKnow: string;
-    otherSource: string;
-    ambassadorName: string;
-    interestedInProject: string;
-    projectUnit: string;
-    otherProject: string;
-  };
-  EducationSection: {
-    education: string;
-    course: string;
-    courseType: string;
-    university: string;
-    completionYear: string;
-    expectedCompletionYear: string;
-    academicBackground: string;
-    institutionType: string;
-  };
+  // Coluna B: Nome Completo
+  name: string;
+  // Coluna C: E-mail
+  email: string;
+  // Coluna D: CPF
+  cpf: string;
+  // Coluna E: Data de Nascimento
+  birthDate: string;
+  // Coluna F: Idade (calculada automaticamente)
+  age: string;
+  // Coluna G: Telefone
+  phone: string;
+  // Coluna H: Estado (UF)
+  state: string;
+  // Coluna I: Cidade
+  city: string;
+  // Coluna J: Bairro
+  neighborhood: string;
+  // Coluna K: Gênero
+  gender: string;
+  // Coluna L: Raça/Etnia
+  ethnicity: string;
+  // Coluna M: Deficiência
+  hasDisability: string;
+  // Coluna N: Descrição da deficiência
+  disabilityDetails: string;
+  // Coluna O: Como conheceu o Alicerce?
+  howDidYouKnow: string;
+  // Coluna P: Projeto de interesse
+  projectInterest: string;
+  // Coluna Q: Grau de Escolaridade
+  education: string;
+  // Coluna R: Formação
+  course: string;
+  // Coluna S: Modalidade
+  courseType: string;
+  // Coluna T: Ano de conclusão ou previsão
+  completionYear: string;
+  // Coluna U: Tipo de universidade
+  institutionType: string;
+  // Data de submissão (para controle interno)
   submissionDate: string;
 };
 
