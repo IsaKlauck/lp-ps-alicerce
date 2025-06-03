@@ -62,33 +62,26 @@ export const useFormDataPreparation = () => {
     }
 
     const formattedData: FormattedData = {
-      PersonalDataSection: {
-        name: data.name || "",
-        email: data.email || "",
-        cpf: data.cpf || "",
-        birthDate: data.birthDate || "",
-        phone: data.phone || "",
-        state: data.state || "",
-        city: data.city || "",
-        neighborhood: data.neighborhood || "",
-        gender: genderValue,
-        ethnicity: ethnicityValue,
-      },
-      AccessibilitySection: {
-        hasDisability: data.hasDisability || "Não",
-        disabilityDetails: data.disabilityDetails || "",
-      },
-      RelationshipSection: {
-        howDidYouKnow: howDidYouKnowValue,
-        projectUnit: projectInterestValue,
-      },
-      EducationSection: {
-        education: data.education || "",
-        academicBackground: data.course || "",
-        courseType: data.courseType || "",
-        completionYear: completionYearValue,
-        institutionType: data.institutionType || "",
-      },
+      name: data.name || "",
+      email: data.email || "",
+      cpf: data.cpf || "",
+      birthDate: data.birthDate || "",
+      age: calculateAge(data.birthDate),
+      phone: data.phone || "",
+      state: data.state || "",
+      city: data.city || "",
+      neighborhood: data.neighborhood || "",
+      gender: genderValue,
+      ethnicity: ethnicityValue,
+      hasDisability: data.hasDisability || "Não",
+      disabilityDetails: data.disabilityDetails || "",
+      howDidYouKnow: howDidYouKnowValue,
+      projectInterest: projectInterestValue,
+      education: data.education || "",
+      course: data.course || "",
+      courseType: data.courseType || "",
+      completionYear: completionYearValue,
+      institutionType: data.institutionType || "",
       submissionDate: new Date().toISOString(),
     };
 
