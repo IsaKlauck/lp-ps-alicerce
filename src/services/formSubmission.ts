@@ -1,4 +1,3 @@
-
 // Google Apps Script Web App URL
 export const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwoggMPtk0cnGUzeD97sncp_iMVhxAExOcB5pyaheUiKEQnGpCw7Ax0PulTyrmR7mVP/exec";
 
@@ -49,51 +48,28 @@ export type FormattedData = {
 
 export const submitFormData = async (formattedData: FormattedData): Promise<void> => {
   try {
-    // Using no-cors mode, essential for working with public Google Apps Script
-    await fetch(GOOGLE_SCRIPT_URL, {
+    // Log the exact data being sent
+    console.log('Sending form data (raw):', formattedData);
+    console.log('Sending form data (stringified):', JSON.stringify(formattedData, null, 2));
+    
+    // Log specific fields we're concerned about
+    console.log('Debug - Neighborhood:', formattedData.neighborhood);
+    console.log('Debug - CourseType:', formattedData.courseType);
+    console.log('Debug - CompletionYear:', formattedData.completionYear);
+    console.log('Debug - InstitutionType:', formattedData.institutionType);
+
+    const response = await fetch(GOOGLE_SCRIPT_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      mode: 'no-cors', // Essential for Google Apps Script
+      mode: 'no-cors',
       body: JSON.stringify(formattedData),
     });
     
-    // We can't read the response due to CORS restrictions with no-cors mode
-    // But we log that the data was sent
-    console.log('Form data sent:', formattedData);
+    console.log('Form data sent successfully');
   } catch (error) {
     console.error('Error submitting form:', error);
     throw error;
   }
-};
-
-
-// // Google Apps Script Web App URL
-// export const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzKYcvGclBmr5xh1ZSj8mKSkmAItlb_qRKSVtB12wUzOh7sy4KYeOz15DGeiHDqaWO-/exec";
-
-// export type FormattedData = {
-//   PersonalDataSection: Record<string, string>;
-//   AccessibilitySection: Record<string, string>;
-//   RelationshipSection: Record<string, string>;
-//   EducationSection: Record<string, string>;
-//   submissionDate: string;
-// };
-
-// export const submitFormData = async (formattedData: FormattedData): Promise<void> => {
-//   try {
-//     console.log('Sending form data:', JSON.stringify(formattedData, null, 2));
-//     await fetch(GOOGLE_SCRIPT_URL, {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       mode: 'no-cors',
-//       body: JSON.stringify(formattedData),
-//     });
-//     console.log('Form data sent successfully');
-//   } catch (error) {
-//     console.error('Error submitting form:', error);
-//     throw error;
-//   }
-// }; 
+}; 
