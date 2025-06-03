@@ -1,4 +1,3 @@
-
 import { FormSchema } from "@/schemas/formSchema";
 import { FormattedData } from "@/services/formSubmission";
 
@@ -22,8 +21,6 @@ export const useFormDataPreparation = () => {
   };
 
   const prepareFormData = (data: FormSchema): FormattedData => {
-    console.log('Form data being prepared:', data);
-    
     // Prepare gender field with other specification if applicable
     let genderValue = data.gender || "";
     if (data.gender === "Outro" && data.otherGender) {
@@ -64,59 +61,39 @@ export const useFormDataPreparation = () => {
       completionYearValue = `Previsão: ${data.expectedCompletionYear}`;
     }
 
-    const formattedData = {
-      // Coluna B: Nome Completo
-      name: data.name || "",
-      // Coluna C: E-mail
-      email: data.email || "",
-      // Coluna D: CPF
-      cpf: data.cpf || "",
-      // Coluna E: Data de Nascimento
-      birthDate: data.birthDate || "",
-      // Coluna F: Idade (calculada automaticamente)
-      age: calculateAge(data.birthDate || ""),
-      // Coluna G: Telefone
-      phone: data.phone || "",
-      // Coluna H: Estado (UF)
-      state: data.state || "",
-      // Coluna I: Cidade
-      city: data.city || "",
-      // Coluna J: Bairro
-      neighborhood: data.neighborhood || "",
-      // Coluna K: Gênero
-      gender: genderValue,
-      // Coluna L: Raça/Etnia
-      ethnicity: ethnicityValue,
-      // Coluna M: Deficiência
-      hasDisability: data.hasDisability || "Não",
-      // Coluna N: Descrição da deficiência
-      disabilityDetails: data.disabilityDetails || "",
-      // Coluna O: Como conheceu o Alicerce?
-      howDidYouKnow: howDidYouKnowValue,
-      // Coluna P: Projeto de interesse
-      projectInterest: projectInterestValue,
-      // Coluna Q: Grau de Escolaridade
-      education: data.education || "",
-      // Coluna R: Formação
-      course: data.course || "",
-      // Coluna S: Modalidade
-      courseType: data.courseType || "",
-      // Coluna T: Ano de conclusão ou previsão
-      completionYear: completionYearValue,
-      // Coluna U: Tipo de universidade
-      institutionType: data.institutionType || "",
-      // Data de submissão (para controle interno)
-      submissionDate: new Date().toISOString()
+    const formattedData: FormattedData = {
+      PersonalDataSection: {
+        name: data.name || "",
+        email: data.email || "",
+        cpf: data.cpf || "",
+        birthDate: data.birthDate || "",
+        phone: data.phone || "",
+        state: data.state || "",
+        city: data.city || "",
+        neighborhood: data.neighborhood || "",
+        gender: genderValue,
+        ethnicity: ethnicityValue,
+      },
+      AccessibilitySection: {
+        hasDisability: data.hasDisability || "Não",
+        disabilityDetails: data.disabilityDetails || "",
+      },
+      RelationshipSection: {
+        howDidYouKnow: howDidYouKnowValue,
+        projectUnit: projectInterestValue,
+      },
+      EducationSection: {
+        education: data.education || "",
+        academicBackground: data.course || "",
+        courseType: data.courseType || "",
+        completionYear: completionYearValue,
+        institutionType: data.institutionType || "",
+      },
+      submissionDate: new Date().toISOString(),
     };
-
-    console.log('Formatted data:', formattedData);
-    console.log('Neighborhood value:', formattedData.neighborhood);
-    console.log('Course type value:', formattedData.courseType);
-    console.log('Completion year value:', formattedData.completionYear);
-    console.log('Institution type value:', formattedData.institutionType);
 
     return formattedData;
   };
 
   return { prepareFormData };
-};
+}; 
