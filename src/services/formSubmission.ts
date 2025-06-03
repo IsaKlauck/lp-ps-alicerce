@@ -1,6 +1,5 @@
-
 // Google Apps Script Web App URL
-export const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyD5X-_Z0I9TF8i1x-l7mNtDv3GbPtOZvfTNJ22KYgxFhcaucjVQ-LvZx-amQ3ZbtVp/exec";
+export const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwoggMPtk0cnGUzeD97sncp_iMVhxAExOcB5pyaheUiKEQnGpCw7Ax0PulTyrmR7mVP/exec";
 
 export type FormattedData = {
   // Coluna B: Nome Completo
@@ -73,4 +72,4 @@ export const submitFormData = async (formattedData: FormattedData): Promise<void
     console.error('Error submitting form:', error);
     throw error;
   }
-}; 
+};
