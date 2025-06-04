@@ -1,3 +1,4 @@
+
 import { FormSchema } from "@/schemas/formSchema";
 import { FormattedData } from "@/services/formSubmission";
 
@@ -20,7 +21,9 @@ export const useFormDataPreparation = () => {
     return age.toString();
   };
 
-  const prepareFormData = (data: FormSchema): FormattedData => {
+  const prepareFormData = (data: FormSchema): any => {
+    console.log('Form data being prepared:', data);
+    
     // Prepare gender field with other specification if applicable
     let genderValue = data.gender || "";
     if (data.gender === "Outro" && data.otherGender) {
@@ -42,15 +45,13 @@ export const useFormDataPreparation = () => {
     }
 
     // Prepare project interest field
-    let projectInterestValue = "";
+    let projectUnitValue = "";
     if (data.interestedInProject === "Sim") {
       if (data.projectUnit === "Outro" && data.otherProject) {
-        projectInterestValue = `Sim: ${data.otherProject}`;
+        projectUnitValue = data.otherProject;
       } else {
-        projectInterestValue = `Sim: ${data.projectUnit || ""}`;
+        projectUnitValue = data.projectUnit || "";
       }
-    } else {
-      projectInterestValue = "Não";
     }
 
     // Prepare completion year (either completed or expected)
@@ -58,35 +59,51 @@ export const useFormDataPreparation = () => {
     if (data.completionYear) {
       completionYearValue = data.completionYear;
     } else if (data.expectedCompletionYear) {
-      completionYearValue = `Previsão: ${data.expectedCompletionYear}`;
+      completionYearValue = data.expectedCompletionYear;
     }
 
-    const formattedData: FormattedData = {
-      name: data.name || "",
-      email: data.email || "",
-      cpf: data.cpf || "",
-      birthDate: data.birthDate || "",
-      age: calculateAge(data.birthDate),
-      phone: data.phone || "",
-      state: data.state || "",
-      city: data.city || "",
-      neighborhood: data.neighborhood || "",
-      gender: genderValue,
-      ethnicity: ethnicityValue,
-      hasDisability: data.hasDisability || "Não",
-      disabilityDetails: data.disabilityDetails || "",
-      howDidYouKnow: howDidYouKnowValue,
-      projectInterest: projectInterestValue,
-      education: data.education || "",
-      course: data.course || "",
-      courseType: data.courseType || "",
-      completionYear: completionYearValue,
-      institutionType: data.institutionType || "",
-      submissionDate: new Date().toISOString(),
+    // Format data according to Google Apps Script structure
+    const formattedData = {
+      PersonalDataSection: {
+        name: data.name || "",
+        email: data.email || "",
+        cpf: data.cpf || "",
+        birthDate: data.birthDate || "",
+        phone: data.phone || "",
+        state: data.state || "",
+        city: data.city || "",
+        neighborhood: data.neighborhood || "",
+        gender: genderValue,
+        ethnicity: ethnicityValue
+      },
+      AccessibilitySection: {
+        hasDisability: data.hasDisability || "Não",
+        disabilityDetails: data.disabilityDetails || ""
+      },
+      EducationSection: {
+        education: data.education || "",
+        course: data.course || "",
+        courseType: data.courseType || "",
+        university: data.university || "",
+        completionYear: completionYearValue,
+        institutionType: data.institutionType || "",
+        academicBackground: data.course || "" // Usando course como academicBackground
+      },
+      RelationshipSection: {
+        howDidYouKnow: howDidYouKnowValue,
+        projectUnit: projectUnitValue
+      },
+      submissionDate: new Date().toISOString()
     };
+
+    console.log('Formatted data for Google Apps Script:', formattedData);
+    console.log('Neighborhood value:', formattedData.PersonalDataSection.neighborhood);
+    console.log('Course type value:', formattedData.EducationSection.courseType);
+    console.log('Completion year value:', formattedData.EducationSection.completionYear);
+    console.log('Institution type value:', formattedData.EducationSection.institutionType);
 
     return formattedData;
   };
 
   return { prepareFormData };
-}; 
+};
