@@ -1,6 +1,5 @@
-
 // Google Apps Script Web App URL
-export const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby1k17NXP4px1XZjeIl_XT6Y0neRUp9uVYz6KNV6S_aHK8uAWDYAORp2emua638pjbv/exec";
+export const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AkfycbydPnBt1GFTUCXUli6rvo6PkLbJLJLDq76mbkZfiaVIRcryOd7OSQ8TlEBwVzg86ldd5t/exec";
 
 export type FormattedData = {
   // Coluna B: Nome Completo
@@ -111,16 +110,39 @@ export const submitFormData = async (formattedData: FormattedData): Promise<void
       headers: {
         'Content-Type': 'application/json',
       },
-      mode: 'no-cors',
       body: requestBody,
     });
     
     console.log('POST request completed');
     console.log('Response status:', response.status);
+    console.log('Response ok:', response.ok);
     console.log('Response type:', response.type);
     
-    // Com no-cors, não conseguimos ler a resposta, mas se não deu erro, assumimos sucesso
-    console.log('✅ Form data sent successfully (no-cors mode)');
+    // Agora podemos ler a resposta já que removemos no-cors
+    if (response.ok) {
+      const responseText = await response.text();
+      console.log('Response text:', responseText);
+      
+      try {
+        const responseData = JSON.parse(responseText);
+        console.log('Response data parsed:', responseData);
+        
+        if (responseData.status === 'success') {
+          console.log('✅ Form submitted successfully!');
+          console.log('Submission ID:', responseData.submissionId);
+        } else {
+          console.log('❌ Server returned error:', responseData.message);
+          throw new Error(`Server error: ${responseData.message}`);
+        }
+      } catch (parseError) {
+        console.log('Response is not valid JSON:', responseText);
+        throw new Error('Invalid JSON response from server');
+      }
+    } else {
+      const errorText = await response.text();
+      console.log('Error response:', errorText);
+      throw new Error(`HTTP ${response.status}: ${errorText}`);
+    }
     
   } catch (error) {
     console.error('=== FORM SUBMISSION ERROR ===');
