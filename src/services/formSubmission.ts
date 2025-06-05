@@ -2,7 +2,50 @@
 // Google Apps Script Web App URL
 export const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbwoggMPtk0cnGUzeD97sncp_iMVhxAExOcB5pyaheUiKEQnGpCw7Ax0PulTyrmR7mVP/exec";
 
-export type FormattedData = any; // Simplified type for Google Apps Script structure
+export type FormattedData = {
+  // Coluna B: Nome Completo
+  name: string;
+  // Coluna C: E-mail
+  email: string;
+  // Coluna D: CPF
+  cpf: string;
+  // Coluna E: Data de Nascimento
+  birthDate: string;
+  // Coluna F: Idade (calculada automaticamente)
+  age: string;
+  // Coluna G: Telefone
+  phone: string;
+  // Coluna H: Estado (UF)
+  state: string;
+  // Coluna I: Cidade
+  city: string;
+  // Coluna J: Bairro
+  neighborhood: string;
+  // Coluna K: Gênero
+  gender: string;
+  // Coluna L: Raça/Etnia
+  ethnicity: string;
+  // Coluna M: Deficiência
+  hasDisability: string;
+  // Coluna N: Descrição da deficiência
+  disabilityDetails: string;
+  // Coluna O: Como conheceu o Alicerce?
+  howDidYouKnow: string;
+  // Coluna P: Projeto de interesse
+  projectInterest: string;
+  // Coluna Q: Grau de Escolaridade
+  education: string;
+  // Coluna R: Formação
+  course: string;
+  // Coluna S: Modalidade
+  courseType: string;
+  // Coluna T: Ano de conclusão ou previsão
+  completionYear: string;
+  // Coluna U: Tipo de universidade
+  institutionType: string;
+  // Data de submissão (para controle interno)
+  submissionDate: string;
+};
 
 export const submitFormData = async (formattedData: FormattedData): Promise<void> => {
   try {
