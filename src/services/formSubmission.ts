@@ -1,3 +1,4 @@
+
 // Google Apps Script Web App URL
 export const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycby1k17NXP4px1XZjeIl_XT6Y0neRUp9uVYz6KNV6S_aHK8uAWDYAORp2emua638pjbv/exec";
 
@@ -51,77 +52,69 @@ export const submitFormData = async (formattedData: FormattedData): Promise<void
   console.log('Google Script URL:', GOOGLE_SCRIPT_URL);
   console.log('Data being sent:', JSON.stringify(formattedData, null, 2));
 
+  // Verificar campos individuais
+  console.log('Individual fields check:');
+  Object.entries(formattedData).forEach(([key, value]) => {
+    console.log(`- ${key}:`, value);
+  });
+
   const requestBody = JSON.stringify(formattedData);
   console.log('JSON string being sent:', requestBody);
   console.log('JSON string length:', requestBody.length);
 
   try {
-    console.log('Attempting normal fetch request first...');
+    console.log('Making fetch request...');
     
-    // First attempt: Normal request to get proper response
-    let response = await fetch(GOOGLE_SCRIPT_URL, {
+    const response = await fetch(GOOGLE_SCRIPT_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
+      mode: 'no-cors',
       body: requestBody,
     });
     
-    console.log('Normal fetch - Response status:', response.status);
-    console.log('Normal fetch - Response ok:', response.ok);
+    console.log('Fetch request completed');
+    console.log('Response status:', response.status);
+    console.log('Response type:', response.type);
     
-    if (response.ok) {
-      const responseText = await response.text();
-      console.log('Normal fetch - Response text:', responseText);
-      
-      try {
-        const responseData = JSON.parse(responseText);
-        console.log('Normal fetch - Parsed response:', responseData);
-        
-        if (responseData.status === 'success') {
-          console.log('Form data successfully submitted via normal fetch');
-          return;
-        } else {
-          throw new Error(`Server responded with error: ${responseData.message || 'Unknown error'}`);
-        }
-      } catch (parseError) {
-        console.log('Response is not valid JSON, but request was successful');
-        return;
-      }
-    } else {
-      console.log('Normal fetch failed, trying with no-cors mode...');
-      throw new Error('Normal fetch failed');
-    }
-    
-  } catch (normalError) {
-    console.log('Normal fetch error:', normalError);
-    console.log('Attempting fallback with no-cors mode...');
-    
+    // Test GET request to verify Apps Script is working
+    console.log('Testing GET request to verify Apps Script...');
     try {
-      // Fallback: no-cors mode
-      const noCorsResponse = await fetch(GOOGLE_SCRIPT_URL, {
-        method: 'POST',
+      const getResponse = await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'GET',
         headers: {
           'Content-Type': 'application/json',
         },
-        mode: 'no-cors',
-        body: requestBody,
       });
       
-      console.log('No-cors fetch - Response status:', noCorsResponse.status);
-      console.log('No-cors fetch - Response type:', noCorsResponse.type);
+      console.log('GET Response status:', getResponse.status);
+      console.log('GET Response ok:', getResponse.ok);
       
-      // With no-cors, we can't read the response, but if no error was thrown, 
-      // we assume it was successful
-      console.log('Form data sent via no-cors mode (cannot verify server response)');
-      
-    } catch (noCorsError) {
-      console.error('=== BOTH FETCH ATTEMPTS FAILED ===');
-      console.error('Normal fetch error:', normalError);
-      console.error('No-cors fetch error:', noCorsError);
-      console.error('=== END ERROR ===');
-      throw new Error('Failed to submit form data via both normal and no-cors modes');
+      if (getResponse.ok) {
+        const getResponseText = await getResponse.text();
+        console.log('GET Response text:', getResponseText);
+        
+        try {
+          const getResponseData = JSON.parse(getResponseText);
+          console.log('GET Response parsed:', getResponseData);
+        } catch (parseError) {
+          console.log('GET Response is not valid JSON');
+        }
+      }
+    } catch (getError) {
+      console.log('GET Request failed:', getError);
     }
+    
+    console.log('Form data sent successfully');
+    
+  } catch (error) {
+    console.error('=== FORM SUBMISSION ERROR ===');
+    console.error('Error during form submission:', error);
+    console.error('Error type:', typeof error);
+    console.error('Error details:', error instanceof Error ? error.message : 'Unknown error');
+    console.error('=== END ERROR ===');
+    throw new Error('Failed to submit form data');
   }
   
   console.log('=== END DEBUGGING ===');
