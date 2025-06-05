@@ -4,10 +4,18 @@ import { FormattedData } from "@/services/formSubmission";
 
 export const useFormDataPreparation = () => {
   const calculateAge = (birthDate: string): string => {
-    if (!birthDate) return "";
+    console.log('Calculating age for birthDate:', birthDate);
+    
+    if (!birthDate) {
+      console.log('No birthDate provided, returning empty string');
+      return "";
+    }
     
     const [day, month, year] = birthDate.split('/').map(Number);
-    if (!day || !month || !year) return "";
+    if (!day || !month || !year) {
+      console.log('Invalid birthDate format, returning empty string');
+      return "";
+    }
     
     const birth = new Date(year, month - 1, day);
     const today = new Date();
@@ -18,23 +26,27 @@ export const useFormDataPreparation = () => {
       age--;
     }
     
+    console.log('Calculated age:', age);
     return age.toString();
   };
 
   const prepareFormData = (data: FormSchema): FormattedData => {
-    console.log('Form data being prepared:', data);
+    console.log('=== PREPARING FORM DATA ===');
+    console.log('Raw form data received:', JSON.stringify(data, null, 2));
     
     // Prepare gender field with other specification if applicable
     let genderValue = data.gender || "";
     if (data.gender === "Outro" && data.otherGender) {
       genderValue = `${data.otherGender}`;
     }
+    console.log('Processed gender:', genderValue);
 
     // Prepare ethnicity field with other specification if applicable
     let ethnicityValue = data.ethnicity || "";
     if (data.ethnicity === "Outro" && data.otherEthnicity) {
       ethnicityValue = `${data.otherEthnicity}`;
     }
+    console.log('Processed ethnicity:', ethnicityValue);
 
     // Prepare how did you know field
     let howDidYouKnowValue = data.howDidYouKnow || "";
@@ -43,6 +55,7 @@ export const useFormDataPreparation = () => {
     } else if (data.howDidYouKnow === "Outro" && data.otherSource) {
       howDidYouKnowValue = `${data.otherSource}`;
     }
+    console.log('Processed howDidYouKnow:', howDidYouKnowValue);
 
     // Prepare project interest field
     let projectInterestValue = "";
@@ -55,6 +68,7 @@ export const useFormDataPreparation = () => {
     } else {
       projectInterestValue = "Não";
     }
+    console.log('Processed projectInterest:', projectInterestValue);
 
     // Prepare completion year (either completed or expected)
     let completionYearValue = "";
@@ -63,8 +77,12 @@ export const useFormDataPreparation = () => {
     } else if (data.expectedCompletionYear) {
       completionYearValue = `Previsão: ${data.expectedCompletionYear}`;
     }
+    console.log('Processed completionYear:', completionYearValue);
 
-    const formattedData = {
+    // Calculate age
+    const calculatedAge = calculateAge(data.birthDate || "");
+
+    const formattedData: FormattedData = {
       // Coluna B: Nome Completo
       name: data.name || "",
       // Coluna C: E-mail
@@ -74,7 +92,7 @@ export const useFormDataPreparation = () => {
       // Coluna E: Data de Nascimento
       birthDate: data.birthDate || "",
       // Coluna F: Idade (calculada automaticamente)
-      age: calculateAge(data.birthDate || ""),
+      age: calculatedAge,
       // Coluna G: Telefone
       phone: data.phone || "",
       // Coluna H: Estado (UF)
@@ -109,11 +127,20 @@ export const useFormDataPreparation = () => {
       submissionDate: new Date().toISOString()
     };
 
-    console.log('Formatted data:', formattedData);
-    console.log('Neighborhood value:', formattedData.neighborhood);
-    console.log('Course type value:', formattedData.courseType);
-    console.log('Completion year value:', formattedData.completionYear);
-    console.log('Institution type value:', formattedData.institutionType);
+    console.log('=== FINAL FORMATTED DATA ===');
+    console.log('Formatted data:', JSON.stringify(formattedData, null, 2));
+    
+    // Validate that all expected fields are present
+    const requiredFields = ['name', 'email', 'cpf', 'birthDate', 'phone', 'state', 'city'];
+    const missingFields = requiredFields.filter(field => !formattedData[field as keyof FormattedData]);
+    
+    if (missingFields.length > 0) {
+      console.warn('Missing required fields:', missingFields);
+    } else {
+      console.log('All required fields are present');
+    }
+    
+    console.log('=== END FORM DATA PREPARATION ===');
 
     return formattedData;
   };

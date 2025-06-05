@@ -48,9 +48,38 @@ export type FormattedData = {
 };
 
 export const submitFormData = async (formattedData: FormattedData): Promise<void> => {
+  console.log('=== DEBUGGING FORM SUBMISSION ===');
+  console.log('Google Script URL:', GOOGLE_SCRIPT_URL);
+  console.log('Data being sent:', JSON.stringify(formattedData, null, 2));
+  
+  // Log each field individually for debugging
+  console.log('Individual fields check:');
+  console.log('- name:', formattedData.name);
+  console.log('- email:', formattedData.email);
+  console.log('- cpf:', formattedData.cpf);
+  console.log('- birthDate:', formattedData.birthDate);
+  console.log('- age:', formattedData.age);
+  console.log('- phone:', formattedData.phone);
+  console.log('- state:', formattedData.state);
+  console.log('- city:', formattedData.city);
+  console.log('- neighborhood:', formattedData.neighborhood);
+  console.log('- gender:', formattedData.gender);
+  console.log('- ethnicity:', formattedData.ethnicity);
+  console.log('- hasDisability:', formattedData.hasDisability);
+  console.log('- disabilityDetails:', formattedData.disabilityDetails);
+  console.log('- howDidYouKnow:', formattedData.howDidYouKnow);
+  console.log('- projectInterest:', formattedData.projectInterest);
+  console.log('- education:', formattedData.education);
+  console.log('- course:', formattedData.course);
+  console.log('- courseType:', formattedData.courseType);
+  console.log('- completionYear:', formattedData.completionYear);
+  console.log('- institutionType:', formattedData.institutionType);
+  console.log('- submissionDate:', formattedData.submissionDate);
+
   try {
-    // Using no-cors mode, essential for working with public Google Apps Script
-    await fetch(GOOGLE_SCRIPT_URL, {
+    console.log('Making fetch request...');
+    
+    const response = await fetch(GOOGLE_SCRIPT_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -59,11 +88,25 @@ export const submitFormData = async (formattedData: FormattedData): Promise<void
       body: JSON.stringify(formattedData),
     });
     
+    console.log('Fetch request completed');
+    console.log('Response status:', response.status);
+    console.log('Response type:', response.type);
+    
+    // Log the exact JSON being sent
+    const jsonString = JSON.stringify(formattedData);
+    console.log('JSON string being sent:', jsonString);
+    console.log('JSON string length:', jsonString.length);
+    
     // We can't read the response due to CORS restrictions with no-cors mode
     // But we log that the data was sent
-    console.log('Form data sent:', formattedData);
+    console.log('Form data sent successfully');
+    console.log('=== END DEBUGGING ===');
   } catch (error) {
-    console.error('Error submitting form:', error);
+    console.error('=== FETCH ERROR ===');
+    console.error('Error details:', error);
+    console.error('Error message:', error instanceof Error ? error.message : 'Unknown error');
+    console.error('Error stack:', error instanceof Error ? error.stack : 'No stack trace');
+    console.error('=== END ERROR ===');
     throw error;
   }
 };

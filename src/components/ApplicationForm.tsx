@@ -59,17 +59,19 @@ const ApplicationForm: React.FC = () => {
   const selectedProject = form.watch('projectUnit');
 
   const onSubmit = async (data: FormSchema) => {
+    console.log('=== FORM SUBMISSION STARTED ===');
+    console.log('Raw form data:', JSON.stringify(data, null, 2));
+    
     setIsSubmitting(true);
     try {
-      console.log('Form data submitted:', data);
-      
       // Format the data according to Google Script requirements
       const formattedData = prepareFormData(data);
-      console.log('Formatted data being sent:', formattedData);
+      console.log('Data formatted for Google Script');
       
       // Submit the form data with JSON
+      console.log('Attempting to submit to Google Script...');
       await submitFormData(formattedData);
-      console.log('Form submission request completed');
+      console.log('Form submission request completed successfully');
 
       // Show success toast
       toast({
@@ -81,8 +83,13 @@ const ApplicationForm: React.FC = () => {
       // Open the success modal
       setIsSuccessModalOpen(true);
       form.reset();
+      
+      console.log('Form submission process completed successfully');
     } catch (error) {
-      console.error('Erro ao enviar formulário:', error);
+      console.error('=== FORM SUBMISSION ERROR ===');
+      console.error('Error during form submission:', error);
+      console.error('Error type:', typeof error);
+      console.error('Error details:', error instanceof Error ? error.message : 'Unknown error');
       
       // Show error toast
       toast({
@@ -93,6 +100,7 @@ const ApplicationForm: React.FC = () => {
       });
     } finally {
       setIsSubmitting(false);
+      console.log('=== FORM SUBMISSION ENDED ===');
     }
   };
 
