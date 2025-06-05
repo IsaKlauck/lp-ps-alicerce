@@ -62,8 +62,49 @@ export const submitFormData = async (formattedData: FormattedData): Promise<void
   console.log('JSON string being sent:', requestBody);
   console.log('JSON string length:', requestBody.length);
 
+  // PRIMEIRO: Testar GET para verificar se o Apps Script está configurado
+  console.log('=== TESTING APPS SCRIPT CONFIGURATION ===');
   try {
-    console.log('Making fetch request...');
+    const getResponse = await fetch(GOOGLE_SCRIPT_URL, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    
+    console.log('GET Response status:', getResponse.status);
+    console.log('GET Response ok:', getResponse.ok);
+    
+    if (getResponse.ok) {
+      const getResponseText = await getResponse.text();
+      console.log('GET Response text:', getResponseText);
+      
+      try {
+        const getResponseData = JSON.parse(getResponseText);
+        console.log('GET Response parsed:', getResponseData);
+        
+        if (getResponseData.status === 'success') {
+          console.log('✅ Apps Script está funcionando!');
+          console.log('📋 Planilha ID:', getResponseData.spreadsheetId);
+          console.log('📄 Aba:', getResponseData.sheetName);
+          console.log('📊 Headers:', getResponseData.sheetInfo?.headers);
+          console.log('📈 Última linha:', getResponseData.sheetInfo?.lastRowNumber);
+        } else {
+          console.log('❌ Apps Script retornou erro:', getResponseData.message);
+        }
+      } catch (parseError) {
+        console.log('GET Response is not valid JSON');
+      }
+    } else {
+      console.log('❌ GET Request failed with status:', getResponse.status);
+    }
+  } catch (getError) {
+    console.log('❌ GET Request completely failed:', getError);
+  }
+
+  console.log('=== ATTEMPTING POST REQUEST ===');
+  try {
+    console.log('Making POST request...');
     
     const response = await fetch(GOOGLE_SCRIPT_URL, {
       method: 'POST',
@@ -74,39 +115,12 @@ export const submitFormData = async (formattedData: FormattedData): Promise<void
       body: requestBody,
     });
     
-    console.log('Fetch request completed');
+    console.log('POST request completed');
     console.log('Response status:', response.status);
     console.log('Response type:', response.type);
     
-    // Test GET request to verify Apps Script is working
-    console.log('Testing GET request to verify Apps Script...');
-    try {
-      const getResponse = await fetch(GOOGLE_SCRIPT_URL, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-      
-      console.log('GET Response status:', getResponse.status);
-      console.log('GET Response ok:', getResponse.ok);
-      
-      if (getResponse.ok) {
-        const getResponseText = await getResponse.text();
-        console.log('GET Response text:', getResponseText);
-        
-        try {
-          const getResponseData = JSON.parse(getResponseText);
-          console.log('GET Response parsed:', getResponseData);
-        } catch (parseError) {
-          console.log('GET Response is not valid JSON');
-        }
-      }
-    } catch (getError) {
-      console.log('GET Request failed:', getError);
-    }
-    
-    console.log('Form data sent successfully');
+    // Com no-cors, não conseguimos ler a resposta, mas se não deu erro, assumimos sucesso
+    console.log('✅ Form data sent successfully (no-cors mode)');
     
   } catch (error) {
     console.error('=== FORM SUBMISSION ERROR ===');
