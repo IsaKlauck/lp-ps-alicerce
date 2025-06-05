@@ -51,62 +51,79 @@ export const submitFormData = async (formattedData: FormattedData): Promise<void
   console.log('=== DEBUGGING FORM SUBMISSION ===');
   console.log('Google Script URL:', GOOGLE_SCRIPT_URL);
   console.log('Data being sent:', JSON.stringify(formattedData, null, 2));
-  
-  // Log each field individually for debugging
-  console.log('Individual fields check:');
-  console.log('- name:', formattedData.name);
-  console.log('- email:', formattedData.email);
-  console.log('- cpf:', formattedData.cpf);
-  console.log('- birthDate:', formattedData.birthDate);
-  console.log('- age:', formattedData.age);
-  console.log('- phone:', formattedData.phone);
-  console.log('- state:', formattedData.state);
-  console.log('- city:', formattedData.city);
-  console.log('- neighborhood:', formattedData.neighborhood);
-  console.log('- gender:', formattedData.gender);
-  console.log('- ethnicity:', formattedData.ethnicity);
-  console.log('- hasDisability:', formattedData.hasDisability);
-  console.log('- disabilityDetails:', formattedData.disabilityDetails);
-  console.log('- howDidYouKnow:', formattedData.howDidYouKnow);
-  console.log('- projectInterest:', formattedData.projectInterest);
-  console.log('- education:', formattedData.education);
-  console.log('- course:', formattedData.course);
-  console.log('- courseType:', formattedData.courseType);
-  console.log('- completionYear:', formattedData.completionYear);
-  console.log('- institutionType:', formattedData.institutionType);
-  console.log('- submissionDate:', formattedData.submissionDate);
+
+  const requestBody = JSON.stringify(formattedData);
+  console.log('JSON string being sent:', requestBody);
+  console.log('JSON string length:', requestBody.length);
 
   try {
-    console.log('Making fetch request...');
+    console.log('Attempting normal fetch request first...');
     
-    const response = await fetch(GOOGLE_SCRIPT_URL, {
+    // First attempt: Normal request to get proper response
+    let response = await fetch(GOOGLE_SCRIPT_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      mode: 'no-cors', // Essential for Google Apps Script
-      body: JSON.stringify(formattedData),
+      body: requestBody,
     });
     
-    console.log('Fetch request completed');
-    console.log('Response status:', response.status);
-    console.log('Response type:', response.type);
+    console.log('Normal fetch - Response status:', response.status);
+    console.log('Normal fetch - Response ok:', response.ok);
     
-    // Log the exact JSON being sent
-    const jsonString = JSON.stringify(formattedData);
-    console.log('JSON string being sent:', jsonString);
-    console.log('JSON string length:', jsonString.length);
+    if (response.ok) {
+      const responseText = await response.text();
+      console.log('Normal fetch - Response text:', responseText);
+      
+      try {
+        const responseData = JSON.parse(responseText);
+        console.log('Normal fetch - Parsed response:', responseData);
+        
+        if (responseData.status === 'success') {
+          console.log('Form data successfully submitted via normal fetch');
+          return;
+        } else {
+          throw new Error(`Server responded with error: ${responseData.message || 'Unknown error'}`);
+        }
+      } catch (parseError) {
+        console.log('Response is not valid JSON, but request was successful');
+        return;
+      }
+    } else {
+      console.log('Normal fetch failed, trying with no-cors mode...');
+      throw new Error('Normal fetch failed');
+    }
     
-    // We can't read the response due to CORS restrictions with no-cors mode
-    // But we log that the data was sent
-    console.log('Form data sent successfully');
-    console.log('=== END DEBUGGING ===');
-  } catch (error) {
-    console.error('=== FETCH ERROR ===');
-    console.error('Error details:', error);
-    console.error('Error message:', error instanceof Error ? error.message : 'Unknown error');
-    console.error('Error stack:', error instanceof Error ? error.stack : 'No stack trace');
-    console.error('=== END ERROR ===');
-    throw error;
+  } catch (normalError) {
+    console.log('Normal fetch error:', normalError);
+    console.log('Attempting fallback with no-cors mode...');
+    
+    try {
+      // Fallback: no-cors mode
+      const noCorsResponse = await fetch(GOOGLE_SCRIPT_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        mode: 'no-cors',
+        body: requestBody,
+      });
+      
+      console.log('No-cors fetch - Response status:', noCorsResponse.status);
+      console.log('No-cors fetch - Response type:', noCorsResponse.type);
+      
+      // With no-cors, we can't read the response, but if no error was thrown, 
+      // we assume it was successful
+      console.log('Form data sent via no-cors mode (cannot verify server response)');
+      
+    } catch (noCorsError) {
+      console.error('=== BOTH FETCH ATTEMPTS FAILED ===');
+      console.error('Normal fetch error:', normalError);
+      console.error('No-cors fetch error:', noCorsError);
+      console.error('=== END ERROR ===');
+      throw new Error('Failed to submit form data via both normal and no-cors modes');
+    }
   }
+  
+  console.log('=== END DEBUGGING ===');
 };
