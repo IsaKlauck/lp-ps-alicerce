@@ -66,9 +66,6 @@ export const submitFormData = async (formattedData: FormattedData): Promise<void
   try {
     const getResponse = await fetch(GOOGLE_SCRIPT_URL, {
       method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
     });
     
     console.log('GET Response status:', getResponse.status);
@@ -104,13 +101,13 @@ export const submitFormData = async (formattedData: FormattedData): Promise<void
   console.log('=== ATTEMPTING POST REQUEST ===');
   try {
     console.log('Making POST request...');
-    
+
+    const formData = new FormData();
+    formData.append('data', requestBody);
+
     const response = await fetch(GOOGLE_SCRIPT_URL, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: requestBody,
+      body: formData,
     });
     
     console.log('POST request completed');
