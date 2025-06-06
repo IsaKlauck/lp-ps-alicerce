@@ -4,11 +4,13 @@
 function doPost(e) {
   try {
     /* 1 — parse JSON body */
-    if (!e.postData) {
+    if (e.postData && e.postData.contents) {
+      var data = JSON.parse(e.postData.contents);
+    } else if (e.parameter && e.parameter.data) {
+      var data = JSON.parse(e.parameter.data);
+    } else {
       throw new Error('Sem corpo na requisição');
     }
-
-    const data = JSON.parse(e.postData.contents);
 
     /* 2 — calculate derived fields */
     const age = (() => {
@@ -171,12 +173,9 @@ function enviarEmailsMapaPendentes() {
 }
 
 function json(obj) {
-  return ContentService
-    .createTextOutput(JSON.stringify(obj))
-    .setMimeType(ContentService.MimeType.JSON)
-    .setHeader('Access-Control-Allow-Origin', '*')
-    .setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS')
-    .setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  var out = ContentService.createTextOutput(JSON.stringify(obj));
+  out.setMimeType(ContentService.MimeType.JSON);
+  return out;
 }
 
 /**
