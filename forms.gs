@@ -1,3 +1,4 @@
+
 /**
  * Recebe dados do formulário Lovable e armazena na planilha.
  */
@@ -61,10 +62,9 @@ function doPost(e) {
       data.courseType || '',         // S
       data.completionYear || '',     // T
       data.institutionType || '',    // U
-      '',                            // V
-      submissionDateFmt,             // W
-      Utilities.getUuid()            // X  – Submission ID
-      // Colunas Y em diante: deixadas livres para script local
+      submissionDateFmt,             // V – Data de submissão
+      Utilities.getUuid()            // W – Submission ID
+      // Colunas X em diante: deixadas livres para script local
     ];
 
     sh.appendRow(newRow);
