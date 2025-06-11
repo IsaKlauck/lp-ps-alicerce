@@ -63,8 +63,8 @@ function doPost(e) {
       data.institutionType || '',    // U
       '',                            // V
       submissionDateFmt,             // W
-      Utilities.getUuid(),           // X  – Submission ID
-      '', '', '', '', '', '', '', '' // Y – AF
+      Utilities.getUuid()            // X  – Submission ID
+      // Colunas Y em diante: deixadas livres para script local
     ];
 
     sh.appendRow(newRow);
