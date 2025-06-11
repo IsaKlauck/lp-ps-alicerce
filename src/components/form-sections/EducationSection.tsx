@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Control } from 'react-hook-form';
+import { Control, useWatch } from 'react-hook-form';
 import { FormSchema } from '@/schemas/formSchema';
 import { FormField, FormItem, FormLabel, FormControl, FormMessage } from '@/components/ui/form';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
@@ -12,7 +12,21 @@ interface EducationSectionProps {
 }
 
 export const EducationSection: React.FC<EducationSectionProps> = ({ control }) => {
-  const selectedEducation = control._formValues?.education || '';
+  // Use useWatch to properly track the education field changes
+  const selectedEducation = useWatch({
+    control,
+    name: "education",
+    defaultValue: ""
+  });
+  
+  // Determine if user needs to fill higher education fields
+  const requiresHigherEducationFields = [
+    'Superior Concluido', 
+    'Superior Cursando', 
+    'Pós-graduação', 
+    'Mestrado', 
+    'Doutorado'
+  ].includes(selectedEducation);
   
   // Determine if user is graduated or currently studying
   const isGraduated = ['Superior Concluido', 'Pós-graduação', 'Mestrado', 'Doutorado'].includes(selectedEducation);
@@ -47,8 +61,8 @@ export const EducationSection: React.FC<EducationSectionProps> = ({ control }) =
           )}
         />
 
-        {/* Fields for both graduated and currently studying */}
-        {(isGraduated || isCurrentlyStudying) && (
+        {/* Fields for higher education levels */}
+        {requiresHigherEducationFields && (
           <>
             <FormField
               control={control}
@@ -147,49 +161,49 @@ export const EducationSection: React.FC<EducationSectionProps> = ({ control }) =
                 </FormItem>
               )}
             />
+
+            {/* Graduation year for graduated students */}
+            {isGraduated && (
+              <FormField
+                control={control}
+                name="completionYear"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Ano de Formação*</FormLabel>
+                    <FormControl>
+                      <Input
+                        type="text"
+                        placeholder="Ex: 2022"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            )}
+
+            {/* Expected completion year for current students */}
+            {isCurrentlyStudying && (
+              <FormField
+                control={control}
+                name="expectedCompletionYear"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Previsão de conclusão (ano)*</FormLabel>
+                    <FormControl>
+                      <Input
+                        type="text"
+                        placeholder="Ex: 2025"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            )}
           </>
-        )}
-
-        {/* Graduation year for graduated students */}
-        {isGraduated && (
-          <FormField
-            control={control}
-            name="completionYear"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Ano de Formação*</FormLabel>
-                <FormControl>
-                  <Input
-                    type="text"
-                    placeholder="Ex: 2022"
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        )}
-
-        {/* Expected completion year for current students */}
-        {isCurrentlyStudying && (
-          <FormField
-            control={control}
-            name="expectedCompletionYear"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Previsão de conclusão (ano)*</FormLabel>
-                <FormControl>
-                  <Input
-                    type="text"
-                    placeholder="Ex: 2025"
-                    {...field}
-                  />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
         )}
       </div>
     </div>

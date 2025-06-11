@@ -117,26 +117,51 @@ export const formSchema = z.object({
   path: ["otherProject"]
 }).refine((data) => {
   // Validate education fields based on education level
-  const isGraduated = ['Superior Concluido', 'Pós-graduação', 'Mestrado', 'Doutorado'].includes(data.education);
-  const isCurrentlyStudying = data.education === 'Superior Cursando';
+  const requiresHigherEducationFields = [
+    'Superior Concluido', 
+    'Superior Cursando', 
+    'Pós-graduação', 
+    'Mestrado', 
+    'Doutorado'
+  ].includes(data.education);
   
-  if (isGraduated || isCurrentlyStudying) {
-    if (!data.course || !data.courseType || !data.university || !data.institutionType) {
+  if (requiresHigherEducationFields) {
+    // Curso é obrigatório para todos os níveis superiores
+    if (!data.course || data.course.trim() === '') {
       return false;
     }
     
-    if (isGraduated && !data.completionYear) {
+    // Modalidade é obrigatória para todos os níveis superiores
+    if (!data.courseType) {
       return false;
     }
     
-    if (isCurrentlyStudying && !data.expectedCompletionYear) {
+    // Universidade é obrigatória para todos os níveis superiores
+    if (!data.university || data.university.trim() === '') {
+      return false;
+    }
+    
+    // Tipo de universidade é obrigatório para todos os níveis superiores
+    if (!data.institutionType) {
+      return false;
+    }
+    
+    // Ano de conclusão específico por nível
+    const isGraduated = ['Superior Concluido', 'Pós-graduação', 'Mestrado', 'Doutorado'].includes(data.education);
+    const isCurrentlyStudying = data.education === 'Superior Cursando';
+    
+    if (isGraduated && (!data.completionYear || data.completionYear.trim() === '')) {
+      return false;
+    }
+    
+    if (isCurrentlyStudying && (!data.expectedCompletionYear || data.expectedCompletionYear.trim() === '')) {
       return false;
     }
   }
   
   return true;
 }, {
-  message: "Todos os campos de educação são obrigatórios",
+  message: "Preencha todos os campos obrigatórios de educação",
   path: ["course"]
 });
 
