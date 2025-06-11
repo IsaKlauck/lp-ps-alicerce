@@ -4,10 +4,9 @@
 function doPost(e) {
   try {
     /* 1 — parse JSON body */
+    let data;
     if (e.postData && e.postData.contents) {
-      var data = JSON.parse(e.postData.contents);
-    } else if (e.parameter && e.parameter.data) {
-      var data = JSON.parse(e.parameter.data);
+      data = JSON.parse(e.postData.contents);
     } else {
       throw new Error('Sem corpo na requisição');
     }
@@ -69,11 +68,7 @@ function doPost(e) {
 
     sh.appendRow(newRow);
 
-    /* 4 — post-processing */
-    try {
-      gerarMapasPendentes();
-    } catch (_) {}
-
+    // Resposta rápida - sem processamento adicional
     return json({ status: 'success', message: 'Dados inseridos' });
   } catch (err) {
     return json({ status: 'error', message: err.message });
