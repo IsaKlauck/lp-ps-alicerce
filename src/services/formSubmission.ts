@@ -1,5 +1,5 @@
 // Google Apps Script Web App URL
-export const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxbBITG-MMB8KCQ2_91EHt26KWfebBruECiuy6qDpG_fA6kR3EMjuWrXE_V8Im4dXex/exec";
+export const GOOGLE_SCRIPT_URL = "https://script.google.com/a/macros/alicerceedu.com.br/s/AKfycbxbBITG-MMB8KCQ2_91EHt26KWfebBruECiuy6qDpG_fA6kR3EMjuWrXE_V8Im4dXex/exec";
 
 export type FormattedData = {
   // Coluna B: Nome Completo
