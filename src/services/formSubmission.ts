@@ -1,5 +1,5 @@
 // Google Apps Script Web App URL
-export const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbw8zS4XYrQZJQwphAvuK1OO8zqv-rivyPwWTwo2XQwLlmLIWEgb4Bn-zn5YYC8OAAl8/exec";
+export const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxcILHxMDx_9r9EzBHr7-j0lvrvcuQ5o7A0MFE9eFDhY_EVzJK7O6eWTSeRLeGU3K-B/exec";
 
 export type FormattedData = {
   // Coluna B: Nome Completo
