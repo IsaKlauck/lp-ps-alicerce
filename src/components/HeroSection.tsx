@@ -10,31 +10,34 @@ const HeroSection: React.FC = () => {
       });
     }
   };
-  return <section className="bg-gradient-to-br from-alicerce-orange to-alicerce-purple text-white py-20 md:py-28 relative overflow-hidden">
+  return <section className="bg-gradient-to-br from-alicerce-orange to-alicerce-purple text-white py-12 sm:py-16 md:py-20 lg:py-28 relative overflow-hidden min-h-screen flex items-center">
       {/* Background pattern overlay */}
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
       
-      <div className="section-container relative z-10">
-        {/* Top right text */}
-        
-        
-        <div className="grid md:grid-cols-2 gap-8 items-center">
-          <div className="text-center md:text-left space-y-8 animate-fade-in">
-            <div className="inline-block bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-4">
-              <span className="text-white font-medium">Processo Seletivo Contínuo</span>
+      <div className="section-container relative z-10 w-full">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="text-center md:text-left space-y-6 sm:space-y-8 px-4 sm:px-0">
+            <div className="inline-block bg-white/20 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-full mb-2 sm:mb-4">
+              <span className="text-white font-medium text-sm sm:text-base">Processo Seletivo Contínuo</span>
             </div>
             
-            <h1 className="text-5xl md:text-6xl font-bold leading-tight">Transforme Vidas pela Educação</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
+              Transforme Vidas pela Educação
+            </h1>
             
-            <p className="text-xl md:text-2xl opacity-90 mt-6">
+            <p className="text-lg sm:text-xl md:text-2xl opacity-90 leading-relaxed">
               No Alicerce, você faz parte de algo maior. Junte-se a educadores 
               apaixonados construindo um Brasil mais justo através do poder 
               transformador do conhecimento.
             </p>
             
-            <div className="flex justify-center md:justify-start mt-10">
-              <Button className="bg-white text-alicerce-orange hover:bg-gray-100 px-8 py-6 text-lg font-semibold rounded-md transition-all transform hover:scale-105 hover:shadow-xl shadow-lg" onClick={scrollToApplicationForm}>
-                QUERO COMEÇAR MINHA JORNADA
+            <div className="flex justify-center md:justify-start pt-4 sm:pt-6">
+              <Button 
+                className="bg-white text-alicerce-orange hover:bg-gray-100 px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg font-semibold rounded-md transition-all transform hover:scale-105 hover:shadow-xl shadow-lg w-full sm:w-auto max-w-xs sm:max-w-none" 
+                onClick={scrollToApplicationForm}
+              >
+                <span className="block sm:hidden">COMEÇAR JORNADA</span>
+                <span className="hidden sm:block">QUERO COMEÇAR MINHA JORNADA</span>
               </Button>
             </div>
           </div>
