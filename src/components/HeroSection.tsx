@@ -17,7 +17,7 @@ const HeroSection: React.FC = () => {
       <div className="section-container relative z-10 w-full">
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="text-center md:text-left space-y-6 sm:space-y-8 px-4 sm:px-0">
-            <div className="inline-block bg-white/20 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-full mb-2 sm:mb-4">
+            <div className="inline-block bg-alicerce-purple/20 backdrop-blur-sm px-3 sm:px-4 py-2 rounded-full mb-2 sm:mb-4">
               <span className="text-white font-medium text-sm sm:text-base">Processo Seletivo Contínuo</span>
             </div>
             
